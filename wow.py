@@ -52,6 +52,6 @@ def userAction():
 
 # or wherever your SSL keys are
 if __name__ == "__main__":
-    app.run(ssl_context=('D:\\Program Files\\OpenSSL-Win64\\bin\\cert.pem',
-                         'D:\\Program Files\\OpenSSL-Win64\\bin\\key.pem'),
+    app.run(ssl_context=('cert.pem',
+                         'key.pem'),
             host="0.0.0.0")
