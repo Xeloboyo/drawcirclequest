@@ -29,6 +29,15 @@ class User:
         print(self.name, self.accessToken)
 
 
+userlist = []
+
+
+def doAction(action):
+    print(action)
+    # ADD SHIT HERE
+    return "Player does "+action
+
+
 app = Flask(__name__)
 CORS(app)
 
@@ -45,10 +54,25 @@ def userAction():
     # user action is vadlidated by a token.
     # i.e the server will recieve something like "Daniel Dhd78w3h8h78whfe9ww378rhwu attk_boss"
     # where the access token is generated on login
-    splitData = request.data.split()
+    splitData = request.data.decode("utf-8").split(" ", 2)
     print(splitData)
 
-    return json.dumps(request.json)
+    # Login a user, (username only, implement password later)
+    if splitData[0] == 'Login':
+        newuser = User(splitData[1])
+        userlist.append(newuser)
+        print("USER:", newuser.name, newuser.accessToken)
+        return newuser.accessToken
+    else:
+        confirm = False
+        for user in userlist:
+            if user.name == splitData[0] and user.accessToken == splitData[1]:
+                confirm = True
+
+        if confirm:
+            return doAction(splitData[2])
+
+    return "error 400"
 
 
 # or wherever your SSL keys are
