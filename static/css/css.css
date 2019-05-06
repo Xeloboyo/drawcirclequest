@@ -1,0 +1,10 @@
+.mainDiv{
+    padding: 50px;
+    margin: auto;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #444;
+}

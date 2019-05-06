@@ -1,6 +1,6 @@
 import random
 import os
-from flask import Flask, abort, request,  send_file
+from flask import Flask, abort, request, send_file, render_template
 from flask_cors import CORS
 import json
 
@@ -31,11 +31,12 @@ class User:
 
 userlist = []
 
+
 # to send images go: return send_file(filename, mimetype='image/Insert_image_format_here')
 def doAction(action):
     print(action)
     # ADD SHIT HERE
-    return "Player does "+action
+    return "Player does " + action
 
 
 app = Flask(__name__)
@@ -46,9 +47,24 @@ CORS(app)
 def getTestImage():
     return send_file("img/town_placehold.png", mimetype='image/png')
 
+
 @app.route('/')
-def hello_world():
-    return 'Hooray!'
+def loginPage():
+    return render_template('login.html', errormsg=" ")
+
+
+# Login a user, (username only, implement password later)
+@app.route('/login', methods=['POST'])
+def userLogin():
+    # user is already logged in
+    for user in userlist:
+        if user.name == request.form['username']:
+            return render_template('login.html', errormsg="user is active!")
+    # add user to active users
+    newuser = User(request.form['username'])
+    userlist.append(newuser)
+    print("USER:", newuser.name,    newuser.accessToken)
+    return render_template('game.html', name=request.form['username'], token=newuser.accessToken)
 
 
 @app.route('/userDidSomething', methods=['POST'])
@@ -61,25 +77,13 @@ def userAction():
     splitData = request.data.decode("utf-8").split(" ", 2)
     print(splitData)
 
-    # Login a user, (username only, implement password later)
-    if splitData[0] == 'Login':
-        #user is already logged in
-        for user in userlist:
-            if user.name == splitData[1]:
-                return "error 330"
-        #add user to active users
-        newuser = User(splitData[1])
-        userlist.append(newuser)
-        print("USER:", newuser.name, newuser.accessToken)
-        return newuser.accessToken
-    else:
-        confirm = False
-        for user in userlist:
-            if user.name == splitData[0] and user.accessToken == splitData[1]:
-                confirm = True
+    confirm = False
+    for user in userlist:
+        if user.name == splitData[0] and user.accessToken == splitData[1]:
+            confirm = True
 
-        if confirm:
-            return doAction(splitData[2])
+    if confirm:
+        return doAction(splitData[2])
 
     return "error 400"
 

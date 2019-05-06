@@ -1,0 +1,25 @@
+<html lang="en">
+    <head>
+        <title>DCQuest login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    </head>
+    
+    <body>
+        
+        <div class="mainDiv">
+            <h1>
+                Drawing circle quest server login
+            </h1>
+            <form action="/login"  method="post">
+                Login name:<br>
+                <input type="text" name="username"><br>
+                Passworbs (not implemented so dw):<br>
+                <input type="password" name="password">
+                <input type="submit" value="Submit">
+                {{ errormsg }}
+            </form>
+        </div>
+    </body>
+</html>
