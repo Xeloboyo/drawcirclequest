@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+        <script src="{{ url_for('static', filename='js/p5.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/sketch.js') }}"></script>
     </head>
     
     <body>
@@ -12,5 +14,11 @@
             name: {{ name }}<br>
             token: {{ token }}
         </h1>
+        <script>
+            var myp5 = new p5(sketch, 'p5sketch');
+            myp5.token = "{{ token }}" ;
+            myp5.playerName = "{{ name }}" ;
+        </script>
+        <div id = "p5sketch"></div>
     </body>
 </html>
