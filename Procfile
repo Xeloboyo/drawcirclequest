@@ -1,1 +1,1 @@
-web: python wow.py
+web: python wow.py --help
