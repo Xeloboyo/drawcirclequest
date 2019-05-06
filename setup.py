@@ -19,7 +19,7 @@ class User:
         print(self.name,self.accessToken)
 
 app = Flask(__name__)
-CORS(app)     
+CORS(app)
 
 
 @app.route('/')
