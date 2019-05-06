@@ -4,14 +4,14 @@ from flask import Flask, abort, request
 from flask_cors import CORS
 import json
 
-from distutils.core import setup
+#from distutils.core import setup
 
-setup(
-    name='DrawingCircleQuest',
-    version='0.1dev',
-    license='Creative Commons Attribution-Noncommercial-Share Alike license',
-    long_description="insert long description",
-)
+#setup(
+#    name='DrawingCircleQuest',
+#    version='0.1dev',
+#    license='Creative Commons Attribution-Noncommercial-Share Alike license',
+#    long_description="insert long description",
+#)
 
 
 class User:
