@@ -4,6 +4,15 @@ from flask import Flask, abort, request
 from flask_cors import CORS
 import json
 
+from distutils.core import setup
+
+setup(
+    name='DrawingCircleQuest',
+    version='0.1dev',
+    license='Creative Commons Attribution-Noncommercial-Share Alike license',
+    long_description="insert long description",
+)
+
 
 class User:
     # Variables:
@@ -12,11 +21,12 @@ class User:
 
     def __init__(self, name):
         self.name = name
-        print("Logging in as "+name)
+        print("Logging in as " + name)
         self.accessToken = ""
-        for i in range(0,20):
-            self.accessToken +=chr(random.randint(ord('a'), ord('z')))
-        print(self.name,self.accessToken)
+        for i in range(0, 20):
+            self.accessToken += chr(random.randint(ord('a'), ord('z')))
+        print(self.name, self.accessToken)
+
 
 app = Flask(__name__)
 CORS(app)
