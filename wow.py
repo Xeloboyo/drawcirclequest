@@ -1,6 +1,6 @@
 import random
 import os
-from flask import Flask, abort, request
+from flask import Flask, abort, request,  send_file
 from flask_cors import CORS
 import json
 
@@ -31,7 +31,7 @@ class User:
 
 userlist = []
 
-
+# to send images go: return send_file(filename, mimetype='image/Insert_image_format_here')
 def doAction(action):
     print(action)
     # ADD SHIT HERE
@@ -41,6 +41,10 @@ def doAction(action):
 app = Flask(__name__)
 CORS(app)
 
+
+@app.route('/imageTest')
+def getTestImage():
+    return send_file("img/town_placehold.png", mimetype='image/png')
 
 @app.route('/')
 def hello_world():
@@ -59,6 +63,11 @@ def userAction():
 
     # Login a user, (username only, implement password later)
     if splitData[0] == 'Login':
+        #user is already logged in
+        for user in userlist:
+            if user.name == splitData[1]:
+                return "error 330"
+        #add user to active users
         newuser = User(splitData[1])
         userlist.append(newuser)
         print("USER:", newuser.name, newuser.accessToken)
