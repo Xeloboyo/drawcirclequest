@@ -4,14 +4,15 @@ from flask import Flask, abort, request
 from flask_cors import CORS
 import json
 
-#from distutils.core import setup
 
-#setup(
+# from distutils.core import setup
+
+# setup(
 #    name='DrawingCircleQuest',
 #    version='0.1dev',
 #    license='Creative Commons Attribution-Noncommercial-Share Alike license',
 #    long_description="insert long description",
-#)
+# )
 
 
 class User:
@@ -53,7 +54,9 @@ def userAction():
 # or wherever your SSL keys are
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    app.run(ssl_context=('cert.pem',
-                         'key.pem'),
-            host="0.0.0.0",
-            port=port)
+    app.run(
+        host="0.0.0.0",
+        port=port)
+
+# ssl_context=('cert.pem',
+#                         'key.pem'),
