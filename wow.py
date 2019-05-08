@@ -1,5 +1,7 @@
 import random
 import os
+import time
+
 from flask import Flask, abort, request, send_file, render_template
 from flask_cors import CORS
 import json
@@ -45,7 +47,13 @@ CORS(app)
 
 @app.route('/imageTest')
 def getTestImage():
-    return send_file("img/town_placehold.png", mimetype='image/png')
+    return send_file("static/img/town_placehold.png", mimetype='image/png')
+
+
+@app.route('/font/<fontname>')
+def getFont(fontname):
+    time.sleep(random.randint(0, 10) / 10.0)  ## TEST LATENCY, REMOVE LATER
+    return send_file("static/font/" + fontname + ".otf", mimetype='font/otf')
 
 
 @app.route('/')
@@ -63,7 +71,7 @@ def userLogin():
     # add user to active users
     newuser = User(request.form['username'])
     userlist.append(newuser)
-    print("USER:", newuser.name,    newuser.accessToken)
+    print("USER:", newuser.name, newuser.accessToken)
     return render_template('game.html', name=request.form['username'], token=newuser.accessToken)
 
 
