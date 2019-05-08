@@ -14,13 +14,18 @@
             </h1>
             <form action="/login"  method="post">
                 Login name:<br>
-                <input type="text" name="username"><br>
-                Passworbs (not implemented so dw):<br>
-                <input type="password" name="password"><br>
-                {{ errormsg }}<br>
+                <input type="text" name="username">
+                <br>
+                Passworbs:
+                <br>
+                <input type="password" name="password">
+                <br>
+                <p class="error">{{ errormsg }}</p>
+                <br>
                 <input type="submit" value="Submit">
                 
             </form>
+            <a href="{{ url_for('register') }}"> no account? register!</a>
         </div>
     </body>
 </html>

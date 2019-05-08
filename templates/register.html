@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <title>DCQuest register</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+    </head>
+    
+    <body>
+        
+        <div class="mainDiv">
+            <h1>
+                Drawing circle quest server register
+            </h1>
+            <p class="error">{{ errormsg }}</p>
+            <form action="/registerUSR"  method="post">
+                Login name:<br>
+                <input type="text" name="username"><br>
+                Passworbs:<br>
+                <input type="password" name="password"><br>
+                Passworbs but again:<br>
+                <input type="password" name="passwordrepeat"><br>
+                Token, given by a DC person:<br>
+                <input type="text" name="token"><br>
+                
+                <br>
+                <input type="submit" value="Register!">
+                
+            </form>
+        </div>
+    </body>
+</html>
