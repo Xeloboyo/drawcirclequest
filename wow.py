@@ -105,7 +105,7 @@ def register_page():
 
 @app.route('/')
 def login_page():
-    return render_template('register.html', errormsg=" ")
+    return render_template('login.html', errormsg=" ")
 
 
 # Login a user, (username only, implement password later)
