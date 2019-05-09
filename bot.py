@@ -17,6 +17,10 @@ def randomSTR(size):
         accessToken += chr(random.randint(ord('a'), ord('z')))
     return accessToken
 
+@client.command()
+async def suicide(ctx):
+    await client.logout()
+
 
 @client.command()
 async def genkey(ctx):
@@ -38,7 +42,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run(TOKEN)
-#def run():
-#    client.run(TOKEN)
+#client.run(TOKEN)
+def run():
+    client.run(TOKEN)
 
