@@ -1,2 +1,1 @@
-web: python wow.py &
-     python bot.py &
+web: python wow.py
