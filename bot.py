@@ -43,6 +43,5 @@ async def on_ready():
     print('------')
 
 #client.run(TOKEN)
-def run():
-    client.run(TOKEN)
+client.run(TOKEN)
 
