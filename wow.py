@@ -8,8 +8,11 @@ from flask import Flask, abort, request, send_file, render_template
 from flask_cors import CORS
 import json
 
-r = redis.from_url("redis://h:p5d77d98513cd400d85c1ecf76a4e92b6435e49fe7fa3258082dbe20d9d0d43b5@ec2-34-193-52-1.compute-1.amazonaws.com:22319")
-#r = redis.from_url(os.environ.get("REDIS_URL"))
+r = redis.from_url(
+    "redis://h:p5d77d98513cd400d85c1ecf76a4e92b6435e49fe7fa3258082dbe20d9d0d43b5@ec2-34-193-52-1.compute-1.amazonaws.com:22319")
+
+
+# r = redis.from_url(os.environ.get("REDIS_URL"))
 
 # from distutils.core import setup
 
@@ -33,6 +36,9 @@ class User:
         for i in range(0, 20):
             self.accessToken += chr(random.randint(ord('a'), ord('z')))
         print(self.name, self.accessToken)
+
+    def __str__(self):
+        return "User:"+self.name+"|"+self.accessToken
 
 
 userlist = []
@@ -102,6 +108,15 @@ def register():
 def register_page():
     return render_template('register.html', errormsg=" ")
 
+# to remove in production
+@app.route('/devuserlist')
+def getusrs():
+    return "".join(map(str,userlist))
+
+@app.route('/devtotaluserlist')
+def getallusrs():
+    return "".join(map(str, r.keys("*")))
+
 
 @app.route('/')
 def login_page():
@@ -145,11 +160,6 @@ def user_action():
         return do_action(splitData[2])
 
     return "error 400"
-
-
-@app.route('/devuserlist')
-def getusrs():
-    return userlist
 
 
 # or wherever your SSL keys are

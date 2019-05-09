@@ -2,3 +2,4 @@ Flask==1.0.2
 pyopenssl
 flask-cors
 redis
+discord.py==1.0.1
