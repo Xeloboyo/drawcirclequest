@@ -1,2 +1,2 @@
-web: python wow.py --help
-     python bot.py
+web: python wow.py &
+     python bot.py &

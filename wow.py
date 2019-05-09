@@ -1,8 +1,11 @@
+import asyncio
 import random
 import os
 import time
+import bot
 import redis
 import hashlib
+import threading
 
 from flask import Flask, abort, request, send_file, render_template
 from flask_cors import CORS
@@ -165,6 +168,7 @@ def user_action():
 # or wherever your SSL keys are
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
+    threading.Thread(target=bot.run).start()
     app.run(
         host="0.0.0.0",
         port=port)

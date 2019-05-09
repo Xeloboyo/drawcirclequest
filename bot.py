@@ -11,7 +11,6 @@ commandprefix = "$$"
 
 client = Bot(command_prefix=commandprefix)
 
-
 def randomSTR(size):
     accessToken = ""
     for i in range(0, size):
@@ -39,5 +38,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-
 client.run(TOKEN)
+#def run():
+#    client.run(TOKEN)
+
