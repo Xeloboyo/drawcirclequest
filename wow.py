@@ -100,7 +100,7 @@ def register():
 
     passhash = hashlib.md5(bytes(request.form['password'], 'utf-8')).hexdigest()
     sendToDB(username, passhash)
-    # removeFromDB("DCt0k3n"+token)  # not yet! :)
+    removeFromDB("DCt0k3n"+token)  # not yet! :)
     return render_template('login.html', errormsg=" ")
 
 
