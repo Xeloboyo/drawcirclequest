@@ -133,7 +133,7 @@ var sketch = function( sk ) {
                     sk.httpGetMap.set(keyForMap,message);
             }).catch( (message) => {
             console.log(message);
-            })
+            });
     };
     sk.sendToServer = function (sendToServer,value,keyForMap){
             sk.httpPost("/"+sendToServer,value).then( (message) => {
@@ -141,7 +141,7 @@ var sketch = function( sk ) {
             }).catch( (message) => {
             console.log(message);
             })
-    }
+    };
     
     sk.drawImage = function(key,x,y,w,h){
         if(sk.httpGetMap.has(key)){
