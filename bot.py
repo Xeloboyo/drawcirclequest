@@ -24,8 +24,8 @@ async def suicide(ctx):
 
 @client.command()
 async def genkey(ctx):
-    token = "DCt0k3n" + randomSTR(10);
-    wow.sendToDB(token, "")
+    token = randomSTR(10);
+    wow.sendToDB("DCt0k3n" + token, "")
     await ctx.send("Your new token is:"+token)
 
 

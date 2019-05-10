@@ -6,7 +6,6 @@ import time
 import redis
 import hashlib
 
-
 from flask import Flask, abort, request, send_file, render_template
 from flask_cors import CORS
 import json
@@ -41,10 +40,20 @@ class User:
         print(self.name, self.accessToken)
 
     def __str__(self):
-        return "User:"+self.name+"|"+self.accessToken
+        return "User:" + self.name + "|" + self.accessToken
 
 
 userlist = []
+logins = {}
+
+class LoginAttempt:
+    def __init__(self, ip, lastTime, loginAttempts):
+        self.ip = ip
+        self.lastTime = lastTime
+        self.loginAttempts = loginAttempts
+
+    def canLogin(self, currenttime):
+        return currenttime > self.lastTime+max(self.loginAttempts-5,0)*60
 
 
 def getFromDB(key):
@@ -103,7 +112,7 @@ def register():
 
     passhash = hashlib.md5(bytes(request.form['password'], 'utf-8')).hexdigest()
     sendToDB(username, passhash)
-    removeFromDB("DCt0k3n"+token)  # not yet! :)
+    removeFromDB("DCt0k3n" + token)  # not yet! :)
     return render_template('login.html', errormsg=" ")
 
 
@@ -111,10 +120,12 @@ def register():
 def register_page():
     return render_template('register.html', errormsg=" ")
 
+
 # to remove in production
 @app.route('/devuserlist')
 def getusrs():
-    return "".join(map(str,userlist))
+    return "".join(map(str, userlist))
+
 
 @app.route('/devtotaluserlist')
 def getallusrs():
@@ -129,18 +140,30 @@ def login_page():
 # Login a user, (username only, implement password later)
 @app.route('/login', methods=['POST'])
 def user_login():
+    ip = request.remote_addr
+    if str(ip) in logins:
+        if not logins[str(ip)].canLogin(time.time()):
+            return render_template('login.html', errormsg="you have logged in too many times, please wait a few minutes")
+
     # user is already logged in
     usrname = request.form['username']
     if usrname != "devtest":  # bypass user
         if not existInDB(usrname):
+            if not str(ip) in logins:
+                logins[str(ip)] = LoginAttempt(ip, time.time(), 0)
+            logins[str(ip)].loginAttempts+=1
             return render_template('login.html', errormsg="user doesnt exist")
 
         if not getFromDB(usrname) == hashlib.md5(bytes(request.form['password'], 'utf-8')).hexdigest():
+            if not str(ip) in logins:
+                logins[str(ip)] = LoginAttempt(ip, time.time(), 0)
+            logins[str(ip)].loginAttempts+=1
             return render_template('login.html', errormsg="incorrect password")
         # add user to active users
     newuser = User(usrname)
     userlist.append(newuser)
     print("USER:", newuser.name, newuser.accessToken)
+    logins[str(ip)] = LoginAttempt(ip, time.time(), 0)
     return render_template('game.html', name=usrname, token=newuser.accessToken)
 
 
