@@ -1,10 +1,64 @@
+class GUIComp{
+
+    constructor(x,y,w,h,c,
+                update = function (sk) {
+                },
+                draw= function (sk) {
+                },
+                onhover= function (sk) {
+                },
+                onclick= function (sk) {
+                }){
+        this.x=x;
+        this.y=y;
+        this.w=w;
+        this.h=h;
+        this.c=c;
+        this.update=update;
+        this.onhover=onhover;
+        this.onclick=onclick;
+
+    }
+}
+
+class Button{
+    constructor(x,y,w,h,c,text,onhover,onclick){
+        this.ani = 0;
+        this.state = 0;
+        let update = function(sk) {
+          this.ani+=(this.state-this.ani)*0.2;
+        };
+        let draw = function(sk) {
+            sk.fill(sk.lerpColor(this.c,sk.color(255),this.ani*0.5));
+            sk.rect(this.x,this.y,this.w,this.h);
+            sk.fill(sk.lerpColor(sk.color(255),this.c,this.ani-1.0));
+            sk.text(text,this.x,this.y,this.w,this.h);
+        };
+        GUIComp.call(this, x,y,w,h,c,update,draw,onhover,onclick );
+
+    }
+    inside(mx,my) {
+        return mx>this.x&&mx<this.x+this.w&&this.y>my&&my<this.y+this.h;
+    }
+}
+
+
+
+
 var sketch = function( sk ) {
+
+    sk.guiList = [
+        [], //screen 0 - loading
+        [], //screen 1 - game menu?
+        [], //screen 2 - something
+    ];
 
     sk.setup = function() {
         sk.createCanvas(sk.windowWidth, sk.windowHeight);
         sk.addResource("phantom",sk.getFont);
         sk.addResource("frozito",sk.getFont);
         sk.addResource("unseen",sk.getFont);
+        sk.guiList[1][0] = new Button(50,50,200,40, sk.color(80),"GET GOLD!", )
     };
   
     sk.tick = 0;
@@ -15,7 +69,7 @@ var sketch = function( sk ) {
         sk.tick++;
         sk.updateGameStateTrans();
 
-        if(sk.gamestate===0){
+        if(sk.gamestate===0){ // LOADING SCREEN
             sk.background(0);
             sk.push();
             sk.fill(255);
@@ -115,9 +169,7 @@ var sketch = function( sk ) {
         let xhr = new XMLHttpRequest();
         xhr.open("POST", theUrl, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-                value: value
-        }));
+        xhr.send(JSON.stringify(value));
 
         return xhr.responseText;
     };

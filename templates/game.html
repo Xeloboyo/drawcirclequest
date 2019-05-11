@@ -14,6 +14,10 @@
             var myp5 = new p5(sketch, 'p5sketch');
             myp5.token = "{{ token }}" ;
             myp5.playerName = "{{ name }}" ;
+
+            window.addEventListener("unload", function(event) {
+                myp5.httpPost("/user_quit", {playername: myp5.playerName, playertoken: myp5.token});
+            });
         </script>
         <div id = "p5sketch"></div>
     </body>

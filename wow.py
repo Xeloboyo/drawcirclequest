@@ -28,9 +28,11 @@ r = redis.from_url(
 
 class User:
     # Variables:
-    # - name
-    # - accessToken
-
+    # - name STRING
+    # - accessToken STRING
+    # - basicstat{} DICTIONARY with STRING keys
+    # PLACEHOLDERS & TESTING:
+    # - gold
     def __init__(self, name):
         self.name = name
         print("Logging in as " + name)
@@ -39,9 +41,14 @@ class User:
             self.accessToken += chr(random.randint(ord('a'), ord('z')))
         print(self.name, self.accessToken)
 
+        self.basicstat= getBasicStat(name)
+
     def __str__(self):
         return "User:" + self.name + "|" + self.accessToken
 
+    def setBasicStat(self, key,stat):
+        self.basicstat[key]=stat
+        updateBasicStat(self.name)
 
 userlist = []
 logins = {}
@@ -54,6 +61,7 @@ class LoginAttempt:
 
     def canLogin(self, currenttime):
         return currenttime > self.lastTime+max(self.loginAttempts-5,0)*60
+
 
 
 def getFromDB(key):
@@ -72,10 +80,37 @@ def removeFromDB(key):
     r.delete(key)
 
 
+def updateBasicStat(playerName,new_stats):
+    stats = getBasicStat(playerName)
+    for key in new_stats:
+        stats[key] = new_stats[key]
+
+    string_dic=""
+    index = 0
+    for key in stats:
+        string_dic+=("" if not index==0 else "&~")+key+"&~"+stats[key]
+        index+=1
+    sendToDB(playerName + "_STATS_BASIC",string_dic)
+
+def getBasicStat(playerName):
+    if not existInDB(playerName+"_STATS_BASIC"):
+        sendToDB(playerName+"_STATS_BASIC","")
+    string_dic =  getFromDB(playerName+"_STATS_BASIC").split['&~']
+    output = {}
+    for i in range(len(string_dic)):
+        if i%2==0:
+            output[string_dic[i]]=string_dic[i+1]
+    return output
+
+
 # to send images go: return send_file(filename, mimetype='image/Insert_image_format_here')
-def do_action(action):
+def do_action(user, action):
     print(action)
     # ADD SHIT HERE
+    actionType = action.split("||")
+    if(actionType[0]=="ADD_GOLD"):
+        user.setBasicStat("gold",user.basicstat["gold"]+int(actionType[1]))
+        return user.basicstat["gold"]
     return "Player does " + action
 
 
@@ -85,7 +120,7 @@ CORS(app)
 
 @app.route('/imageTest')
 def getTestImage():
-    return send_file("static/img/town_placehold.png", mimetype='image/png')
+    return send_file("static/img/birb.png", mimetype='image/png')
 
 
 @app.route('/font/<fontname>')
@@ -136,7 +171,16 @@ def getallusrs():
 def login_page():
     return render_template('login.html', errormsg=" ")
 
+#logout a user
+@app.route('/user_quit', methods=['POST'])
+def logout():
+    print(request.json, request.data)
+    for user in userlist:
+        if user.name == request.json['playername'] and user.accessToken == request.json['playertoken']:
+            userlist.remove(user)
+            break
 
+    return render_template('login.html', errormsg="You are now logged out c:")
 # Login a user, (username only, implement password later)
 @app.route('/login', methods=['POST'])
 def user_login():
@@ -183,7 +227,7 @@ def user_action():
             confirm = True
 
     if confirm:
-        return do_action(splitData[2])
+        return do_action(splitData[0], splitData[2])
 
     return "error 400"
 

@@ -1,4 +1,5 @@
 import random
+from datetime import time
 
 import discord
 import wow
@@ -24,9 +25,14 @@ async def suicide(ctx):
 
 @client.command()
 async def genkey(ctx):
-    token = randomSTR(10);
-    wow.sendToDB("DCt0k3n" + token, "")
-    await ctx.send("Your new token is:"+token)
+    token = randomSTR(10)
+    wow.sendToDB("DCt0k3n" + token, time.time())
+    await ctx.send("Your new token is:"+token+"\n    Login at https://draw-circle-quest.herokuapp.com/register")
+
+@client.command()
+async def getUsers(ctx):
+
+    await ctx.send("Users Online:"+len(wow.userlist))
 
 
 @client.event
