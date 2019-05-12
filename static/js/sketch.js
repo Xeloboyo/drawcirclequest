@@ -15,31 +15,33 @@ class GUIComp{
         this.h=h;
         this.c=c;
         this.update=update;
+        this.draw=draw;
         this.onhover=onhover;
         this.onclick=onclick;
-
-    }
-}
-
-class Button{
-    constructor(x,y,w,h,c,text,onhover,onclick){
-        this.ani = 0;
-        this.state = 0;
-        let update = function(sk) {
-          this.ani+=(this.state-this.ani)*0.2;
-        };
-        let draw = function(sk) {
-            sk.fill(sk.lerpColor(this.c,sk.color(255),this.ani*0.5));
-            sk.rect(this.x,this.y,this.w,this.h);
-            sk.fill(sk.lerpColor(sk.color(255),this.c,this.ani-1.0));
-            sk.text(text,this.x,this.y,this.w,this.h);
-        };
-        GUIComp.call(this, x,y,w,h,c,update,draw,onhover,onclick );
 
     }
     inside(mx,my) {
         return mx>this.x&&mx<this.x+this.w&&this.y>my&&my<this.y+this.h;
     }
+}
+
+class Button extends GUIComp{
+    constructor(x,y,w,h,c,text,onhover,onclick){
+        super( x,y,w,h,c,function(sk) {
+            this.ani+=(this.state-this.ani)*0.2;
+        },function(sk) {
+            sk.fill(sk.lerpColor(this.c,sk.color(255),this.ani*0.5));
+            sk.rect(this.x,this.y,this.w,this.h);
+            sk.fill(sk.lerpColor(sk.color(255),this.c,this.ani-1.0));
+            sk.textAlign(sk.CENTER,sk.CENTER);
+            sk.text(text,this.x,this.y,this.w,this.h);
+        },onhover,onclick );
+        this.ani = 0;
+        this.state = 0;
+
+
+    }
+
 }
 
 
@@ -108,6 +110,13 @@ var sketch = function( sk ) {
             sk.noStroke();
             sk.rect(0, 0, w, h);
         }
+        //gui handling
+
+        let guis = sk.guiList[sk.gamestate]
+        for (let i =0;i<guis.length;i++){
+            guis[i].update(sk);
+            guis[i].draw(sk);
+        }
 
     };
     /// ANIMATIONS
@@ -148,7 +157,7 @@ var sketch = function( sk ) {
     sk.loaded = function()
     {
         return sk.checkLoading()==1;
-    }
+    };
     sk.checkLoading = function(){
         let total = 0;
         for(let i=0;i<sk.resourceReq.length;i++){

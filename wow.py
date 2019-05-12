@@ -95,8 +95,12 @@ def updateBasicStat(playerName,new_stats):
 def getBasicStat(playerName):
     if not existInDB(playerName+"_STATS_BASIC"):
         sendToDB(playerName+"_STATS_BASIC","")
-    string_dic =  getFromDB(playerName+"_STATS_BASIC").split['&~']
+    string_dic =  getFromDB(playerName+"_STATS_BASIC").split('&~')
     output = {}
+    print("BASIC STAT",len(string_dic),string_dic)
+    if len(string_dic)==1 :
+        return output
+
     for i in range(len(string_dic)):
         if i%2==0:
             output[string_dic[i]]=string_dic[i+1]
