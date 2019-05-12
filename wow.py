@@ -41,17 +41,27 @@ class User:
             self.accessToken += chr(random.randint(ord('a'), ord('z')))
         print(self.name, self.accessToken)
 
-        self.basicstat= getBasicStat(name)
+        self.basicstat = getBasicStat(name)
 
     def __str__(self):
         return "User:" + self.name + "|" + self.accessToken
 
-    def setBasicStat(self, key,stat):
-        self.basicstat[key]=stat
+    def setBasicStat(self, key, stat):
+        self.basicstat[key] = stat
         updateBasicStat(self.name)
 
+
 userlist = []
+
+
+def getUserNames():
+    str = ""
+    for user in userlist:
+        str += user.name + ","
+    return str
+
 logins = {}
+
 
 class LoginAttempt:
     def __init__(self, ip, lastTime, loginAttempts):
@@ -60,8 +70,7 @@ class LoginAttempt:
         self.loginAttempts = loginAttempts
 
     def canLogin(self, currenttime):
-        return currenttime > self.lastTime+max(self.loginAttempts-5,0)*60
-
+        return currenttime > self.lastTime + max(self.loginAttempts - 5, 0) * 60
 
 
 def getFromDB(key):
@@ -80,30 +89,31 @@ def removeFromDB(key):
     r.delete(key)
 
 
-def updateBasicStat(playerName,new_stats):
+def updateBasicStat(playerName, new_stats):
     stats = getBasicStat(playerName)
     for key in new_stats:
         stats[key] = new_stats[key]
 
-    string_dic=""
+    string_dic = ""
     index = 0
     for key in stats:
-        string_dic+=("" if not index==0 else "&~")+key+"&~"+stats[key]
-        index+=1
-    sendToDB(playerName + "_STATS_BASIC",string_dic)
+        string_dic += ("" if not index == 0 else "&~") + key + "&~" + stats[key]
+        index += 1
+    sendToDB(playerName + "_STATS_BASIC", string_dic)
+
 
 def getBasicStat(playerName):
-    if not existInDB(playerName+"_STATS_BASIC"):
-        sendToDB(playerName+"_STATS_BASIC","")
-    string_dic =  getFromDB(playerName+"_STATS_BASIC").split('&~')
+    if not existInDB(playerName + "_STATS_BASIC"):
+        sendToDB(playerName + "_STATS_BASIC", "")
+    string_dic = getFromDB(playerName + "_STATS_BASIC").split('&~')
     output = {}
-    print("BASIC STAT",len(string_dic),string_dic)
-    if len(string_dic)==1 :
+    print("BASIC STAT", len(string_dic), string_dic)
+    if len(string_dic) == 1:
         return output
 
     for i in range(len(string_dic)):
-        if i%2==0:
-            output[string_dic[i]]=string_dic[i+1]
+        if i % 2 == 0:
+            output[string_dic[i]] = string_dic[i + 1]
     return output
 
 
@@ -112,8 +122,8 @@ def do_action(user, action):
     print(action)
     # ADD SHIT HERE
     actionType = action.split("||")
-    if(actionType[0]=="ADD_GOLD"):
-        user.setBasicStat("gold",user.basicstat["gold"]+int(actionType[1]))
+    if (actionType[0] == "ADD_GOLD"):
+        user.setBasicStat("gold", user.basicstat["gold"] + int(actionType[1]))
         return user.basicstat["gold"]
     return "Player does " + action
 
@@ -136,8 +146,8 @@ def get_font(fontname):
 @app.route('/registerUSR', methods=['POST'])
 def register():
     username = request.form['username']
-    if len(username) < 3:
-        return render_template('register.html', errormsg="username above 2 characters plz")
+    if len(username) < 6:
+        return render_template('register.html', errormsg="username above 5 characters plz")
     password = request.form['password']
     if len(password) < 7:
         return render_template('register.html', errormsg="password above 6 characters plz")
@@ -175,23 +185,28 @@ def getallusrs():
 def login_page():
     return render_template('login.html', errormsg=" ")
 
-#logout a user
+
+# logout a user
 @app.route('/user_quit', methods=['POST'])
 def logout():
     print(request.json, request.data)
     for user in userlist:
         if user.name == request.json['playername'] and user.accessToken == request.json['playertoken']:
             userlist.remove(user)
+            sendToDB("USERS", getUserNames())
             break
 
     return render_template('login.html', errormsg="You are now logged out c:")
+
+
 # Login a user, (username only, implement password later)
 @app.route('/login', methods=['POST'])
 def user_login():
     ip = request.remote_addr
     if str(ip) in logins:
         if not logins[str(ip)].canLogin(time.time()):
-            return render_template('login.html', errormsg="you have logged in too many times, please wait a few minutes")
+            return render_template('login.html',
+                                   errormsg="you have logged in too many times, please wait a few minutes")
 
     # user is already logged in
     usrname = request.form['username']
@@ -199,17 +214,18 @@ def user_login():
         if not existInDB(usrname):
             if not str(ip) in logins:
                 logins[str(ip)] = LoginAttempt(ip, time.time(), 0)
-            logins[str(ip)].loginAttempts+=1
+            logins[str(ip)].loginAttempts += 1
             return render_template('login.html', errormsg="user doesnt exist")
 
         if not getFromDB(usrname) == hashlib.md5(bytes(request.form['password'], 'utf-8')).hexdigest():
             if not str(ip) in logins:
                 logins[str(ip)] = LoginAttempt(ip, time.time(), 0)
-            logins[str(ip)].loginAttempts+=1
+            logins[str(ip)].loginAttempts += 1
             return render_template('login.html', errormsg="incorrect password")
         # add user to active users
     newuser = User(usrname)
     userlist.append(newuser)
+    sendToDB("USERS",getUserNames())
     print("USER:", newuser.name, newuser.accessToken)
     logins[str(ip)] = LoginAttempt(ip, time.time(), 0)
     return render_template('game.html', name=usrname, token=newuser.accessToken)

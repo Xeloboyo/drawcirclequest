@@ -31,7 +31,7 @@ async def genkey(ctx):
 
 @client.command()
 async def getUserCount(ctx):
-    await ctx.send("No. Users Online:"+str(len(wow.userlist)))
+    await ctx.send("No. Users Online:"+str(len(wow.getFromDB("USERS").split())))
 
 
 @client.command()
@@ -40,10 +40,7 @@ async def getRedisUsage(ctx):
 
 @client.command()
 async def getUsers(ctx):
-    str = ""
-    for user in wow.userlist:
-        str += user.name+","
-    await ctx.send("Users Online:"+str)
+    await ctx.send("Users Online:"+wow.getFromDB("USERS"))
 
 @client.event
 async def on_command_error(ctx, error):
