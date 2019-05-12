@@ -1,5 +1,5 @@
 import random
-from datetime import time
+import time
 
 import discord
 import wow
@@ -30,10 +30,20 @@ async def genkey(ctx):
     await ctx.send("Your new token is:"+token+"\n    Login at https://draw-circle-quest.herokuapp.com/register")
 
 @client.command()
+async def getUserCount(ctx):
+    await ctx.send("No. Users Online:"+str(len(wow.userlist)))
+
+
+@client.command()
+async def getRedisUsage(ctx):
+    await ctx.send(str(wow.r.memory_usage()))
+
+@client.command()
 async def getUsers(ctx):
-
-    await ctx.send("Users Online:"+len(wow.userlist))
-
+    str = ""
+    for user in wow.userlist:
+        str += user.name+","
+    await ctx.send("Users Online:"+str)
 
 @client.event
 async def on_command_error(ctx, error):
