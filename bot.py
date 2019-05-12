@@ -36,7 +36,7 @@ async def getUserCount(ctx):
 
 @client.command()
 async def getRedisUsage(ctx):
-    await ctx.send(str(wow.r.memory_usage()))
+    await ctx.send(str(wow.r.execute_command("MEMORY STATS")))
 
 @client.command()
 async def getUsers(ctx):
@@ -49,6 +49,8 @@ async def getUsers(ctx):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Message not recognised, please try again.")
+        return
+    await ctx.send("Error:"+str(error))
 
 
 @client.event
