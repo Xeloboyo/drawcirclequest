@@ -47,8 +47,8 @@ class User:
         return "User:" + self.name + "|" + self.accessToken
 
     def setBasicStat(self, key, stat):
-        self.basicstat[key] = stat
-        updateBasicStat(self.name)
+        self.basicstat[key] = str(stat)
+        updateBasicStat(self.name,self.basicstat)
 
 
 userlist = []
@@ -97,7 +97,7 @@ def updateBasicStat(playerName, new_stats):
     string_dic = ""
     index = 0
     for key in stats:
-        string_dic += ("" if not index == 0 else "&~") + key + "&~" + stats[key]
+        string_dic += ("" if index == 0 else "&~") + str(key) + "&~" + str(stats[key])
         index += 1
     sendToDB(playerName + "_STATS_BASIC", string_dic)
 
@@ -119,12 +119,13 @@ def getBasicStat(playerName):
 
 # to send images go: return send_file(filename, mimetype='image/Insert_image_format_here')
 def do_action(user, action):
-    print(action)
+    print("Action:"+action)
     # ADD SHIT HERE
     actionType = action.split("||")
+    # DO NOT USE FUNCTIONS LIKE THIS IN THE REAL GAME, THESE ARE EXPLOITABLE
     if (actionType[0] == "ADD_GOLD"):
-        user.setBasicStat("gold", user.basicstat["gold"] + int(actionType[1]))
-        return user.basicstat["gold"]
+        user.setBasicStat("gold", int(user.basicstat.get("gold", 0)) + int(actionType[1]))
+        return str(user.basicstat["gold"])
     return "Player does " + action
 
 
@@ -238,16 +239,19 @@ def user_action():
     # user action is vadlidated by a token.
     # i.e the server will recieve something like "Daniel Dhd78w3h8h78whfe9ww378rhwu attk_boss"
     # where the access token is generated on login
-    splitData = request.data.decode("utf-8").split(" ", 2)
+    splitData = str(request.json).split(" ", 2)
     print(splitData)
 
     confirm = False
+
     for user in userlist:
         if user.name == splitData[0] and user.accessToken == splitData[1]:
             confirm = True
-
+            selUser = user
     if confirm:
-        return do_action(splitData[0], splitData[2])
+        response =  do_action(selUser, splitData[2])
+        print("ACTION REPONSE:", response)
+        return response;
 
     return "error 400"
 

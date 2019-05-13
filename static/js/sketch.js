@@ -20,8 +20,12 @@ class GUIComp{
         this.onclick=onclick;
 
     }
+    onhover(sk){}
+    onclick(sk){}
+    update(sk){}
+    draw(sk){}
     inside(mx,my) {
-        return mx>this.x&&mx<this.x+this.w&&this.y>my&&my<this.y+this.h;
+        return mx>this.x&&mx<this.x+this.w&&this.y<my&&my<this.y+this.h;
     }
 }
 
@@ -38,8 +42,6 @@ class Button extends GUIComp{
         },onhover,onclick );
         this.ani = 0;
         this.state = 0;
-
-
     }
 
 }
@@ -60,9 +62,30 @@ var sketch = function( sk ) {
         sk.addResource("phantom",sk.getFont);
         sk.addResource("frozito",sk.getFont);
         sk.addResource("unseen",sk.getFont);
-        sk.guiList[1][0] = new Button(50,50,200,40, sk.color(80),"GET GOLD!", )
+        sk.guiList[1][0] = new Button(50,50,200,40, sk.color(80),"GET GOLD!"
+            ,function(sk){
+                if(this.inside(sk.mouseX,sk.mouseY)) {
+                    this.state = sk.max(this.state, 1);
+                    console.log("Hovered")
+                    return;
+                }
+                this.state = 0;
+            }
+            ,function(sk){
+                this.state = 2;
+                console.log("Clicked");
+                sk.httpPost2("/userDidSomething", sk.playerName+" "+sk.token+" "+"ADD_GOLD||50",
+                    function(message){
+                        console.log(message);
+                        sk.gold = sk.int(message);
+                    });
+            }
+        );
     };
-  
+
+    sk.gold=0;
+    sk.energy = 0;
+
     sk.tick = 0;
 
     sk.draw = function() {
@@ -104,6 +127,10 @@ var sketch = function( sk ) {
         }else if(sk.gamestate===1){
             sk.fill(255);
             sk.rect(0, 0, w, h);
+            sk.fill(0);
+            sk.textAlign(sk.LEFT);
+            sk.text(sk.gold,50,200);
+
         }
         if(sk.gamestateAni!=1) {
             sk.fill(0, 255 - 255 * sk.abs(sk.gamestateAni));
@@ -112,13 +139,26 @@ var sketch = function( sk ) {
         }
         //gui handling
 
-        let guis = sk.guiList[sk.gamestate]
+        let guis = sk.guiList[sk.gamestate];
         for (let i =0;i<guis.length;i++){
+            guis[i].onhover(sk);
             guis[i].update(sk);
             guis[i].draw(sk);
         }
 
     };
+    //mousePressed
+    sk.mousePressed = function(){
+        let guis = sk.guiList[sk.gamestate];
+        for (let i =0;i<guis.length;i++){
+            if(guis[i].inside(sk.mouseX,sk.mouseY)){
+                guis[i].onclick(sk);
+            }
+        }
+
+    };
+
+
     /// ANIMATIONS
     sk.loadTextFade = 0;
     sk.loadBarAni = 0;
@@ -174,7 +214,7 @@ var sketch = function( sk ) {
         return typeof s==="undefined";
     };
   
-    sk.httpPost= function (theUrl,value){
+    sk.httpPost= async function (theUrl,value){
         let xhr = new XMLHttpRequest();
         xhr.open("POST", theUrl, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -182,7 +222,7 @@ var sketch = function( sk ) {
 
         return xhr.responseText;
     };
-    sk.httpGet = function (theUrl)
+    sk.httpGet = async function (theUrl)
     {
         let xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", theUrl, true ); // false for synchronous request
@@ -196,6 +236,20 @@ var sketch = function( sk ) {
             console.log(message);
             });
     };
+    //use this lmao
+    sk.httpPost2= function (theUrl,value,func){
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200)
+                func(xhr.responseText);
+        };
+        xhr.open("POST", theUrl, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(value));
+
+    };
+
+
     sk.sendToServer = function (sendToServer,value,keyForMap){
             sk.httpPost("/"+sendToServer,value).then( (message) => {
                     sk.httpGetMap.set(keyForMap,message);
@@ -203,7 +257,14 @@ var sketch = function( sk ) {
             console.log(message);
             })
     };
-    
+    sk.sendToServerFunc = function (sendToServer,value,func){
+        sk.httpPost("/"+sendToServer,value).then( (message) => {
+            console.log(message);
+            func(message);
+        }).catch( (message) => {
+            console.log(message);
+        })
+    };
     sk.drawImage = function(key,x,y,w,h){
         if(sk.httpGetMap.has(key)){
                 sk.image(sk.httpGetMap.get(key), x,y,w,h);
