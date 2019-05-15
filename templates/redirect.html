@@ -1,0 +1,60 @@
+<html lang="en">
+    <head>
+        <title>Redirecting...</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+        <style>
+            @font-face {
+                font-family: "Amatic";
+                src: url("{{ url_for('static', filename='font/amatic.otf') }}");
+            }
+            .mainDiv{
+                width: 400px;
+                height: 100%;
+                background-color: #f2f2f2;
+                font: 24px "Amatic", sans-serif;
+            }
+            .outerShadow{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+            }
+
+            form{
+                font-family: 'Amatic', 'Trebuchet MS', sans-serif;
+                -webkit-appearance: none;
+            }
+            button, input, select, textarea {
+                font-family : inherit;
+                font-size   : 100%;
+                font: 18px "Amatic", sans-serif;
+            }
+            input[type=text], input[type=password]{
+            //border: none;
+                border-left: none;
+                border-top: none;
+                border-bottom: 1px solid #595959;
+                border-radius: 0;
+                font: 18px "Amatic", sans-serif;
+                -webkit-appearance: none;
+            }
+            input[type=submit]{
+                background-color: #674040;
+                border: none;
+                color: white;
+                border-radius: 3px;
+                padding:15px;
+            }
+        </style>
+    </head>
+    
+    <body>
+
+        <script>
+            window.location="http://{{ name }}";
+        </script>
+        <div class="mainDiv outerShadow">
+            redirecting you to {{ name }} ...
+        </div>
+    </body>
+</html>

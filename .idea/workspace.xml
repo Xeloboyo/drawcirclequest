@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f416294c-87b5-4868-b2f4-59003ccc4bd3" name="Default Changelist" comment="js functionality restoration">
+      <change afterPath="$PROJECT_DIR$/.idea/flaskThing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/404.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/class_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/redirect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_Cors-3.0.7.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_Cors-3.0.7.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_Cors-3.0.7.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_Cors-3.0.7.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_Cors-3.0.7.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/Flask_Cors-3.0.7.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/SSL.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/crypto.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/debug.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/rand.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/tsafe.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/OpenSSL/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/_cffi_backend.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp-3.5.4.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_cparser.pxd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_find_header.pxd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_frozenlist.pyx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_headers.pxi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_helpers.pyx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_parser.pyx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_http_writer.pyx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/_websocket.pyx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/abc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/base_protocol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_proto.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_reqrep.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/client_ws.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/connector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/cookiejar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/formdata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/frozenlist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/frozenlist.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/hdrs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_websocket.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/http_writer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/locks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/log.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/multipart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/payload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/payload_streamer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/pytest_plugin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/resolver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/signals.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/streams.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/tcp_helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/test_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/tracing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/typedefs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_fileresponse.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_log.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_middlewares.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_protocol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_routedef.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_runner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_urldispatcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/web_ws.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/aiohttp/worker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto-0.24.0.dist-info/DESCRIPTION.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto-0.24.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto-0.24.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto-0.24.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto-0.24.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto-0.24.0.dist-info/metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto-0.24.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_elliptic_curve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_ffi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_inet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_int.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_iri.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_ordereddict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_perf/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_perf/_big_num_ctypes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_teletex_codec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/_types.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/algos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/cms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/crl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/csr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/keys.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/ocsp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/pdf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/pem.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/pkcs12.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/tsp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/asn1crypto/x509.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout-3.0.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout-3.0.1.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout-3.0.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout-3.0.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout-3.0.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout-3.0.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/async_timeout/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/_compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/_funcs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/_make.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/converters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/converters.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/exceptions.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/filters.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/validators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attr/validators.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attrs-19.1.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attrs-19.1.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attrs-19.1.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attrs-19.1.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attrs-19.1.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/attrs-19.1.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi-1.12.3.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi-1.12.3.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi-1.12.3.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi-1.12.3.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi-1.12.3.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi-1.12.3.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi-1.12.3.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/_cffi_errors.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/_cffi_include.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/_embedding.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/backend_ctypes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/cffi_opcode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/commontypes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/cparser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/error.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/ffiplatform.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/lock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/parse_c_type.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/pkgconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/recompiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/setuptools_ext.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/vengine_cpy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/vengine_gen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cffi/verifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/DESCRIPTION.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet-3.0.4.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/big5freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/big5prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/chardistribution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/charsetgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/charsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/cli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/cli/chardetect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/codingstatemachine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/cp949prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/escprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/escsm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/eucjpprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/euckrfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/euckrprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/euctwfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/euctwprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/gb2312freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/gb2312prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/hebrewprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/jisfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/jpcntx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/langbulgarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/langcyrillicmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/langgreekmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/langhebrewmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/langhungarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/langthaimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/langturkishmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/latin1prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/mbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/mbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/mbcssm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/sbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/sbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/sjisprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/universaldetector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/utf8prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/chardet/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/AUTHORS.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/LICENSE.APACHE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/LICENSE.BSD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography-2.6.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/__about__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/fernet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/_oid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/interfaces.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/aead.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/backend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/ciphers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/cmac.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/decode_asn1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/dh.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/dsa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/ec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/ed25519.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/ed448.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/encode_asn1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/hashes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/hmac.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/ocsp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/rsa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/x25519.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/x448.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/backends/openssl/x509.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/bindings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/bindings/_constant_time.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/bindings/_openssl.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/bindings/_padding.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/bindings/openssl/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/bindings/openssl/_conditional.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/bindings/openssl/binding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/dh.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/dsa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/ec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/ed25519.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/ed448.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/padding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/rsa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/x25519.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/asymmetric/x448.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/ciphers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/ciphers/aead.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/ciphers/algorithms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/ciphers/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/ciphers/modes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/cmac.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/constant_time.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/hashes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/hmac.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/kdf/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/kdf/concatkdf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/kdf/hkdf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/kdf/kbkdf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/kdf/pbkdf2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/kdf/scrypt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/kdf/x963kdf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/keywrap.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/mac.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/padding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/serialization/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/serialization/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/serialization/pkcs12.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/serialization/ssh.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/twofactor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/twofactor/hotp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/twofactor/totp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/hazmat/primitives/twofactor/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/certificate_transparency.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/extensions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/general_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/ocsp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/cryptography/x509/oid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.0.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.0.1.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.0.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.0.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.0.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord.py-1.0.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/abc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/activity.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/appinfo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/asset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/audit_logs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/backoff.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/bin/libopus-0.x64.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/bin/libopus-0.x86.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/calls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/channel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/colour.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/context_managers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/embeds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/emoji.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/_types.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/context.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/converter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/cooldowns.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/commands/view.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/ipc/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/ipc/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/ipc/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/ipc/protocol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/ext/ipc/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/gateway.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/guild.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/http.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/invite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/iterators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/member.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/message.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/mixins.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/object.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/opus.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/player.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/raw_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/reaction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/relationship.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/role.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/shard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/state.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/voice_client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/webhook.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/discord/widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/flask_cors/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/flask_cors/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/flask_cors/decorator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/flask_cors/extension.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/flask_cors/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna-2.8.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna-2.8.dist-info/LICENSE.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna-2.8.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna-2.8.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna-2.8.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna-2.8.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/codec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/idnadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/intranges.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/package_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/idna/uts46data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict-4.5.2.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict-4.5.2.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict-4.5.2.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict-4.5.2.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict-4.5.2.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict-4.5.2.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_abc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_istr.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_istr.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict.pyx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_iter.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_iter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_iter.pxd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_py.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_views.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_views.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_multidict_views.pxd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_pair_list.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_pair_list.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/_pair_list.pxd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/multidict/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyOpenSSL-19.0.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyOpenSSL-19.0.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyOpenSSL-19.0.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyOpenSSL-19.0.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyOpenSSL-19.0.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pyOpenSSL-19.0.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser-2.19-py3.7.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser-2.19-py3.7.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser-2.19-py3.7.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser-2.19-py3.7.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser-2.19-py3.7.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/_ast_gen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/_build_tables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/_c_ast.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/ast_transforms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/c_ast.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/c_generator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/c_lexer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/c_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/lextab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/ply/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/ply/cpp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/ply/ctokens.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/ply/lex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/ply/yacc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/ply/ygen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/plyparser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/pycparser/yacctab.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis-3.2.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis-3.2.1.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis-3.2.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis-3.2.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis-3.2.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis-3.2.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/_compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/lock.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/selector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/sentinel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/redis/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/six-1.12.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/six-1.12.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/six-1.12.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/six-1.12.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/six-1.12.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/six-1.12.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/six.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-6.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-6.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-6.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-6.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-6.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets-6.0.dist-info/zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/compatibility.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/permessage_deflate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/test_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/extensions/test_permessage_deflate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/framing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/handshake.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/headers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/http.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/protocol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/py35/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/py35/_test_client_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/py35/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/py35/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/py36/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/py36/_test_client_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/py36/protocol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/speedups.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/speedups.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_client_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_framing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_handshake.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_headers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_http.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_localhost.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_protocol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_speedups.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_uri.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/test_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/uri.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/websockets/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl-1.3.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl-1.3.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl-1.3.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl-1.3.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl-1.3.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl-1.3.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl/__init__.pyi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl/_quoting.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl/_quoting.cp37-win32.pyd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl/_quoting.pyx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/yarl/quoting.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Scripts/chardetect.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/sketch.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/sketch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wow.py" beforeDir="false" afterPath="$PROJECT_DIR$/wow.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="515">
+              <caret line="263" column="28" lean-forward="true" selection-start-line="263" selection-start-column="28" selection-end-line="263" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/runtime.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>time</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/venv/requirements.txt" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/runtime.txt" />
+        <option value="$PROJECT_DIR$/bot.py" />
+        <option value="$PROJECT_DIR$/wow.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="240" />
+    <option name="y" value="125" />
+    <option name="width" value="1440" />
+    <option name="height" value="775" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="flaskThing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flaskThing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flaskThing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flaskThing" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flaskThing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flaskThing" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flaskThing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flaskThing" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="font" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flaskThing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flaskThing" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flaskThing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flaskThing" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flaskThing" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flaskThing" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.startup.tasks" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\willi\PycharmProjects\flaskThing" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.bot">
+    <configuration name="bot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="flaskThing" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="wow" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="flaskThing" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Users\willi\PycharmProjects\flaskThing\wow.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.bot" />
+        <item itemvalue="Python.wow" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f416294c-87b5-4868-b2f4-59003ccc4bd3" name="Default Changelist" comment="" />
+      <created>1557070413222</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557070413222</updated>
+    </task>
+    <task id="LOCAL-00001" summary="root">
+      <created>1557120709261</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1557120709261</updated>
+    </task>
+    <task id="LOCAL-00002" summary="renamed">
+      <created>1557124344421</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557124344421</updated>
+    </task>
+    <task id="LOCAL-00003" summary="moved">
+      <created>1557124427274</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557124427274</updated>
+    </task>
+    <task id="LOCAL-00004" summary="renamed again">
+      <created>1557125227533</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557125227533</updated>
+    </task>
+    <task id="LOCAL-00005" summary="third times a charm">
+      <created>1557125941737</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1557125941737</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ok, so at least the error about having no commands appears on the fucking scalingo now so maybe ill specifiy it in the procfile? Im praying here">
+      <created>1557126147563</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1557126147563</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ok i removed the setup thingy hopefully it doesnt ask me for commands now">
+      <created>1557126603722</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1557126603722</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added the pem files">
+      <created>1557128343391</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1557128343391</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ok Now were hopefully getting somewhere, i just need to bind the port">
+      <created>1557128727690</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1557128727690</updated>
+    </task>
+    <task id="LOCAL-00010" summary="removed the ssl to test">
+      <created>1557129915075</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1557129915075</updated>
+    </task>
+    <task id="LOCAL-00011" summary="basic functionality, moved game-functions to seperate placeholder function">
+      <created>1557133469187</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1557133469187</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added test image">
+      <created>1557150310752</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1557150310752</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fleshed out login system more, added templates, testing image sending,&#10;organised file structure into default flask format">
+      <created>1557155278631</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1557155278632</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added game.html">
+      <created>1557155586137</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1557155586137</updated>
+    </task>
+    <task id="LOCAL-00015" summary="made a basic p5 sketch&#10;tested passing a flask variable into the sketch, specifically the token.&#10;updated game.html according to support the sketch">
+      <created>1557164170199</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1557164170199</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added font loading and loading screen implementation">
+      <created>1557311509814</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1557311509814</updated>
+    </task>
+    <task id="LOCAL-00017" summary="implemented hashed password system">
+      <created>1557329178959</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1557329178959</updated>
+    </task>
+    <task id="LOCAL-00018" summary="hotfix on login page">
+      <created>1557329284417</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557329284417</updated>
+    </task>
+    <task id="LOCAL-00019" summary="2nd hotfix on login page">
+      <created>1557329384660</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1557329384660</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added token bot">
+      <created>1557411268905</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1557411268905</updated>
+    </task>
+    <task id="LOCAL-00021" summary="enabled token removal on activation :)">
+      <created>1557411307492</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1557411307492</updated>
+    </task>
+    <task id="LOCAL-00022" summary="figuring out parreralism">
+      <created>1557412133391</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1557412133391</updated>
+    </task>
+    <task id="LOCAL-00023" summary="doing threads instead">
+      <created>1557412596841</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1557412596841</updated>
+    </task>
+    <task id="LOCAL-00024" summary="changed proc file">
+      <created>1557412725117</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1557412725117</updated>
+    </task>
+    <task id="LOCAL-00025" summary="threading doesnt work, trying worker node instead">
+      <created>1557412950506</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1557412950506</updated>
+    </task>
+    <task id="LOCAL-00026" summary="trying different version of python">
+      <created>1557413472468</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1557413472468</updated>
+    </task>
+    <task id="LOCAL-00027" summary="spam filter">
+      <created>1557467494440</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1557467494440</updated>
+    </task>
+    <task id="LOCAL-00028" summary="updated form appearance">
+      <created>1557499479950</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1557499479950</updated>
+    </task>
+    <task id="LOCAL-00029" summary="implemented dataloading framework&#10;gui in progress&#10;&#10;furry ref just for transfer purposes">
+      <created>1557589065922</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1557589065922</updated>
+    </task>
+    <task id="LOCAL-00030" summary="file transfer 2 lmao">
+      <created>1557589604183</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1557589604183</updated>
+    </task>
+    <task id="LOCAL-00031" summary="file transfer 3 lmao">
+      <created>1557589819931</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1557589819931</updated>
+    </task>
+    <task id="LOCAL-00032" summary="hotfix for broken server">
+      <created>1557672460126</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1557672460126</updated>
+    </task>
+    <task id="LOCAL-00033" summary="hotfix for broken bot">
+      <created>1557673491560</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1557673491560</updated>
+    </task>
+    <task id="LOCAL-00034" summary="hotfix for broken bot # 2">
+      <created>1557674382154</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1557674382154</updated>
+    </task>
+    <task id="LOCAL-00035" summary="hotfix for broken bot # 3">
+      <created>1557674908454</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1557674908454</updated>
+    </task>
+    <task id="LOCAL-00036" summary="js functionality restoration">
+      <created>1557723983723</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1557723983723</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49867898" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993395" visible="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4993395" weight="0.15558699" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006605" side_tool="true" visible="true" weight="0.05940594" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added test image" />
+    <MESSAGE value="fleshed out login system more, added templates, testing image sending,&#10;organised file structure into default flask format" />
+    <MESSAGE value="added game.html" />
+    <MESSAGE value="made a basic p5 sketch&#10;tested passing a flask variable into the sketch, specifically the token.&#10;updated game.html according to support the sketch" />
+    <MESSAGE value="added font loading and loading screen implementation" />
+    <MESSAGE value="implemented hashed password system" />
+    <MESSAGE value="hotfix on login page" />
+    <MESSAGE value="2nd hotfix on login page" />
+    <MESSAGE value="added token bot" />
+    <MESSAGE value="enabled token removal on activation :)" />
+    <MESSAGE value="figuring out parreralism" />
+    <MESSAGE value="doing threads instead" />
+    <MESSAGE value="changed proc file" />
+    <MESSAGE value="threading doesnt work, trying worker node instead" />
+    <MESSAGE value="trying different version of python" />
+    <MESSAGE value="spam filter" />
+    <MESSAGE value="updated form appearance" />
+    <MESSAGE value="implemented dataloading framework&#10;gui in progress&#10;&#10;furry ref just for transfer purposes" />
+    <MESSAGE value="file transfer 2 lmao" />
+    <MESSAGE value="file transfer 3 lmao" />
+    <MESSAGE value="hotfix for broken server" />
+    <MESSAGE value="hotfix for broken bot" />
+    <MESSAGE value="hotfix for broken bot # 2" />
+    <MESSAGE value="hotfix for broken bot # 3" />
+    <MESSAGE value="js functionality restoration" />
+    <option name="LAST_COMMIT_MESSAGE" value="js functionality restoration" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="263" column="28" lean-forward="true" selection-start-line="263" selection-start-column="28" selection-end-line="263" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

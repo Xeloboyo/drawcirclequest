@@ -16,14 +16,12 @@ r = redis.from_url(
 
 # r = redis.from_url(os.environ.get("REDIS_URL"))
 
-# from distutils.core import setup
-
-# setup(
-#    name='DrawingCircleQuest',
-#    version='0.1dev',
-#    license='Creative Commons Attribution-Noncommercial-Share Alike license',
-#    long_description="insert long description",
-# )
+def map_to_js_compatible_str(map):
+    x = "[["
+    for index, key in enumerate(map):
+        x += ("" if index == 0 else ",") + "\""+str(key)+ "\"" + ","+ "\"" + str(map[key])+ "\"" + "]"
+    x += "]"
+    return x
 
 
 class User:
@@ -48,17 +46,28 @@ class User:
 
     def setBasicStat(self, key, stat):
         self.basicstat[key] = str(stat)
-        updateBasicStat(self.name,self.basicstat)
+        updateBasicStat(self.name, self.basicstat)
 
 
 userlist = []
 
+def userValid(userName, token):
+
+    confirm = False
+    selUser = None
+    for user in userlist:
+        if user.name == userName and user.accessToken == token:
+            confirm = True
+            selUser = user
+
+    return confirm, selUser
 
 def getUserNames():
     str = ""
     for user in userlist:
         str += user.name + ","
     return str
+
 
 logins = {}
 
@@ -97,17 +106,21 @@ def updateBasicStat(playerName, new_stats):
     string_dic = ""
     index = 0
     for key in stats:
-        string_dic += ("" if index == 0 else "&~") + str(key) + "&~" + str(stats[key])
+        string_dic += ("" if index == 0 else "&~") + str(key)+"&~"+str(stats[key])
         index += 1
     sendToDB(playerName + "_STATS_BASIC", string_dic)
 
 
 def getBasicStat(playerName):
-    if not existInDB(playerName + "_STATS_BASIC"):
-        sendToDB(playerName + "_STATS_BASIC", "")
-    string_dic = getFromDB(playerName + "_STATS_BASIC").split('&~')
+    return getStatMap(playerName, "BASIC")
+
+
+def getStatMap(playerName, mapname):
+    if not existInDB(playerName + "_STATS_" + mapname):
+        sendToDB(playerName + "_STATS_" + mapname, "")
+    string_dic = getFromDB(playerName + "_STATS_" + mapname).split('&~')
     output = {}
-    print("BASIC STAT", len(string_dic), string_dic)
+    print(mapname + " STAT", len(string_dic), string_dic)
     if len(string_dic) == 1:
         return output
 
@@ -119,13 +132,19 @@ def getBasicStat(playerName):
 
 # to send images go: return send_file(filename, mimetype='image/Insert_image_format_here')
 def do_action(user, action):
-    print("Action:"+action)
+    print("Action:" + action)
     # ADD SHIT HERE
     actionType = action.split("||")
-    # DO NOT USE FUNCTIONS LIKE THIS IN THE REAL GAME, THESE ARE EXPLOITABLE
-    if (actionType[0] == "ADD_GOLD"):
+    # DO NOT USE FUNCTIONS LIKE THIS IN THE REAL GAME, THESE ARE EXPLOITABLE!!!!!!
+    if actionType[0] == "ADD_GOLD":
         user.setBasicStat("gold", int(user.basicstat.get("gold", 0)) + int(actionType[1]))
         return str(user.basicstat["gold"])
+    if actionType[0] == "SET_PLAYER_CLASS":
+        current_class = user.basicstat.get("class", "none")
+        if current_class == "none":
+            user.setBasicStat("class", actionType[1])
+        return str(user.basicstat.get("class", "none"))
+
     return "Player does " + action
 
 
@@ -136,6 +155,17 @@ CORS(app)
 @app.route('/imageTest')
 def getTestImage():
     return send_file("static/img/birb.png", mimetype='image/png')
+
+
+@app.route('/img/<imgname>')
+def get_img(imgname):
+    print("REQUSTING:",imgname)
+    format = imgname.split(".", 1)[1]
+    # time.sleep(random.randint(0, 10) / 10.0)  ## TEST LATENCY, REMOVE LATER
+    try:
+        return send_file("static/img/" + imgname, mimetype='image/' + format)
+    except FileNotFoundError:
+        return send_file("static/img/404.png", mimetype='image/png')
 
 
 @app.route('/font/<fontname>')
@@ -162,14 +192,20 @@ def register():
 
     passhash = hashlib.md5(bytes(request.form['password'], 'utf-8')).hexdigest()
     sendToDB(username, passhash)
-    removeFromDB("DCt0k3n" + token)  # not yet! :)
-    return render_template('login.html', errormsg=" ")
+    removeFromDB("DCt0k3n" + token)
+    return render_template('redirect.html', name="www.dcquest.ga")
+    # redirect bc you cant as easily edit js in the dns's thing.
 
 
 @app.route('/register')
 def register_page():
     return render_template('register.html', errormsg=" ")
 
+
+
+@app.route('/game_const/<name>')
+def get_game_constants(name):
+    return str(getFromDB("$$GAMEVAR_"+name))
 
 # to remove in production
 @app.route('/devuserlist')
@@ -226,11 +262,20 @@ def user_login():
         # add user to active users
     newuser = User(usrname)
     userlist.append(newuser)
-    sendToDB("USERS",getUserNames())
+    sendToDB("USERS", getUserNames())
     print("USER:", newuser.name, newuser.accessToken)
     logins[str(ip)] = LoginAttempt(ip, time.time(), 0)
     return render_template('game.html', name=usrname, token=newuser.accessToken)
 
+
+@app.route('/userStats/<type>', methods=['POST'])
+def userStats(type):
+    splitData = str(request.json).split(" ", 2)
+    confirm, selUser = userValid(splitData[0], splitData[1])
+    if confirm:
+        somemap = getStatMap(selUser.name,type)
+        return map_to_js_compatible_str(somemap)
+    return "error 400|access denied"
 
 @app.route('/userDidSomething', methods=['POST'])
 def user_action():
@@ -242,18 +287,14 @@ def user_action():
     splitData = str(request.json).split(" ", 2)
     print(splitData)
 
-    confirm = False
+    confirm,selUser = userValid(splitData[0],splitData[1])
 
-    for user in userlist:
-        if user.name == splitData[0] and user.accessToken == splitData[1]:
-            confirm = True
-            selUser = user
     if confirm:
-        response =  do_action(selUser, splitData[2])
+        response = do_action(selUser, splitData[2])
         print("ACTION REPONSE:", response)
-        return response;
+        return response
 
-    return "error 400"
+    return "error 400|access denied"
 
 
 # or wherever your SSL keys are

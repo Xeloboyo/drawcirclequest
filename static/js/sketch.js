@@ -49,12 +49,17 @@ class Button extends GUIComp{
 
 
 
+
+
 var sketch = function( sk ) {
 
+
+    sk.player_class_list = [];
     sk.guiList = [
         [], //screen 0 - loading
         [], //screen 1 - game menu?
-        [], //screen 2 - something
+        [], //screen 2 - cutscene
+        [], //screen 3 - class select (selection panels not part of this)
     ];
 
     sk.setup = function() {
@@ -62,10 +67,12 @@ var sketch = function( sk ) {
         sk.addResource("phantom",sk.getFont);
         sk.addResource("frozito",sk.getFont);
         sk.addResource("unseen",sk.getFont);
+        sk.addResource("BASIC",sk.getStats);
+        sk.addResource("class_0.png",sk.getImage);
         sk.guiList[1][0] = new Button(50,50,200,40, sk.color(80),"GET GOLD!"
             ,function(sk){
                 if(this.inside(sk.mouseX,sk.mouseY)) {
-                    this.state = sk.max(this.state, 1);
+                    this.state = 1;
                     console.log("Hovered")
                     return;
                 }
@@ -121,9 +128,16 @@ var sketch = function( sk ) {
                 sk.textSize(18);
                 sk.text("Welcome "+sk.playerName,w/2,h/2+110);
                 if(sk.loadTextFade>0.99999){
-                    sk.changeGameState(1);
+                    let destState = 1;
+                    if(sk.isUndef(sk.httpGetMap.get("BASIC").get("class"))){
+                        destState = 2;
+                    }
+                    sk.changeGameState(destState);
                 }
             }
+            //CHECK FOR STATS
+
+
         }else if(sk.gamestate===1){
             sk.fill(255);
             sk.rect(0, 0, w, h);
@@ -131,6 +145,35 @@ var sketch = function( sk ) {
             sk.textAlign(sk.LEFT);
             sk.text(sk.gold,50,200);
 
+        }else if(sk.gamestate===2){
+            sk.background(30,50+20*sk.sin(0.01*sk.tick),50+20*sk.cos(0.01*sk.tick));
+            let timeleft = 300-(sk.tick-sk.lastStateChangeTick);
+            sk.textAlign(sk.LEFT);
+            sk.fill(255);
+            sk.text("CUTSCENE NOT FOUND, ENDING IN "+timeleft,50,50,500,300);
+            if(timeleft<=0){
+                sk.changeGameState(3);
+            }
+        }else if(sk.gamestate===3){
+            let aspect = 1000/1280;
+            if(sk.player_class_list.length==0&&!sk.sentClassSelect){
+                sk.httpGet2("/game_const/CLASSES",function(message){console.log(message);sk.player_class_list=message.split("|")});
+                sk.sentClassSelect = true;
+            }
+            let nspace = w - h*aspect;
+            if(nspace<80*sk.player_class_list.length){ // cant fit everything horizontally at once , prolly phone screen
+
+            }else {
+                for (let i = 0; i < sk.player_class_list.length; i++) {
+                    sk.drawImage("class_" + sk.player_class_list[i] + ".png", i * nspace/sk.player_class_list.length , 0, h * aspect, h);
+                }
+            }
+
+            sk.drawImage("class_" + sk.player_class_list[sk.selected_class] + ".png", sk.selected_class * nspace/sk.player_class_list.length , 0, h * aspect, h);
+
+            sk.selected_class = sk.floor(sk.tick*0.05)%sk.player_class_list.length
+
+            //sk.drawImage("class_0.png",h*aspect,0,h*aspect,h);
         }
         if(sk.gamestateAni!=1) {
             sk.fill(0, 255 - 255 * sk.abs(sk.gamestateAni));
@@ -145,6 +188,8 @@ var sketch = function( sk ) {
             guis[i].update(sk);
             guis[i].draw(sk);
         }
+
+
 
     };
     //mousePressed
@@ -164,8 +209,15 @@ var sketch = function( sk ) {
     sk.loadBarAni = 0;
     sk.gamestateAni = 1;
 
+    sk.lastStateChangeTick = 0;
+
 
     /// MAJOR VARIABLES --------------------------------------
+
+    //0 - loading
+    //1 - game home
+    //2 - beginning cutscene
+    //3 - class select
     sk.gamestate = 0;
     sk.requestGamestate = 0;
 
@@ -178,12 +230,19 @@ var sketch = function( sk ) {
 
     };
     sk.updateGameStateTrans = function(){
+        let pgm = sk.gamestate;
         if(sk.gamestateAni>0){
             sk.gamestate=sk.requestGamestate;
+            if(sk.gamestate!=pgm) {
+                sk.lastStateChangeTick = sk.tick;
+            }
         }
         sk.gamestateAni = sk.constrain(sk.gamestateAni+0.07,-1,1);
     };
 
+    // screens
+    //3 character select
+    sk.selected_class = 0;
 
 
     //RESOURCE RETRIEVAL -------------------------------------------
@@ -194,6 +253,7 @@ var sketch = function( sk ) {
         sk.resourceReq.push(res);
         reqFunction(res);
     };
+
     sk.loaded = function()
     {
         return sk.checkLoading()==1;
@@ -202,7 +262,10 @@ var sketch = function( sk ) {
         let total = 0;
         for(let i=0;i<sk.resourceReq.length;i++){
             //console.log("I:",i,"--",sk.httpGetMap.get(sk.resourceReq[i]));
-            if(!sk.isUndef(sk.httpGetMap.get(sk.resourceReq[i]))&&(!sk.isUndef(sk.httpGetMap.get(sk.resourceReq[i]).font))){
+            let res = sk.httpGetMap.get(sk.resourceReq[i]);
+            if(!sk.isUndef(res)
+                &&(!(res instanceof p5.Font)||!sk.isUndef(res.font)))
+            {
                 total++;
             }
         }
@@ -237,11 +300,33 @@ var sketch = function( sk ) {
             });
     };
     //use this lmao
+    sk.httpGet2= function (theUrl,func){
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200)
+                func(xhr.responseText);
+        };
+        xhr.open("GET", theUrl, true);
+        xhr.send(null);
+
+    };
     sk.httpPost2= function (theUrl,value,func){
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200)
                 func(xhr.responseText);
+        };
+        xhr.open("POST", theUrl, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(value));
+
+    };
+    // adds result to a key in map
+    sk.httpPost2= function (theUrl,value,func,key){
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200)
+                sk.httpGetMap.set(key,func(xhr.responseText));
         };
         xhr.open("POST", theUrl, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -273,7 +358,15 @@ var sketch = function( sk ) {
                 sk.rect(x,y,w,h);
         }
     }
-    
+
+    sk.getImage = async function (imageName){
+        //"https://via.placeholder.com/600?text=FILE+NOT+FOUND"
+        let img = sk.loadImage('/img/'+imageName)
+
+        sk.httpGetMap.set(imageName,img);
+    }
+
+
     sk.getFont = async function (fontName){
         sk.httpGetMap.set(fontName,sk.loadFont('/font/'+fontName));
     }
@@ -282,5 +375,13 @@ var sketch = function( sk ) {
         if(sk.httpGetMap.has(key)){
                 sk.textFont(sk.httpGetMap.get(key));
         }
+    }
+
+    sk.formatStats = function (str){
+        console.log("parsing:",str);
+        return new Map(JSON.parse(str));
+    }
+    sk.getStats = async function (type){
+        sk.httpPost2("/userStats/"+type,sk.playerName+" "+sk.token,sk.formatStats,type);
     }
 };

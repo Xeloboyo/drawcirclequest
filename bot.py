@@ -27,6 +27,7 @@ async def suicide(ctx):
 async def genkey(ctx):
     token = randomSTR(10)
     wow.sendToDB("DCt0k3n" + token, time.time())
+    wow.r.expire("DCt0k3n" + token,3600*6)
     await ctx.send("Your new token is:"+token+"\n    Login at https://draw-circle-quest.herokuapp.com/register")
 
 @client.command()
