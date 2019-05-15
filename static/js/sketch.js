@@ -29,6 +29,10 @@ class GUIComp{
     }
 }
 
+function inside(mx,my,x,y,w,h) {
+    return mx>x&&mx<x+w&&y<my&&my<y+h;
+}
+
 class Button extends GUIComp{
     constructor(x,y,w,h,c,text,onhover,onclick){
         super( x,y,w,h,c,function(sk) {
@@ -49,7 +53,7 @@ class Button extends GUIComp{
 
 
 
-
+p5.disableFriendlyErrors = true;
 
 var sketch = function( sk ) {
 
@@ -63,7 +67,7 @@ var sketch = function( sk ) {
     ];
 
     sk.setup = function() {
-        sk.createCanvas(sk.windowWidth, sk.windowHeight);
+        sk.createCanvas(sk.windowWidth, sk.windowHeight,sk.WEBGL);
         sk.addResource("phantom",sk.getFont);
         sk.addResource("frozito",sk.getFont);
         sk.addResource("unseen",sk.getFont);
@@ -98,6 +102,7 @@ var sketch = function( sk ) {
     sk.draw = function() {
         var w = sk.windowWidth;
         var h = sk.windowHeight;
+        sk.translate(-w/2,-h/2); //-----------------  enable when WEBGL is fixed
         sk.tick++;
         sk.updateGameStateTrans();
 
@@ -108,9 +113,11 @@ var sketch = function( sk ) {
             sk.textAlign(sk.CENTER);
             sk.applyFont("phantom");
             sk.textSize(64);
+            sk.text("Awe",-999,-999);
             sk.text("DC",w/2,h/2);
             sk.applyFont("frozito");
             sk.textSize(24);
+            sk.text("Awe",-999,-999);
             sk.text("quest",w/2,h/2+30);
 
             sk.pop();
@@ -126,6 +133,7 @@ var sketch = function( sk ) {
                 sk.textAlign(sk.CENTER);
                 sk.applyFont("unseen");
                 sk.textSize(18);
+                sk.text("Awe",-999,-999);
                 sk.text("Welcome "+sk.playerName,w/2,h/2+110);
                 if(sk.loadTextFade>0.99999){
                     let destState = 1;
@@ -146,6 +154,8 @@ var sketch = function( sk ) {
             sk.text(sk.gold,50,200);
 
         }else if(sk.gamestate===2){
+            sk.text("Awe",-999,-999);
+
             sk.background(30,50+20*sk.sin(0.01*sk.tick),50+20*sk.cos(0.01*sk.tick));
             let timeleft = 300-(sk.tick-sk.lastStateChangeTick);
             sk.textAlign(sk.LEFT);
@@ -155,23 +165,77 @@ var sketch = function( sk ) {
                 sk.changeGameState(3);
             }
         }else if(sk.gamestate===3){
+
             let aspect = 1000/1280;
+
             if(sk.player_class_list.length==0&&!sk.sentClassSelect){
                 sk.httpGet2("/game_const/CLASSES",function(message){console.log(message);sk.player_class_list=message.split("|")});
                 sk.sentClassSelect = true;
             }
+
+            sk.push();
+
+            sk.translate(sk.random(-sk.shakeani,sk.shakeani),0);
+
             let nspace = w - h*aspect;
+            let totalClass =sk.player_class_list.length;
             if(nspace<80*sk.player_class_list.length){ // cant fit everything horizontally at once , prolly phone screen
 
-            }else {
+            }else if(nspace<200*sk.player_class_list.length){
+
+                //sk.fill(100,100,130);
+                sk.tint(100,100,130);
                 for (let i = 0; i < sk.player_class_list.length; i++) {
-                    sk.drawImage("class_" + sk.player_class_list[i] + ".png", i * nspace/sk.player_class_list.length , 0, h * aspect, h);
+                    let ai = sk.player_class_list.length-((sk.selected_class+i)%sk.player_class_list.length)-1;
+                    let xoff2 = ai>sk.selected_class? h*aspect-nspace/(totalClass-1):0;
+                    sk.drawImage("class_" + sk.player_class_list[ai] + ".png", ai * nspace/(totalClass-1) , 0, h * aspect, h);
+                    if(inside(sk.mouseX,sk.mouseY,xoff2+ ai * nspace/(totalClass-1) , 0,nspace/(totalClass-1), h)){
+                        sk.changeClassPanel(ai);
+                    }
                 }
+                sk.fill(0,0,30,100);
+                sk.rect(0,0,w,h);
+                sk.tint(255);
+                let ox = sk.selected_class * nspace/(sk.player_class_list.length-1);
+                sk.drawImage("class_" + sk.player_class_list[sk.selected_class] + ".png", ox , 0, h * aspect, h);
+                let infoareaWidth = h * aspect*0.5;
+                sk.fill(0,0,0,150);
+                sk.rect(ox+h * aspect-infoareaWidth-10,10,infoareaWidth,h*0.5);
+                sk.fill(255);
+                sk.text("AweSOME",-999,-999);
+                sk.text("STATS",ox+h * aspect-infoareaWidth-10+20,10+20,infoareaWidth-40,h*0.5-40);
+            }else{
+                let awidth = (w - h*aspect)-100*sk.player_class_list.length; //panel extra width
+                nspace=(w - (h*aspect + awidth)); //total 'unused' space between panels
+
+                for (let i = 0; i < totalClass; i++) {
+                    let ai = totalClass-((sk.selected_class+i)%totalClass)-1;
+                    let xoff = ai>sk.selected_class? awidth:0;
+                    let xoff2 = ai>sk.selected_class? h*aspect+awidth-nspace/(totalClass-1):0;
+                    sk.drawImage("class_" + sk.player_class_list[ai] + ".png", xoff+ ai * nspace/(totalClass-1) , 0, h * aspect, h);
+                    if(inside(sk.mouseX,sk.mouseY,xoff2+ ai * nspace/(totalClass-1) , 0,nspace/(totalClass-1), h)){
+                        sk.changeClassPanel(ai);
+                    }
+                }
+                sk.fill(0,0,30,100);
+                sk.rect(0,0,w,h);
+                sk.tint(255);
+                let ox = sk.selected_class * nspace/(sk.player_class_list.length-1);
+                sk.drawImage("class_" + sk.player_class_list[sk.selected_class] + ".png", ox , 0, h * aspect, h);
+                let infoareaWidth = h * aspect*0.5;
+                sk.fill(0,0,0);
+                sk.rect(ox+h * aspect,0,awidth,h);
+                sk.fill(255);
+                sk.text("AweSOME",-999,-999);
+                sk.text("STATS",ox+h * aspect+20,20,awidth-40,h-40);
             }
 
-            sk.drawImage("class_" + sk.player_class_list[sk.selected_class] + ".png", sk.selected_class * nspace/sk.player_class_list.length , 0, h * aspect, h);
 
-            sk.selected_class = sk.floor(sk.tick*0.05)%sk.player_class_list.length
+            sk.pop();
+            if(sk.tick%50==0){
+
+            }
+            sk.shakeani/=1.5;
 
             //sk.drawImage("class_0.png",h*aspect,0,h*aspect,h);
         }
@@ -210,6 +274,16 @@ var sketch = function( sk ) {
     sk.gamestateAni = 1;
 
     sk.lastStateChangeTick = 0;
+
+    //state 3
+    sk.shakeani = 0;
+    sk.changeClassPanel = function(panel){
+        if(sk.selected_class==panel){
+            return;
+        }
+        sk.shakeani = 15;
+        sk.selected_class = panel;
+    }
 
 
     /// MAJOR VARIABLES --------------------------------------
@@ -358,6 +432,23 @@ var sketch = function( sk ) {
                 sk.rect(x,y,w,h);
         }
     }
+    sk.drawImage2 = function(key,x,y,w,h){
+        if(sk.httpGetMap.has(key)){
+
+            sk.beginShape();
+            sk.texture(sk.httpGetMap.get(key));
+            sk.vertex(x,y,0,0);
+            sk.vertex(x+w,y,1,0);
+            sk.vertex(x+w,y+h,1,1);
+            sk.vertex(x,y+h,0,1);
+
+            sk.endShape();
+           // sk.image(sk.httpGetMap.get(key), x,y,w,h);
+        }else{
+            sk.fill(255,0,255);
+            sk.rect(x,y,w,h);
+        }
+    }
 
     sk.getImage = async function (imageName){
         //"https://via.placeholder.com/600?text=FILE+NOT+FOUND"
@@ -373,8 +464,11 @@ var sketch = function( sk ) {
     
     sk.applyFont = function(key){
         if(sk.httpGetMap.has(key)){
-                sk.textFont(sk.httpGetMap.get(key));
+            sk.textFont(sk.httpGetMap.get(key));
+        }else{
+            sk.textFont("Helvetica");
         }
+
     }
 
     sk.formatStats = function (str){
