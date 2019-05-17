@@ -34,7 +34,7 @@ function inside(mx,my,x,y,w,h) {
 }
 
 class Button extends GUIComp{
-    constructor(x,y,w,h,c,text,onhover,onclick){
+    constructor(x,y,w,h,c,text,onclick){
         super( x,y,w,h,c,function(sk) {
             this.ani+=(this.state-this.ani)*0.2;
         },function(sk) {
@@ -43,7 +43,13 @@ class Button extends GUIComp{
             sk.fill(sk.lerpColor(sk.color(255),this.c,this.ani-1.0));
             sk.textAlign(sk.CENTER,sk.CENTER);
             sk.text(text,this.x,this.y,this.w,this.h);
-        },onhover,onclick );
+        },function(sk){
+            if(this.inside(sk.mouseX,sk.mouseY)) {
+                this.state = 1;
+                return;
+            }
+            this.state = 0;
+        },onclick );
         this.ani = 0;
         this.state = 0;
     }
@@ -61,9 +67,17 @@ var sketch = function( sk ) {
     sk.player_class_list = [];
     sk.guiList = [
         [], //screen 0 - loading
-        [], //screen 1 - game menu?
+        [], //screen 1 - town
         [], //screen 2 - cutscene
         [], //screen 3 - class select (selection panels not part of this)
+        [], //4
+        [], //5
+        [], //6
+        [], //7
+        [], //8
+        [], //9
+        [], // 10 - shop
+
     ];
 
     sk.setup = function() {
@@ -74,18 +88,21 @@ var sketch = function( sk ) {
         sk.addResource("BASIC",sk.getStats);
         sk.addResource("class_0.png",sk.getImage);
         sk.guiList[1][0] = new Button(50,50,200,40, sk.color(80),"GET GOLD!"
-            ,function(sk){
-                if(this.inside(sk.mouseX,sk.mouseY)) {
-                    this.state = 1;
-                    console.log("Hovered")
-                    return;
-                }
-                this.state = 0;
-            }
+
             ,function(sk){
                 this.state = 2;
-                console.log("Clicked");
                 sk.httpPost2("/userDidSomething", sk.playerName+" "+sk.token+" "+"ADD_GOLD||50",
+                    function(message){
+                        console.log(message);
+                        sk.gold = sk.int(message);
+                    });
+            }
+        );
+
+        sk.guiList[10][0] = new Button(50,50,200,40, sk.color(80),"Buy rusty fork"
+            ,function(sk){
+                this.state = 2;
+                sk.httpPost2("/userDidSomething", sk.playerName+" "+sk.token+" "+"BUY_ITEM||rusty_fork||1",
                     function(message){
                         console.log(message);
                         sk.gold = sk.int(message);
@@ -147,6 +164,13 @@ var sketch = function( sk ) {
 
 
         }else if(sk.gamestate===1){
+            sk.fill(255);
+            sk.rect(0, 0, w, h);
+            sk.fill(0);
+            sk.textAlign(sk.LEFT);
+            sk.text(sk.gold,50,200);
+
+        }else if(sk.gamestate===10){
             sk.fill(255);
             sk.rect(0, 0, w, h);
             sk.fill(0);
@@ -312,9 +336,11 @@ var sketch = function( sk ) {
     /// MAJOR VARIABLES --------------------------------------
 
     //0 - loading
-    //1 - game home
+    //1 - town
     //2 - beginning cutscene
     //3 - class select
+    //4 - boss
+    //10 - shop 0
     sk.gamestate = 0;
     sk.requestGamestate = 0;
 

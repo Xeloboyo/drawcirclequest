@@ -22,12 +22,16 @@ def xor_crypt_string(data, key='awesomepassword', encode=False, decode=False):
     return xored
 
 # gotta protecc that api key
-rediskey = b"GgAIBRwPFx5aD0AAVgUHUAoAAwMBW1EDCQRWCARXBVdaVwAPUgxTAANbBAMBAlMEDFBcAVBWAgQGAAIKAVFaUgMBVgxcCVwFAVYMeFFQCx0EBx8BCgcVAwcfARZSWVhHQkxTGgQbUVtVQ19XVUJGHlFeWgIGAQoICQ=="
-decryptkey = sys.argv[1]
-random.seed(decryptkey)
-while len(decryptkey) < 121:
-    decryptkey += str(random.randint(0, 9))
-decrt = xor_crypt_string(rediskey,decryptkey,False,True)
+
+try: # serverside
+    decrt = os.environ['REDIS_URL']
+except: #local testing
+    rediskey = b"GgAIBRwPFx5aD0AAVgUHUAoAAwMBW1EDCQRWCARXBVdaVwAPUgxTAANbBAMBAlMEDFBcAVBWAgQGAAIKAVFaUgMBVgxcCVwFAVYMeFFQCx0EBx8BCgcVAwcfARZSWVhHQkxTGgQbUVtVQ19XVUJGHlFeWgIGAQoICQ=="
+    decryptkey = sys.argv[1]
+    random.seed(decryptkey)
+    while len(decryptkey) < 121:
+        decryptkey += str(random.randint(0, 9))
+    decrt = xor_crypt_string(rediskey, decryptkey, False, True)
 
 r = redis.from_url(decrt)
 
