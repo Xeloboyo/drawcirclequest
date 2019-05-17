@@ -501,4 +501,8 @@ var sketch = function( sk ) {
     sk.getStats = async function (type){
         sk.httpPost2("/userStats/"+type,sk.playerName+" "+sk.token,sk.formatStats,type);
     }
+
+    sk.windowResized = function () {
+        sk.resizeCanvas(sk.windowWidth, sk.windowHeight);
+    }
 };

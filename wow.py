@@ -1,6 +1,7 @@
 import asyncio
 import random
 import os
+import sys
 import time
 
 import redis
@@ -10,8 +11,28 @@ from flask import Flask, abort, request, send_file, render_template
 from flask_cors import CORS
 import json
 
-r = redis.from_url(
-    "redis://h:p5d77d98513cd400d85c1ecf76a4e92b6435e49fe7fa3258082dbe20d9d0d43b5@ec2-34-193-52-1.compute-1.amazonaws.com:22319")
+def xor_crypt_string(data, key='awesomepassword', encode=False, decode=False):
+    from itertools import  cycle
+    import base64
+    if decode:
+        data = base64.b64decode(data)
+    xored = ''.join(chr(a ^ ord(b)) for (a, b) in zip(data, cycle(key)))
+    if encode:
+        return base64.b64encode(xored.encode()).strip()
+    return xored
+
+# gotta protecc that api key
+rediskey = b"GgAIBRwPFx5aD0AAVgUHUAoAAwMBW1EDCQRWCARXBVdaVwAPUgxTAANbBAMBAlMEDFBcAVBWAgQGAAIKAVFaUgMBVgxcCVwFAVYMeFFQCx0EBx8BCgcVAwcfARZSWVhHQkxTGgQbUVtVQ19XVUJGHlFeWgIGAQoICQ=="
+decryptkey = sys.argv[1]
+random.seed(decryptkey)
+while len(decryptkey) < 121:
+    decryptkey += str(random.randint(0, 9))
+decrt = xor_crypt_string(rediskey,decryptkey,False,True)
+
+r = redis.from_url(decrt)
+
+
+
 
 
 # r = redis.from_url(os.environ.get("REDIS_URL"))
