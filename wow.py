@@ -26,7 +26,7 @@ def xor_crypt_string(data, key='awesomepassword', encode=False, decode=False):
 try: # serverside
     decrt = os.environ['REDIS_URL']
 except: #local testing
-    rediskey = b"GgAIBRwPFx5aD0AAVgUHUAoAAwMBW1EDCQRWCARXBVdaVwAPUgxTAANbBAMBAlMEDFBcAVBWAgQGAAIKAVFaUgMBVgxcCVwFAVYMeFFQCx0EBx8BCgcVAwcfARZSWVhHQkxTGgQbUVtVQ19XVUJGHlFeWgIGAQoICQ=="
+    rediskey = b'CgAIBhFVVkBRCUMHBA8DUgUDAlpWDFQBBwACXgcAB1IBUQpRXwUPDAUDVwZUUwIBBg4DUwkDDQYFDwAGAFcCDARXAFNaUQVVCQUDcVxbAxULDB8JCwAUAAocCR5bVl9GTUdcFAkbUllVTFdXVEBDGFtWXAoKCwIEDg=='
     decryptkey = sys.argv[1]
     random.seed(decryptkey)
     while len(decryptkey) < 121:
