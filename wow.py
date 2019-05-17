@@ -17,6 +17,8 @@ r = redis.from_url(
 # r = redis.from_url(os.environ.get("REDIS_URL"))
 
 def map_to_js_compatible_str(map):
+    if len(map)==0:
+        return "[[]]"
     x = "[["
     for index, key in enumerate(map):
         x += ("" if index == 0 else ",") + "\""+str(key)+ "\"" + ","+ "\"" + str(map[key])+ "\"" + "]"
@@ -161,7 +163,6 @@ def getTestImage():
 def get_img(imgname):
     print("REQUSTING:",imgname)
     format = imgname.split(".", 1)[1]
-    # time.sleep(random.randint(0, 10) / 10.0)  ## TEST LATENCY, REMOVE LATER
     try:
         return send_file("static/img/" + imgname, mimetype='image/' + format)
     except FileNotFoundError:
@@ -170,7 +171,6 @@ def get_img(imgname):
 
 @app.route('/font/<fontname>')
 def get_font(fontname):
-    # time.sleep(random.randint(0, 10) / 10.0)  ## TEST LATENCY, REMOVE LATER
     return send_file("static/font/" + fontname + ".otf", mimetype='font/otf')
 
 

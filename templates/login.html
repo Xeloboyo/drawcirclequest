@@ -4,18 +4,25 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+        <script src="{{ url_for('static', filename='js/p5.js') }}"></script>
         <style>
             @font-face {
                 font-family: "Amatic";
-                //src: url({{ url_for('static', filename='font/amatic.otf') }});
-                //src: url("font/amatic.otf");
                 src: url("{{ url_for('static', filename='font/amatic.otf') }}");
             }
             .mainDiv{
-                width: 400px;
-                height: 100%;
+                display: inline-block;
+                vertical-align: top;
                 background-color: #f2f2f2;
                 font: 24px "Amatic", sans-serif;
+
+            }
+            .topleftDiv{
+                z-index: 999;
+                position:absolute;
+                left: 3em;
+                top: 3em;
+                display: inline-block;
             }
             .outerShadow{
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -25,6 +32,8 @@
             form{
                 font-family: 'Amatic', 'Trebuchet MS', sans-serif;
                 -webkit-appearance: none;
+                display: inline;
+
             }
             button, input, select, textarea {
                 font-family : inherit;
@@ -47,29 +56,284 @@
                 border-radius: 3px;
                 padding:15px;
             }
+            #border{
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: -1;
+            }
+            .mg1 {
+                background-size: contain;
+                background-repeat: repeat-x;
+                background-image:
+                url({{ url_for('static', filename='img/mg1.png') }});
+
+
+            }
+            .mg2 {
+                background-size: contain;
+                background-repeat: repeat-x;
+                background-image:
+                url({{ url_for('static', filename='img/mg2.png') }});
+
+
+            }
+            .mg3 {
+                 background-size: contain;
+                 background-repeat: repeat-x;
+                 background-image:
+                 url({{ url_for('static', filename='img/mg3.png') }});
+
+
+            }
+            .heck {
+                background-size: contain;
+                background-image:
+                        url({{ url_for('static', filename='img/gndgrad.png') }});
+
+
+            }
+            .helptext{
+                color: #FFFFFF;
+            }
+            .logo {
+                display: inline-block;
+            }
+            @media only screen and (max-width: 500px) {
+                .logo {
+                    display: block;
+                    margin: 0 auto;
+                }
+                .topleftDiv{
+                    z-index: 999;
+                    top: 3em;
+                    left:50%;
+                    display: inline-block;
+                    margin: 0 auto;
+                }
+                body{
+                    text-align: center;
+                }
+            }
         </style>
     </head>
-    
-    <body style="background-image: url({{ url_for('static', filename='img/bglogin.jpg') }}); font: 'Amatic', 'Trebuchet MS', sans-serif;">
-        
-        <div class="mainDiv outerShadow">
-            <img src="{{ url_for('static', filename='img/logo.png') }}">
-            
-            <form action="/login"  method="post">
-                Login name:<br>
-                <input type="text" name="username">
-                <br>
-                <br>
-                Passworbs:
-                <br>
-                <input type="password" name="password">
-                <br>
-                <p class="error">{{ errormsg }}</p>
-                <br>
-                <input type="submit" value="Submit" class="outerShadow">
-                
-            </form>
+
+    <body style="background-image: url({{ url_for('static', filename='img/sky.png') }});  background-size: contain; font: 'Amatic', 'Trebuchet MS', sans-serif;">
+
+        <div class="topleftDiv">
+            <div class="mainDiv outerShadow" style="">
+
+                <div style="display: inline-block; vertical-align: top;">
+                <form action="/login"  method="post">
+                    <div style="display: inline-block; ">
+                        Login name:<br>
+                        <input type="text" name="username">
+                        <br>
+                        <br>
+                        Passworbs:
+                        <br>
+                        <input type="password" name="password">
+                        <br>
+                        <p class="error">{{ errormsg }}</p>
+                        <br>
+                        <input type="submit" value="Submit" class="outerShadow">
+                    </div>
+                    <!--<div style="display: inline-block; vertical-align: top; padding-left: 40px;">
+
+                    </div>-->
+                </form>
+                </div>
+            </div>
+            <img srcset="{{ url_for('static', filename='img/logotextwhite_small.png') }} 89w,
+                        {{ url_for('static', filename='img/logotextwhite.png') }} 226w"
+                 sizes="(max-width: 500px) 89px,
+                        226px"
+                 class="logo"
+                 >
+        </div>
+
+        <div class="helptext" style="position: absolute; left: 3em; bottom: 3em; font-family: 'Amatic', 'Trebuchet MS', sans-serif">
             no account? ask a DC staff for an account today :O
         </div>
+        <div id="border">
+        </div>
+        <script>
+            var sketch = function( sk ) {
+                sk.bg = sk.loadImage("/img/sky.png");
+                sk.gnd = sk.loadImage("/img/gndgrad.png");
+                sk.mg0 = sk.loadImage("/img/mg0.png");
+                sk.mg1 = sk.loadImage("/img/mg1.png");
+                sk.mg2 = sk.loadImage("/img/mg2.png");
+                sk.mg3 = sk.loadImage("/img/mg3.png");
+                sk.mg4 = sk.loadImage("/img/mg4.png");
+                sk.setup = function() {
+                    sk.createCanvas(sk.windowWidth, sk.windowHeight, sk.WEBGL);
+                    sk.bg.resize(sk.width, sk.height);
+                }
+                sk.tick = 0;
+                sk.bgz = -30000;
+                sk.bgscale = 50;
+
+                sk.image3d = function(img,x,y,z,w,h){
+                    sk.push();
+                    sk.translate(x,y,z);
+                    sk.image(img,0,0,w,h);
+                    sk.pop();
+                };
+                sk.getHeight = function( depth){
+                    // compensate for cameras not positioned at z=0
+                    const cameraOffset = 0;
+                    if ( depth < cameraOffset ) depth -= cameraOffset;
+                    else depth += cameraOffset;
+
+                    // vertical fov in radians
+                    const vFOV = sk.PI/3.0;
+
+                    // Math.abs to ensure the result is always positive
+                    return 2 * Math.tan( vFOV / 2 ) * Math.abs( depth );
+                };
+                sk.draw = function(){
+                    tick++;
+
+                    var w = sk.windowWidth;
+                    var h = sk.windowHeight;
+                    sk.translate(-w/2,-h/2);
+                    sk.background(111);
+
+                    sk.ortho();
+
+                    let eyeZ =((sk.height/2.0) / sk.tan(sk.PI*60.0/360.0));
+
+                    sk.perspective(sk.PI/3.0, sk.width/sk.height, eyeZ/10.0, eyeZ*100.0);
+
+                    sk.push();
+                    sk.translate(w/2,h/2,sk.bgz);
+                    let sca = sk.getHeight(sk.bgz)/sk.height+2;
+                    //console.log(sca);
+                    sk.scale(sca);
+                    sk.translate(-w/2,-h/2);
+                    sk.image(sk.bg,0,0,w,h);
+
+                    sk.pop();
+                    sk.push();
+                    let cmx = tick*100;
+                    sk.translate(-cmx ,0);
+                    sk.fill(255);
+
+                    //sk.ambientMaterial(255);
+                    for(let i =sk.floor(-17+cmx/w);i<sk.floor(17+cmx/w);i++) {
+                        sk.beginShape();
+                        sk.texture(sk.gnd);
+                        sk.vertex(i * w,        h - sk.noise(i)*100, sk.bgz,      0, 0);
+                        sk.vertex((i + 1) * w,  h - sk.noise(i+1)*100, sk.bgz,      1, 0);
+                        sk.vertex((i + 1) * w,  h, 0,                              1, 1);
+                        sk.vertex(i * w,        h , 0,                              0, 1);
+                        sk.endShape();
+
+
+                    }
+                    for(let i =sk.floor(-2+(cmx*0.2)/(w*32));i<sk.floor(2+(cmx*0.2)/(w*32));i++) {
+                            sk.image3d(sk.mg0,i * w*32+cmx*0.8,        h - 12000, sk.bgz*0.95,w*32,12000);
+                    }
+                    for(let i =sk.floor(-4+cmx/(w*8));i<sk.floor(4+cmx/(w*8));i++) {
+                        if(sk.noise(i+2)>0.5)
+                        sk.image3d(sk.mg1,i * w*8,        h - 2000, sk.bgz*0.85,w*8,2000);
+                    }
+                    for(let i =sk.floor(-3+cmx/(w*8));i<sk.floor(3+cmx/(w*8));i++) {
+                        if(sk.noise(i-99)>0.5)
+                        sk.image3d(sk.mg2,i * w*8,        h - 2000, sk.bgz*0.55,w*8,2000);
+                    }
+                    for(let i =sk.floor(-3+cmx/(w*8));i<sk.floor(3+cmx/(w*8));i++) {
+                        if(sk.noise(i+23)>0.6)
+                            sk.image3d(sk.mg3,i * w*8,        h - 4000, sk.bgz*0.25,w*8,4000);
+                    }
+                    for(let i =sk.floor(-2+cmx/(w*8));i<sk.floor(3+cmx/(w*8));i++) {
+                        if(sk.noise(i+17)>0.4)
+                        sk.image3d(sk.mg4,i * w*8,        h - 9000, sk.bgz*0.05,w*8,9000);
+                    }
+                    sk.pop();
+
+                }
+            }
+            var bgsketch = new p5(sketch, 'border');
+
+            class sceneObj{
+                constructor(div, x,y,z){
+                    this.div=div;
+                    this.x=x;
+                    this.y=y;
+                    this.z=z;
+                    this.rot=[0,0,0];
+
+                }
+
+                updateDiv(cmx){
+                    this.div.style.transform =
+                        "rotateX("+this.rot[0]+"deg) " +
+                        "rotateY("+this.rot[1]+"deg) " +
+                        "rotateZ("+this.rot[2]+"deg) " +
+                        " translateX("+(this.x+cmx)+"vh  )" +
+                        " translateY("+this.y+"vh  )" +
+                        " translateZ("+this.z+"vh)";
+                }
+            }
+            let allObjs = [];
+            let allDivs = [];
+                let divwidth = window.innerWidth*0.5;
+            function mkDIV(xoffset,divclass,w,h){
+                div = document.createElement('div');
+                div.className = divclass;
+                div.style.perspective= "1px";
+                //div.style.padding= "50px";
+                div.style.position= "absolute";
+                div.style.height= h+"vh";
+                div.style.zindex= "-1";
+                div.style.width= (w*divwidth)+"vh";
+                // div.style.border= "1px solid black";
+                //div.textContent="aaaaaaa"
+
+                div.style.transform= "rotateX(45deg)  translateX("+xoffset+"px)";
+
+
+                return div;
+            }
+            function addSceneObj(divclass,x,y,z,w,h){
+                let mg1div = mkDIV(0,divclass,w,h);
+                let mg1obj = new sceneObj(mg1div,x,y,z);
+                allObjs.push(mg1obj);
+                document.getElementById('border').appendChild(mg1div);
+            }
+
+            for(var i = 0;i<4;i++){
+                //let grndDiv =mkDIV(0,"heck",1,30);
+                //allDivs.push(grndDiv);
+                //document.getElementById('border').appendChild(grndDiv);
+            }
+
+            //addSceneObj("mg1",-800,-130,-20,3,400);
+            //addSceneObj("mg2",-700,-190,-14,3,400);
+            //addSceneObj("mg3",-700,-190,-8,3,400);
+            //setInterval(update, 30);
+
+            let offset = 0;
+            let tick = 0;
+
+            function update(){
+                tick++;
+                offset = 3*(5*Math.sin(tick*0.01)+3*Math.sin(tick*0.007))*divwidth/160;
+
+                for(var i = 0;i<allObjs.length;i++) {
+                    allObjs[i].updateDiv(offset);
+                }
+                for(var i = 0;i<allDivs.length;i++){
+                    allDivs[i].style.transform = "rotateX(90deg) " +
+                        " translateX("+((offset+i*divwidth)%(allDivs.length*divwidth)-allDivs.length*divwidth*0.5)+"vh  )" +
+                        " translateZ(-70vh) translateY(-12vh) "
+                }
+
+            }
+        </script>
     </body>
+
 </html>

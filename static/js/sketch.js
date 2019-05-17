@@ -113,11 +113,11 @@ var sketch = function( sk ) {
             sk.textAlign(sk.CENTER);
             sk.applyFont("phantom");
             sk.textSize(64);
-            sk.text("Awe",-999,-999);
+            //sk.text("Awe",-999,-999);
             sk.text("DC",w/2,h/2);
             sk.applyFont("frozito");
             sk.textSize(24);
-            sk.text("Awe",-999,-999);
+            //sk.text("Awe",-999,-999);
             sk.text("quest",w/2,h/2+30);
 
             sk.pop();
@@ -133,7 +133,7 @@ var sketch = function( sk ) {
                 sk.textAlign(sk.CENTER);
                 sk.applyFont("unseen");
                 sk.textSize(18);
-                sk.text("Awe",-999,-999);
+                //sk.text("Awe",-999,-999);
                 sk.text("Welcome "+sk.playerName,w/2,h/2+110);
                 if(sk.loadTextFade>0.99999){
                     let destState = 1;
@@ -266,6 +266,29 @@ var sketch = function( sk ) {
         }
 
     };
+
+    sk.keyPressed=function(){
+        switch (sk.gamestate) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                sk.changeGameState(3);
+                break;
+            case 3:
+                if(sk.keyCode===sk.ENTER) {
+                    sk.httpPost2("/userDidSomething", sk.playerName+" "+sk.token+" "+"SET_PLAYER_CLASS||"+sk.player_class_list[sk.selected_class],
+                    function(message){
+                        console.log(message);
+                        sk.gold = sk.int(message);
+                    });
+                    sk.changeGameState(1);
+                }
+                break;
+
+        }
+    }
 
 
     /// ANIMATIONS

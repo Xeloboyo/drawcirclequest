@@ -1,4 +1,4 @@
-/*! p5.js v0.8.0 April 08, 2019 */
+/*! p5.js v0.8.0 May 15, 2019 */
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.p5 = f()}})(function(){var define,module,exports;return (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(_dereq_,module,exports){
 module.exports={
     "project": {
@@ -1270,7 +1270,7 @@ module.exports={
             "module": "IO",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 1231,
+            "line": 1238,
             "description": "<p>This is the p5 instance constructor.</p>\n<p>A p5 instance holds all the properties and methods related to\na p5 sketch.  It expects an incoming sketch closure and it can also\ntake an optional node parameter for attaching the generated p5 canvas\nto a node.  The sketch closure takes the newly created p5 instance as\nits sole argument and may optionally set <a href=\"#/p5/preload\">preload()</a>, <a href=\"#/p5/setup\">setup()</a>, and/or\n<a href=\"#/p5/draw\">draw()</a> properties on it for running a sketch.</p>\n<p>A p5 sketch can run in &quot;global&quot; or &quot;instance&quot; mode:\n&quot;global&quot;   - all properties and methods are attached to the window\n&quot;instance&quot; - all properties and methods are bound to this p5 object</p>\n"
         },
         "Table": {
@@ -2007,7 +2007,7 @@ module.exports={
             "submodule": "Output",
             "namespace": "",
             "file": "src/io/files.js",
-            "line": 1231,
+            "line": 1238,
             "params": [
                 {
                     "name": "filename",
@@ -4015,7 +4015,7 @@ module.exports={
         {
             "file": "src/color/setting.js",
             "line": 341,
-            "description": "<p>Sets the color used to fill shapes. For example, if you run\nfill(204, 102, 0), all subsequent shapes will be filled with orange. This\ncolor is either specified in terms of the RGB or HSB color depending on\nthe current <a href=\"#/p5/colorMode\">colorMode()</a>. (The default color space is RGB, with each value\nin the range from 0 to 255). The alpha range by default is also 0 to 255.\n<br><br>\nIf a single string argument is provided, RGB, RGBA and Hex CSS color strings\nand all named color strings are supported. In this case, an alpha number\nvalue as a second argument is not supported, the RGBA form should be used.\n<br><br>\nA p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color.</p>\n",
+            "description": "<p>Sets the color used to fill shapes. For example, if you run\nfill(204, 102, 0), all shapes drawn after the fill command will be filled with the color orange. This\ncolor is either specified in terms of the RGB or HSB color depending on\nthe current <a href=\"#/p5/colorMode\">colorMode()</a>. (The default color space is RGB, with each value\nin the range from 0 to 255). The alpha range by default is also 0 to 255.\n<br><br>\nIf a single string argument is provided, RGB, RGBA and Hex CSS color strings\nand all named color strings are supported. In this case, an alpha number\nvalue as a second argument is not supported, the RGBA form should be used.\n<br><br>\nA p5 <a href=\"#/p5.Color\">Color</a> object can also be provided to set the fill color.</p>\n",
             "itemtype": "method",
             "name": "fill",
             "chainable": 1,
@@ -5891,6 +5891,7 @@ module.exports={
         {
             "file": "src/core/constants.js",
             "line": 18,
+            "description": "<p>One of the two render modes in p5.js: P2D (default renderer) and WEBGL\nEnables 3D render by introducing the third dimension: Z</p>\n",
             "itemtype": "property",
             "name": "WEBGL",
             "type": "String",
@@ -5901,7 +5902,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 25,
+            "line": 27,
             "itemtype": "property",
             "name": "ARROW",
             "type": "String",
@@ -5912,7 +5913,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 30,
+            "line": 32,
             "itemtype": "property",
             "name": "CROSS",
             "type": "String",
@@ -5923,7 +5924,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 35,
+            "line": 37,
             "itemtype": "property",
             "name": "HAND",
             "type": "String",
@@ -5934,7 +5935,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 40,
+            "line": 42,
             "itemtype": "property",
             "name": "MOVE",
             "type": "String",
@@ -5945,7 +5946,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 45,
+            "line": 47,
             "itemtype": "property",
             "name": "TEXT",
             "type": "String",
@@ -5956,7 +5957,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 50,
+            "line": 52,
             "itemtype": "property",
             "name": "WAIT",
             "type": "String",
@@ -5967,7 +5968,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 58,
+            "line": 60,
             "description": "<p>HALF_PI is a mathematical constant with the value\n1.57079632679489661923. It is half the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "HALF_PI",
@@ -5983,7 +5984,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 77,
+            "line": 79,
             "description": "<p>PI is a mathematical constant with the value\n3.14159265358979323846. It is the ratio of the circumference\nof a circle to its diameter. It is useful in combination with\nthe trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "PI",
@@ -5999,7 +6000,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 96,
+            "line": 98,
             "description": "<p>QUARTER_PI is a mathematical constant with the value 0.7853982.\nIt is one quarter the ratio of the circumference of a circle to\nits diameter. It is useful in combination with the trigonometric\nfunctions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "QUARTER_PI",
@@ -6015,7 +6016,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 115,
+            "line": 117,
             "description": "<p>TAU is an alias for TWO_PI, a mathematical constant with the\nvalue 6.28318530717958647693. It is twice the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "TAU",
@@ -6031,7 +6032,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 134,
+            "line": 136,
             "description": "<p>TWO_PI is a mathematical constant with the value\n6.28318530717958647693. It is twice the ratio of the\ncircumference of a circle to its diameter. It is useful in\ncombination with the trigonometric functions <a href=\"#/p5/sin\">sin()</a> and <a href=\"#/p5/cos\">cos()</a>.</p>\n",
             "itemtype": "property",
             "name": "TWO_PI",
@@ -6047,7 +6048,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 153,
+            "line": 155,
             "description": "<p>Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which\np5.js interprates and calculates angles (either DEGREES or RADIANS).</p>\n",
             "itemtype": "property",
             "name": "DEGREES",
@@ -6062,7 +6063,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 167,
+            "line": 169,
             "description": "<p>Constant to be used with <a href=\"#/p5/angleMode\">angleMode()</a> function, to set the mode which\np5.js interprates and calculates angles (either RADIANS or DEGREES).</p>\n",
             "itemtype": "property",
             "name": "RADIANS",
@@ -6077,7 +6078,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 185,
+            "line": 187,
             "itemtype": "property",
             "name": "CORNER",
             "type": "String",
@@ -6088,7 +6089,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 190,
+            "line": 192,
             "itemtype": "property",
             "name": "CORNERS",
             "type": "String",
@@ -6099,7 +6100,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 195,
+            "line": 197,
             "itemtype": "property",
             "name": "RADIUS",
             "type": "String",
@@ -6110,7 +6111,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 200,
+            "line": 202,
             "itemtype": "property",
             "name": "RIGHT",
             "type": "String",
@@ -6121,7 +6122,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 205,
+            "line": 207,
             "itemtype": "property",
             "name": "LEFT",
             "type": "String",
@@ -6132,7 +6133,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 210,
+            "line": 212,
             "itemtype": "property",
             "name": "CENTER",
             "type": "String",
@@ -6143,7 +6144,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 215,
+            "line": 217,
             "itemtype": "property",
             "name": "TOP",
             "type": "String",
@@ -6154,7 +6155,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 220,
+            "line": 222,
             "itemtype": "property",
             "name": "BOTTOM",
             "type": "String",
@@ -6165,7 +6166,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 225,
+            "line": 227,
             "itemtype": "property",
             "name": "BASELINE",
             "type": "String",
@@ -6177,7 +6178,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 231,
+            "line": 233,
             "itemtype": "property",
             "name": "POINTS",
             "type": "Number",
@@ -6189,7 +6190,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 237,
+            "line": 239,
             "itemtype": "property",
             "name": "LINES",
             "type": "Number",
@@ -6201,7 +6202,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 243,
+            "line": 245,
             "itemtype": "property",
             "name": "LINE_STRIP",
             "type": "Number",
@@ -6213,7 +6214,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 249,
+            "line": 251,
             "itemtype": "property",
             "name": "LINE_LOOP",
             "type": "Number",
@@ -6225,7 +6226,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 255,
+            "line": 257,
             "itemtype": "property",
             "name": "TRIANGLES",
             "type": "Number",
@@ -6237,7 +6238,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 261,
+            "line": 263,
             "itemtype": "property",
             "name": "TRIANGLE_FAN",
             "type": "Number",
@@ -6249,7 +6250,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 267,
+            "line": 269,
             "itemtype": "property",
             "name": "TRIANGLE_STRIP",
             "type": "Number",
@@ -6261,7 +6262,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 273,
+            "line": 275,
             "itemtype": "property",
             "name": "QUADS",
             "type": "String",
@@ -6272,7 +6273,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 278,
+            "line": 280,
             "itemtype": "property",
             "name": "QUAD_STRIP",
             "type": "String",
@@ -6284,7 +6285,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 284,
+            "line": 286,
             "itemtype": "property",
             "name": "CLOSE",
             "type": "String",
@@ -6295,7 +6296,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 289,
+            "line": 291,
             "itemtype": "property",
             "name": "OPEN",
             "type": "String",
@@ -6306,7 +6307,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 294,
+            "line": 296,
             "itemtype": "property",
             "name": "CHORD",
             "type": "String",
@@ -6317,7 +6318,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 299,
+            "line": 301,
             "itemtype": "property",
             "name": "PIE",
             "type": "String",
@@ -6328,7 +6329,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 304,
+            "line": 306,
             "itemtype": "property",
             "name": "PROJECT",
             "type": "String",
@@ -6340,7 +6341,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 310,
+            "line": 312,
             "itemtype": "property",
             "name": "SQUARE",
             "type": "String",
@@ -6352,7 +6353,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 316,
+            "line": 318,
             "itemtype": "property",
             "name": "ROUND",
             "type": "String",
@@ -6363,7 +6364,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 321,
+            "line": 323,
             "itemtype": "property",
             "name": "BEVEL",
             "type": "String",
@@ -6374,7 +6375,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 326,
+            "line": 328,
             "itemtype": "property",
             "name": "MITER",
             "type": "String",
@@ -6385,7 +6386,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 333,
+            "line": 335,
             "itemtype": "property",
             "name": "RGB",
             "type": "String",
@@ -6396,7 +6397,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 338,
+            "line": 340,
             "itemtype": "property",
             "name": "HSB",
             "type": "String",
@@ -6407,7 +6408,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 343,
+            "line": 345,
             "itemtype": "property",
             "name": "HSL",
             "type": "String",
@@ -6418,7 +6419,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 350,
+            "line": 352,
             "description": "<p>AUTO allows us to automatically set the width or height of an element (but not both),\nbased on the current height and width of the element. Only one parameter can\nbe passed to the <a href=\"/#/p5.Element/size\">size</a> function as AUTO, at a time.</p>\n",
             "itemtype": "property",
             "name": "AUTO",
@@ -6430,7 +6431,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 377,
+            "line": 379,
             "itemtype": "property",
             "name": "BLEND",
             "type": "String",
@@ -6442,7 +6443,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 383,
+            "line": 385,
             "itemtype": "property",
             "name": "ADD",
             "type": "String",
@@ -6454,7 +6455,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 391,
+            "line": 393,
             "itemtype": "property",
             "name": "DARKEST",
             "type": "String",
@@ -6465,7 +6466,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 396,
+            "line": 398,
             "itemtype": "property",
             "name": "LIGHTEST",
             "type": "String",
@@ -6477,7 +6478,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 402,
+            "line": 404,
             "itemtype": "property",
             "name": "DIFFERENCE",
             "type": "String",
@@ -6488,7 +6489,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 407,
+            "line": 409,
             "itemtype": "property",
             "name": "SUBTRACT",
             "type": "String",
@@ -6499,7 +6500,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 412,
+            "line": 414,
             "itemtype": "property",
             "name": "EXCLUSION",
             "type": "String",
@@ -6510,7 +6511,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 417,
+            "line": 419,
             "itemtype": "property",
             "name": "MULTIPLY",
             "type": "String",
@@ -6521,7 +6522,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 422,
+            "line": 424,
             "itemtype": "property",
             "name": "SCREEN",
             "type": "String",
@@ -6532,7 +6533,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 427,
+            "line": 429,
             "itemtype": "property",
             "name": "REPLACE",
             "type": "String",
@@ -6544,7 +6545,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 433,
+            "line": 435,
             "itemtype": "property",
             "name": "OVERLAY",
             "type": "String",
@@ -6555,7 +6556,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 438,
+            "line": 440,
             "itemtype": "property",
             "name": "HARD_LIGHT",
             "type": "String",
@@ -6566,7 +6567,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 443,
+            "line": 445,
             "itemtype": "property",
             "name": "SOFT_LIGHT",
             "type": "String",
@@ -6577,7 +6578,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 448,
+            "line": 450,
             "itemtype": "property",
             "name": "DODGE",
             "type": "String",
@@ -6589,7 +6590,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 454,
+            "line": 456,
             "itemtype": "property",
             "name": "BURN",
             "type": "String",
@@ -6601,7 +6602,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 462,
+            "line": 464,
             "itemtype": "property",
             "name": "THRESHOLD",
             "type": "String",
@@ -6612,7 +6613,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 467,
+            "line": 469,
             "itemtype": "property",
             "name": "GRAY",
             "type": "String",
@@ -6623,7 +6624,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 472,
+            "line": 474,
             "itemtype": "property",
             "name": "OPAQUE",
             "type": "String",
@@ -6634,7 +6635,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 477,
+            "line": 479,
             "itemtype": "property",
             "name": "INVERT",
             "type": "String",
@@ -6645,7 +6646,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 482,
+            "line": 484,
             "itemtype": "property",
             "name": "POSTERIZE",
             "type": "String",
@@ -6656,7 +6657,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 487,
+            "line": 489,
             "itemtype": "property",
             "name": "DILATE",
             "type": "String",
@@ -6667,7 +6668,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 492,
+            "line": 494,
             "itemtype": "property",
             "name": "ERODE",
             "type": "String",
@@ -6678,7 +6679,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 497,
+            "line": 499,
             "itemtype": "property",
             "name": "BLUR",
             "type": "String",
@@ -6689,7 +6690,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 504,
+            "line": 506,
             "itemtype": "property",
             "name": "NORMAL",
             "type": "String",
@@ -6700,7 +6701,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 509,
+            "line": 511,
             "itemtype": "property",
             "name": "ITALIC",
             "type": "String",
@@ -6711,7 +6712,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 514,
+            "line": 516,
             "itemtype": "property",
             "name": "BOLD",
             "type": "String",
@@ -6722,7 +6723,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 519,
+            "line": 521,
             "itemtype": "property",
             "name": "BOLDITALIC",
             "type": "String",
@@ -6733,7 +6734,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 544,
+            "line": 546,
             "itemtype": "property",
             "name": "IMAGE",
             "type": "String",
@@ -6744,7 +6745,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 558,
+            "line": 560,
             "itemtype": "property",
             "name": "LANDSCAPE",
             "type": "String",
@@ -6755,7 +6756,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 563,
+            "line": 565,
             "itemtype": "property",
             "name": "PORTRAIT",
             "type": "String",
@@ -6766,7 +6767,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 573,
+            "line": 575,
             "itemtype": "property",
             "name": "GRID",
             "type": "String",
@@ -6777,7 +6778,7 @@ module.exports={
         },
         {
             "file": "src/core/constants.js",
-            "line": 579,
+            "line": 581,
             "itemtype": "property",
             "name": "AXES",
             "type": "String",
@@ -7751,7 +7752,7 @@ module.exports={
         },
         {
             "file": "src/core/p5.Renderer2D.js",
-            "line": 405,
+            "line": 407,
             "description": "<p>Generate a cubic Bezier representing an arc on the unit circle of total\nangle <code>size</code> radians, beginning <code>start</code> radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.</p>\n<p>See <a href=\"http://www.joecridge.me/bezier.pdf\">www.joecridge.me/bezier.pdf</a> for an explanation of the method.</p>\n",
             "class": "p5",
             "module": "Rendering"
@@ -11127,7 +11128,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 180,
+            "line": 184,
             "description": "<p>Reads the contents of a file and creates a String array of its individual\nlines. If the name of the file is used as the parameter, as in the above\nexample, the file must be located in the sketch directory/folder.\n<br><br>\nAlternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.\n<br><br>\nThis method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed.</p>\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadStrings",
@@ -11164,7 +11165,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 293,
+            "line": 297,
             "description": "<p>Reads the contents of a file or URL and creates a <a href=\"#/p5.Table\">p5.Table</a> object with\nits values. If a file is specified, it must be located in the sketch&#39;s\n&quot;data&quot; folder. The filename parameter can also be a URL to a file found\nonline. By default, the file is assumed to be comma-separated (in CSV\nformat). Table only looks for a header row if the &#39;header&#39; option is\nincluded.</p>\n\n<p>Possible options include:\n<ul>\n<li>csv - parse the table as comma-separated values</li>\n<li>tsv - parse the table as tab-separated values</li>\n<li>header - this table has a header (title) row</li>\n</ul>\n</p>\n\n<p>When passing in multiple options, pass them in as separate parameters,\nseperated by commas. For example:\n<br><br>\n<code>\nloadTable(&#39;my_csv_file.csv&#39;, &#39;csv&#39;, &#39;header&#39;);\n</code>\n</p>\n\n<p> All files loaded and saved use UTF-8 encoding.</p>\n\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling <a href=\"#/p5/loadTable\">loadTable()</a> inside <a href=\"#/p5/preload\">preload()</a>\nguarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.\n<p>Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the\nobject:</p>\n</p>\n\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadTable",
@@ -11181,7 +11182,7 @@ module.exports={
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 293,
+                    "line": 297,
                     "params": [
                         {
                             "name": "filename",
@@ -11212,7 +11213,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 383,
+                    "line": 387,
                     "params": [
                         {
                             "name": "filename",
@@ -11241,7 +11242,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 603,
+            "line": 607,
             "description": "<p>Reads the contents of a file and creates an XML object with its values.\nIf the name of the file is used as the parameter, as in the above example,\nthe file must be located in the sketch directory/folder.</p>\n<p>Alternatively, the file maybe be loaded from anywhere on the local\ncomputer using an absolute path (something that starts with / on Unix and\nLinux, or a drive letter on Windows), or the filename parameter can be a\nURL for a file found on a network.</p>\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling <a href=\"#/p5/loadXML\">loadXML()</a> inside <a href=\"#/p5/preload\">preload()</a>\nguarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.</p>\n<p>Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the\nobject.</p>\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadXML",
@@ -11278,7 +11279,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 714,
+            "line": 718,
             "description": "<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadBytes",
@@ -11315,7 +11316,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 774,
+            "line": 778,
             "description": "<p>Method for executing an HTTP GET request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text. This is equivalent to\ncalling <code>httpDo(path, &#39;GET&#39;)</code>. The &#39;binary&#39; datatype will return\na Blob object, and the &#39;arrayBuffer&#39; datatype will return an ArrayBuffer\nwhich can be used to initialize typed arrays (such as Uint8Array).</p>\n",
             "itemtype": "method",
             "name": "httpGet",
@@ -11331,7 +11332,7 @@ module.exports={
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 774,
+                    "line": 778,
                     "params": [
                         {
                             "name": "path",
@@ -11369,7 +11370,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 828,
+                    "line": 832,
                     "params": [
                         {
                             "name": "path",
@@ -11400,7 +11401,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 836,
+                    "line": 840,
                     "params": [
                         {
                             "name": "path",
@@ -11428,7 +11429,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 851,
+            "line": 855,
             "description": "<p>Method for executing an HTTP POST request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text. This is equivalent to\ncalling <code>httpDo(path, &#39;POST&#39;)</code>.</p>\n",
             "itemtype": "method",
             "name": "httpPost",
@@ -11444,7 +11445,7 @@ module.exports={
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 851,
+                    "line": 855,
                     "params": [
                         {
                             "name": "path",
@@ -11482,7 +11483,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 933,
+                    "line": 937,
                     "params": [
                         {
                             "name": "path",
@@ -11513,7 +11514,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 941,
+                    "line": 945,
                     "params": [
                         {
                             "name": "path",
@@ -11541,7 +11542,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 956,
+            "line": 960,
             "description": "<p>Method for executing an HTTP request. If data type is not specified,\np5 will try to guess based on the URL, defaulting to text.<br><br>\nFor more advanced use, you may also pass in the path as the first argument\nand a object as the second argument, the signature follows the one specified\nin the Fetch API specification.\nThis method is suitable for fetching files up to size of 64MB when &quot;GET&quot; is used.</p>\n",
             "itemtype": "method",
             "name": "httpDo",
@@ -11557,7 +11558,7 @@ module.exports={
             "submodule": "Input",
             "overloads": [
                 {
-                    "line": 956,
+                    "line": 960,
                     "params": [
                         {
                             "name": "path",
@@ -11601,7 +11602,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 1027,
+                    "line": 1031,
                     "params": [
                         {
                             "name": "path",
@@ -11635,7 +11636,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1186,
+            "line": 1193,
             "itemtype": "method",
             "name": "createWriter",
             "params": [
@@ -11664,7 +11665,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1241,
+            "line": 1248,
             "description": "<p>Writes data to the PrintWriter stream</p>\n",
             "itemtype": "method",
             "name": "write",
@@ -11684,7 +11685,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1281,
+            "line": 1288,
             "description": "<p>Writes data to the PrintWriter stream, and adds a new line at the end</p>\n",
             "itemtype": "method",
             "name": "print",
@@ -11704,7 +11705,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1324,
+            "line": 1331,
             "description": "<p>Clears the data already written to the PrintWriter object</p>\n",
             "itemtype": "method",
             "name": "clear",
@@ -11717,7 +11718,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1342,
+            "line": 1349,
             "description": "<p>Closes the PrintWriter</p>\n",
             "itemtype": "method",
             "name": "close",
@@ -11730,7 +11731,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1391,
+            "line": 1398,
             "description": "<p>Save an image, text, json, csv, wav, or html. Prompts download to\nthe client&#39;s computer. <b>Note that it is not recommended to call <a href=\"#/p5/save\">save()</a>\nwithin draw if it&#39;s looping, as the <a href=\"#/p5/save\">save()</a> function will open a new save\ndialog every frame.</b></p>\n<p>The default behavior is to save the canvas as an image. You can\noptionally specify a filename.\nFor example:</p>\n <pre class='language-javascript'><code>\n save();\n save(&#39;myCanvas.jpg&#39;); // save a specific canvas with a filename\n </code></pre>\n\n<p>Alternately, the first parameter can be a pointer to a canvas\n<a href=\"#/p5.Element\">p5.Element</a>, an Array of Strings,\nan Array of JSON, a JSON object, a <a href=\"#/p5.Table\">p5.Table</a>, a <a href=\"#/p5.Image\">p5.Image</a>, or a\np5.SoundFile (requires p5.sound). The second parameter is a filename\n(including extension). The third parameter is for options specific\nto this type of object. This method will save a file that fits the\ngiven parameters. For example:</p>\n\n <pre class='language-javascript'><code>\n // Saves canvas as an image\n save('myCanvas.jpg');\n\n // Saves pImage as a png image\n let img = createImage(10, 10);\n save(img, 'my.png');\n\n // Saves canvas as an image\n let cnv = createCanvas(100, 100);\n save(cnv, 'myCanvas.jpg');\n\n // Saves p5.Renderer object as an image\n let gb = createGraphics(100, 100);\n save(gb, 'myGraphics.jpg');\n\n let myTable = new p5.Table();\n\n // Saves table as html file\n save(myTable, 'myTable.html');\n\n // Comma Separated Values\n save(myTable, 'myTable.csv');\n\n // Tab Separated Values\n save(myTable, 'myTable.tsv');\n\n let myJSON = { a: 1, b: true };\n\n // Saves pretty JSON\n save(myJSON, 'my.json');\n\n // Optimizes JSON filesize\n save(myJSON, 'my.json', true);\n\n // Saves array of strings to a text file with line breaks after each item\n let arrayOfStrings = ['a', 'b'];\n save(arrayOfStrings, 'my.txt');\n </code></pre>",
             "itemtype": "method",
             "name": "save",
@@ -11760,7 +11761,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1519,
+            "line": 1526,
             "description": "<p>Writes the contents of an Array or a JSON object to a .json file.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveJSON",
@@ -11792,7 +11793,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1577,
+            "line": 1584,
             "description": "<p>Writes an array of Strings to a text file, one line per String.\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveStrings",
@@ -11824,7 +11825,7 @@ module.exports={
         },
         {
             "file": "src/io/files.js",
-            "line": 1645,
+            "line": 1652,
             "description": "<p>Writes the contents of a <a href=\"#/p5.Table\">Table</a> object to a file. Defaults to a\ntext file with comma-separated-values (&#39;csv&#39;) but can also\nuse tab separation (&#39;tsv&#39;), or generate an HTML table (&#39;html&#39;).\nThe file saving process and location of the saved file will\nvary between web browsers.</p>\n",
             "itemtype": "method",
             "name": "saveTable",
@@ -13104,7 +13105,7 @@ module.exports={
         {
             "file": "src/math/calculation.js",
             "line": 121,
-            "description": "<p>Calculates the distance between two points.</p>\n",
+            "description": "<p>Calculates the distance between two points, in either two or three dimensions.</p>\n",
             "itemtype": "method",
             "name": "dist",
             "return": {
@@ -13915,7 +13916,7 @@ module.exports={
                     "chainable": 1
                 },
                 {
-                    "line": 1556,
+                    "line": 1555,
                     "params": [
                         {
                             "name": "v1",
@@ -13936,7 +13937,7 @@ module.exports={
                     "static": 1
                 },
                 {
-                    "line": 1563,
+                    "line": 1562,
                     "params": [
                         {
                             "name": "v1",
@@ -14006,7 +14007,7 @@ module.exports={
                     "chainable": 1
                 },
                 {
-                    "line": 1586,
+                    "line": 1585,
                     "params": [
                         {
                             "name": "v1",
@@ -14027,7 +14028,7 @@ module.exports={
                     "static": 1
                 },
                 {
-                    "line": 1593,
+                    "line": 1592,
                     "params": [
                         {
                             "name": "v1",
@@ -14074,7 +14075,7 @@ module.exports={
                     "chainable": 1
                 },
                 {
-                    "line": 1614,
+                    "line": 1613,
                     "params": [
                         {
                             "name": "v",
@@ -14095,7 +14096,7 @@ module.exports={
                     "static": 1
                 },
                 {
-                    "line": 1621,
+                    "line": 1620,
                     "params": [
                         {
                             "name": "v",
@@ -14142,7 +14143,7 @@ module.exports={
                     "chainable": 1
                 },
                 {
-                    "line": 1641,
+                    "line": 1640,
                     "params": [
                         {
                             "name": "v",
@@ -14163,7 +14164,7 @@ module.exports={
                     "static": 1
                 },
                 {
-                    "line": 1648,
+                    "line": 1647,
                     "params": [
                         {
                             "name": "v",
@@ -14210,7 +14211,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 1738,
+                    "line": 1737,
                     "params": [
                         {
                             "name": "vecT",
@@ -14301,7 +14302,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 1668,
+                    "line": 1667,
                     "params": [
                         {
                             "name": "v1",
@@ -14354,7 +14355,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 1682,
+                    "line": 1681,
                     "params": [
                         {
                             "name": "v1",
@@ -14407,7 +14408,7 @@ module.exports={
                     }
                 },
                 {
-                    "line": 1697,
+                    "line": 1696,
                     "params": [
                         {
                             "name": "v1",
@@ -14533,8 +14534,8 @@ module.exports={
             "name": "angleBetween",
             "params": [
                 {
-                    "name": "the",
-                    "description": "<p>x, y, and z components of a <a href=\"#/p5.Vector\">p5.Vector</a></p>\n",
+                    "name": "value",
+                    "description": "<p>the x, y, and z components of a <a href=\"#/p5.Vector\">p5.Vector</a></p>\n",
                     "type": "p5.Vector"
                 }
             ],
@@ -14606,7 +14607,7 @@ module.exports={
                     "chainable": 1
                 },
                 {
-                    "line": 1712,
+                    "line": 1711,
                     "params": [
                         {
                             "name": "v1",
@@ -14632,7 +14633,7 @@ module.exports={
                     "static": 1
                 },
                 {
-                    "line": 1720,
+                    "line": 1719,
                     "params": [
                         {
                             "name": "v1",
@@ -14745,7 +14746,7 @@ module.exports={
             "params": [
                 {
                     "name": "angle",
-                    "description": "<p>the desired angle, in radians</p>\n",
+                    "description": "<p>the desired angle, in radians (unaffected by <a href=\"#/p5/angleMode\">angleMode</a>)</p>\n",
                     "type": "Number"
                 },
                 {
@@ -14760,7 +14761,7 @@ module.exports={
                 "type": "p5.Vector"
             },
             "example": [
-                "\n<div>\n<code>\nfunction draw() {\n  background(200);\n\n  // Create a variable, proportional to the mouseX,\n  // varying from 0-360, to represent an angle in degrees.\n  angleMode(DEGREES);\n  let myDegrees = map(mouseX, 0, width, 0, 360);\n\n  // Display that variable in an onscreen text.\n  // (Note the nfc() function to truncate additional decimal places,\n  // and the \"\\xB0\" character for the degree symbol.)\n  let readout = 'angle = ' + nfc(myDegrees, 1) + '\\xB0';\n  noStroke();\n  fill(0);\n  text(readout, 5, 15);\n\n  // Create a p5.Vector using the fromAngle function,\n  // and extract its x and y components.\n  let v = p5.Vector.fromAngle(radians(myDegrees), 30);\n  let vx = v.x;\n  let vy = v.y;\n\n  push();\n  translate(width / 2, height / 2);\n  noFill();\n  stroke(150);\n  line(0, 0, 30, 0);\n  stroke(0);\n  line(0, 0, vx, vy);\n  pop();\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction draw() {\n  background(200);\n\n  // Create a variable, proportional to the mouseX,\n  // varying from 0-360, to represent an angle in degrees.\n  let myDegrees = map(mouseX, 0, width, 0, 360);\n\n  // Display that variable in an onscreen text.\n  // (Note the nfc() function to truncate additional decimal places,\n  // and the \"\\xB0\" character for the degree symbol.)\n  let readout = 'angle = ' + nfc(myDegrees, 1) + '\\xB0';\n  noStroke();\n  fill(0);\n  text(readout, 5, 15);\n\n  // Create a p5.Vector using the fromAngle function,\n  // and extract its x and y components.\n  let v = p5.Vector.fromAngle(radians(myDegrees), 30);\n  let vx = v.x;\n  let vy = v.y;\n\n  push();\n  translate(width / 2, height / 2);\n  noFill();\n  stroke(150);\n  line(0, 0, 30, 0);\n  stroke(0);\n  line(0, 0, vx, vy);\n  pop();\n}\n</code>\n</div>"
             ],
             "class": "p5.Vector",
             "module": "Math",
@@ -14768,7 +14769,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1426,
+            "line": 1425,
             "description": "<p>Make a new 3D vector from a pair of ISO spherical angles</p>\n",
             "itemtype": "method",
             "name": "fromAngles",
@@ -14804,7 +14805,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1475,
+            "line": 1474,
             "description": "<p>Make a new 2D unit vector from a random angle</p>\n",
             "itemtype": "method",
             "name": "random2D",
@@ -14822,7 +14823,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1528,
+            "line": 1527,
             "description": "<p>Make a new random 3D unit vector.</p>\n",
             "itemtype": "method",
             "name": "random3D",
@@ -14840,7 +14841,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1611,
+            "line": 1610,
             "description": "<p>Multiplies a vector by a scalar and returns a new vector.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14848,7 +14849,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1638,
+            "line": 1637,
             "description": "<p>Divides a vector by a scalar and returns a new vector.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14856,7 +14857,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1665,
+            "line": 1664,
             "description": "<p>Calculates the dot product of two vectors.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14864,7 +14865,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1679,
+            "line": 1678,
             "description": "<p>Calculates the cross product of two vectors.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14872,7 +14873,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1693,
+            "line": 1692,
             "description": "<p>Calculates the Euclidean distance between two points (considering a\npoint as a vector object).</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -14880,7 +14881,7 @@ module.exports={
         },
         {
             "file": "src/math/p5.Vector.js",
-            "line": 1708,
+            "line": 1707,
             "description": "<p>Linear interpolate a vector to another vector and return the result as a\nnew vector.</p>\n",
             "class": "p5.Vector",
             "module": "Math",
@@ -17825,7 +17826,7 @@ module.exports={
         {
             "file": "src/webgl/light.js",
             "line": 287,
-            "description": "<p>Sets the default ambient and directional light. The defaults are ambientLight(128, 128, 128) and directionalLight(128, 128, 128, 0, 0, -1). Lights need to be included in the draw() to remain persistent in a looping program. Placing them in the setup() of a looping program will cause them to only have an effect the first time through the loop.</p>\n",
+            "description": "<p>Sets the default ambient and directional light. The defaults are <a href=\"#/p5/ambientLight\">ambientLight(128, 128, 128)</a> and <a href=\"#/p5/directionalLight\">directionalLight(128, 128, 128, 0, 0, -1)</a>. Lights need to be included in the <a href=\"#/p5/draw\">draw()</a> to remain persistent in a looping program. Placing them in the <a href=\"#/p5/setup\">setup()</a> of a looping program will cause them to only have an effect the first time through the loop.</p>\n",
             "itemtype": "method",
             "name": "lights",
             "chainable": 1,
@@ -17877,7 +17878,7 @@ module.exports={
                         },
                         {
                             "name": "failureCallback",
-                            "description": "<p>called with event error if\n                                        the image fails to load.</p>\n",
+                            "description": "<p>called with event error if\n                                        the model fails to load.</p>\n",
                             "type": "Function(Event)",
                             "optional": true
                         }
@@ -18030,13 +18031,17 @@ module.exports={
                     "optional": true
                 }
             ],
+            "example": [
+                "\n<div modernizr='webgl'>\n<code>\n// Click within the image to toggle\n// the shader used by the quad shape\n// Note: for an alternative approach to the same example,\n// involving changing uniforms please refer to:\n// https://p5js.org/reference/#/p5.Shader/setUniform\n\nlet redGreen;\nlet orangeBlue;\nlet showRedGreen = false;\n\nfunction preload() {\n  // note that we are using two instances\n  // of the same vertex and fragment shaders\n  redGreen = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');\n  orangeBlue = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');\n}\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n\n  // initialize the colors for redGreen shader\n  shader(redGreen);\n  redGreen.setUniform('colorCenter', [1.0, 0.0, 0.0]);\n  redGreen.setUniform('colorBackground', [0.0, 1.0, 0.0]);\n\n  // initialize the colors for orangeBlue shader\n  shader(orangeBlue);\n  orangeBlue.setUniform('colorCenter', [1.0, 0.5, 0.0]);\n  orangeBlue.setUniform('colorBackground', [0.226, 0.0, 0.615]);\n\n  noStroke();\n}\n\nfunction draw() {\n  // update the offset values for each shader,\n  // moving orangeBlue in vertical and redGreen\n  // in horizontal direction\n  orangeBlue.setUniform('offset', [0, sin(millis() / 2000) + 1]);\n  redGreen.setUniform('offset', [sin(millis() / 2000), 1]);\n\n  if (showRedGreen === true) {\n    shader(redGreen);\n  } else {\n    shader(orangeBlue);\n  }\n  quad(-1, -1, 1, -1, 1, 1, -1, 1);\n}\n\nfunction mouseClicked() {\n  showRedGreen = !showRedGreen;\n}\n</code>\n</div>"
+            ],
+            "alt": "canvas toggles between a circular gradient of orange and blue vertically. and a circular gradient of red and green moving horizontally when mouse is clicked/pressed.",
             "class": "p5",
             "module": "Lights, Camera",
             "submodule": "Material"
         },
         {
             "file": "src/webgl/material.js",
-            "line": 212,
+            "line": 272,
             "description": "<p>This function restores the default shaders in WEBGL mode. Code that runs\nafter resetShader() will not be affected by previously defined\nshaders. Should be run after <a href=\"#/p5/shader\">shader()</a>.</p>\n",
             "itemtype": "method",
             "name": "resetShader",
@@ -18047,7 +18052,7 @@ module.exports={
         },
         {
             "file": "src/webgl/material.js",
-            "line": 225,
+            "line": 285,
             "description": "<p>Normal material for geometry. You can view all\npossible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "normalMaterial",
@@ -18062,7 +18067,7 @@ module.exports={
         },
         {
             "file": "src/webgl/material.js",
-            "line": 262,
+            "line": 322,
             "description": "<p>Texture for geometry.  You can view other possible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "texture",
@@ -18084,7 +18089,7 @@ module.exports={
         },
         {
             "file": "src/webgl/material.js",
-            "line": 359,
+            "line": 419,
             "description": "<p>Sets the coordinate space for texture mapping. The default mode is IMAGE\nwhich refers to the actual coordinates of the image.\nNORMAL refers to a normalized space of values ranging from 0 to 1.\nThis function only works in WEBGL mode.</p>\n<p>With IMAGE, if an image is 100 x 200 pixels, mapping the image onto the entire\nsize of a quad would require the points (0,0) (100, 0) (100,200) (0,200).\nThe same mapping in NORMAL is (0,0) (1,0) (1,1) (0,1).</p>\n",
             "itemtype": "method",
             "name": "textureMode",
@@ -18105,7 +18110,7 @@ module.exports={
         },
         {
             "file": "src/webgl/material.js",
-            "line": 438,
+            "line": 498,
             "description": "<p>Sets the global texture wrapping mode. This controls how textures behave\nwhen their uv&#39;s go outside of the 0 - 1 range. There are three options:\nCLAMP, REPEAT, and MIRROR.</p>\n<p>CLAMP causes the pixels at the edge of the texture to extend to the bounds\nREPEAT causes the texture to tile repeatedly until reaching the bounds\nMIRROR works similarly to REPEAT but it flips the texture with every new tile</p>\n<p>REPEAT &amp; MIRROR are only available if the texture\nis a power of two size (128, 256, 512, 1024, etc.).</p>\n<p>This method will affect all textures in your sketch until a subsequent\ntextureWrap call is made.</p>\n<p>If only one argument is provided, it will be applied to both the\nhorizontal and vertical axes.</p>\n",
             "itemtype": "method",
             "name": "textureWrap",
@@ -18132,7 +18137,7 @@ module.exports={
         },
         {
             "file": "src/webgl/material.js",
-            "line": 513,
+            "line": 573,
             "description": "<p>Ambient material for geometry with a given color. You can view all\npossible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "ambientMaterial",
@@ -18146,7 +18151,7 @@ module.exports={
             "submodule": "Material",
             "overloads": [
                 {
-                    "line": 513,
+                    "line": 573,
                     "params": [
                         {
                             "name": "v1",
@@ -18175,7 +18180,7 @@ module.exports={
                     "chainable": 1
                 },
                 {
-                    "line": 544,
+                    "line": 604,
                     "params": [
                         {
                             "name": "color",
@@ -18189,7 +18194,7 @@ module.exports={
         },
         {
             "file": "src/webgl/material.js",
-            "line": 563,
+            "line": 623,
             "description": "<p>Specular material for geometry with a given color. You can view all\npossible materials in this\n<a href=\"https://p5js.org/examples/3d-materials.html\">example</a>.</p>\n",
             "itemtype": "method",
             "name": "specularMaterial",
@@ -18203,7 +18208,7 @@ module.exports={
             "submodule": "Material",
             "overloads": [
                 {
-                    "line": 563,
+                    "line": 623,
                     "params": [
                         {
                             "name": "v1",
@@ -18232,7 +18237,7 @@ module.exports={
                     "chainable": 1
                 },
                 {
-                    "line": 595,
+                    "line": 655,
                     "params": [
                         {
                             "name": "color",
@@ -18246,7 +18251,7 @@ module.exports={
         },
         {
             "file": "src/webgl/material.js",
-            "line": 614,
+            "line": 674,
             "description": "<p>Sets the amount of gloss in the surface of shapes.\nUsed in combination with specularMaterial() in setting\nthe material properties of shapes. The default and minimum value is 1.</p>\n",
             "itemtype": "method",
             "name": "shininess",
@@ -18740,6 +18745,10 @@ module.exports={
                     "type": "Object|Number|Boolean|Number[]"
                 }
             ],
+            "example": [
+                "\n<div modernizr='webgl'>\n<code>\n// Click within the image to toggle the value of uniforms\n// Note: for an alternative approach to the same example,\n// involving toggling between shaders please refer to:\n// https://p5js.org/reference/#/p5/shader\n\nlet grad;\nlet showRedGreen = false;\n\nfunction preload() {\n  // note that we are using two instances\n  // of the same vertex and fragment shaders\n  grad = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');\n}\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n  shader(grad);\n  noStroke();\n}\n\nfunction draw() {\n  // update the offset values for each scenario,\n  // moving the \"grad\" shader in either vertical or\n  // horizontal direction each with differing colors\n\n  if (showRedGreen === true) {\n    grad.setUniform('colorCenter', [1, 0, 0]);\n    grad.setUniform('colorBackground', [0, 1, 0]);\n    grad.setUniform('offset', [sin(millis() / 2000), 1]);\n  } else {\n    grad.setUniform('colorCenter', [1, 0.5, 0]);\n    grad.setUniform('colorBackground', [0.226, 0, 0.615]);\n    grad.setUniform('offset', [0, sin(millis() / 2000) + 1]);\n  }\n  quad(-1, -1, 1, -1, 1, 1, -1, 1);\n}\n\nfunction mouseClicked() {\n  showRedGreen = !showRedGreen;\n}\n</code>\n</div>"
+            ],
+            "alt": "canvas toggles between a circular gradient of orange and blue vertically. and a circular gradient of red and green moving horizontally when mouse is clicked/pressed.",
             "class": "p5.Shader",
             "module": "Lights, Camera",
             "submodule": "Shaders"
@@ -25738,23 +25747,23 @@ module.exports={
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:58"
+            "line": " src/core/constants.js:60"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:77"
+            "line": " src/core/constants.js:79"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:96"
+            "line": " src/core/constants.js:98"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:115"
+            "line": " src/core/constants.js:117"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/core/constants.js:134"
+            "line": " src/core/constants.js:136"
         },
         {
             "message": "unknown tag: alt",
@@ -26298,35 +26307,35 @@ module.exports={
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:180"
+            "line": " src/io/files.js:184"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:293"
+            "line": " src/io/files.js:297"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:603"
+            "line": " src/io/files.js:607"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " src/io/files.js:714"
+            "line": " src/io/files.js:718"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:714"
+            "line": " src/io/files.js:718"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1519"
+            "line": " src/io/files.js:1526"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1577"
+            "line": " src/io/files.js:1584"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/io/files.js:1645"
+            "line": " src/io/files.js:1652"
         },
         {
             "message": "unknown tag: alt",
@@ -26734,35 +26743,39 @@ module.exports={
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:225"
+            "line": " src/webgl/material.js:181"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:262"
+            "line": " src/webgl/material.js:285"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:359"
+            "line": " src/webgl/material.js:322"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:359"
+            "line": " src/webgl/material.js:419"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:438"
+            "line": " src/webgl/material.js:419"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:513"
+            "line": " src/webgl/material.js:498"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:563"
+            "line": " src/webgl/material.js:573"
         },
         {
             "message": "unknown tag: alt",
-            "line": " src/webgl/material.js:614"
+            "line": " src/webgl/material.js:623"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/webgl/material.js:674"
         },
         {
             "message": "unknown tag: alt",
@@ -26819,6 +26832,10 @@ module.exports={
         {
             "message": "unknown tag: alt",
             "line": " src/webgl/p5.RendererGL.js:586"
+        },
+        {
+            "message": "unknown tag: alt",
+            "line": " src/webgl/p5.Shader.js:268"
         },
         {
             "message": "replacing incorrect tag: function with method",
@@ -27030,7 +27047,7 @@ module.exports={
         },
         {
             "message": "Missing item type\nGenerate a cubic Bezier representing an arc on the unit circle of total\nangle `size` radians, beginning `start` radians above the x-axis. Up to\nfour of these curves are combined to make a full arc.\n\nSee www.joecridge.me/bezier.pdf for an explanation of the method.",
-            "line": " src/core/p5.Renderer2D.js:405"
+            "line": " src/core/p5.Renderer2D.js:407"
         },
         {
             "message": "Missing item type\nshim for Uint8ClampedArray.slice\n(allows arrayCopy to work with pixels[])\nwith thanks to http://halfpapstudios.com/blog/tag/html5-canvas/\nEnumerable set to false to protect for...in from\nUint8ClampedArray.prototype pollution.",
@@ -27150,19 +27167,19 @@ module.exports={
         },
         {
             "message": "Missing item type\nGenerate a blob of file data as a url to prepare for download.\nAccepts an array of data, a filename, and an extension (optional).\nThis is a private function because it does not do any formatting,\nbut it is used by <a href=\"#/p5/saveStrings\">saveStrings</a>, <a href=\"#/p5/saveJSON\">saveJSON</a>, <a href=\"#/p5/saveTable\">saveTable</a> etc.",
-            "line": " src/io/files.js:1771"
+            "line": " src/io/files.js:1778"
         },
         {
             "message": "Missing item type\nReturns a file extension, or another string\nif the provided parameter has no extension.",
-            "line": " src/io/files.js:1840"
+            "line": " src/io/files.js:1847"
         },
         {
             "message": "Missing item type\nReturns true if the browser is Safari, false if not.\nSafari makes trouble for downloading files.",
-            "line": " src/io/files.js:1873"
+            "line": " src/io/files.js:1880"
         },
         {
             "message": "Missing item type\nHelper function, a callback for download that deletes\nan invisible anchor element from the DOM once the file\nhas been automatically downloaded.",
-            "line": " src/io/files.js:1885"
+            "line": " src/io/files.js:1892"
         },
         {
             "message": "Missing item type\nTable Options\n<p>Generic class for handling tabular data, typically from a\nCSV, TSV, or other sort of spreadsheet file.</p>\n<p>CSV files are\n<a href=\"http://en.wikipedia.org/wiki/Comma-separated_values\">\ncomma separated values</a>, often with the data in quotes. TSV\nfiles use tabs as separators, and usually don't bother with the\nquotes.</p>\n<p>File names should end with .csv if they're comma separated.</p>\n<p>A rough \"spec\" for CSV can be found\n<a href=\"http://tools.ietf.org/html/rfc4180\">here</a>.</p>\n<p>To load files, use the <a href=\"#/p5/loadTable\">loadTable</a> method.</p>\n<p>To save tables to your computer, use the <a href=\"#/p5/save\">save</a> method\n or the <a href=\"#/p5/saveTable\">saveTable</a> method.</p>\n\nPossible options include:\n<ul>\n<li>csv - parse the table as comma-separated values\n<li>tsv - parse the table as tab-separated values\n<li>header - this table has a header (title) row\n</ul>",
@@ -27170,27 +27187,27 @@ module.exports={
         },
         {
             "message": "Missing item type\nMultiplies a vector by a scalar and returns a new vector.",
-            "line": " src/math/p5.Vector.js:1611"
+            "line": " src/math/p5.Vector.js:1610"
         },
         {
             "message": "Missing item type\nDivides a vector by a scalar and returns a new vector.",
-            "line": " src/math/p5.Vector.js:1638"
+            "line": " src/math/p5.Vector.js:1637"
         },
         {
             "message": "Missing item type\nCalculates the dot product of two vectors.",
-            "line": " src/math/p5.Vector.js:1665"
+            "line": " src/math/p5.Vector.js:1664"
         },
         {
             "message": "Missing item type\nCalculates the cross product of two vectors.",
-            "line": " src/math/p5.Vector.js:1679"
+            "line": " src/math/p5.Vector.js:1678"
         },
         {
             "message": "Missing item type\nCalculates the Euclidean distance between two points (considering a\npoint as a vector object).",
-            "line": " src/math/p5.Vector.js:1693"
+            "line": " src/math/p5.Vector.js:1692"
         },
         {
             "message": "Missing item type\nLinear interpolate a vector to another vector and return the result as a\nnew vector.",
-            "line": " src/math/p5.Vector.js:1708"
+            "line": " src/math/p5.Vector.js:1707"
         },
         {
             "message": "Missing item type\nHelper function to measure ascent and descent.",
@@ -27222,11 +27239,11 @@ module.exports={
         },
         {
             "message": "Missing item type",
-            "line": " src/webgl/material.js:659"
+            "line": " src/webgl/material.js:719"
         },
         {
             "message": "Missing item type",
-            "line": " src/webgl/material.js:681"
+            "line": " src/webgl/material.js:741"
         },
         {
             "message": "Missing item type\nCreate a 2D array for establishing stroke connections",
@@ -46866,7 +46883,7 @@ p5.prototype.colorMode = function(mode, max1, max2, max3, maxA) {
 
 /**
  * Sets the color used to fill shapes. For example, if you run
- * fill(204, 102, 0), all subsequent shapes will be filled with orange. This
+ * fill(204, 102, 0), all shapes drawn after the fill command will be filled with the color orange. This
  * color is either specified in terms of the RGB or HSB color depending on
  * the current <a href="#/p5/colorMode">colorMode()</a>. (The default color space is RGB, with each value
  * in the range from 0 to 255). The alpha range by default is also 0 to 255.
@@ -47295,6 +47312,8 @@ module.exports = {
    */
   P2D: 'p2d',
   /**
+   * One of the two render modes in p5.js: P2D (default renderer) and WEBGL
+   * Enables 3D render by introducing the third dimension: Z
    * @property {String} WEBGL
    * @final
    */
@@ -52061,6 +52080,8 @@ p5.Renderer2D.prototype.updatePixels = function(x, y, w, h) {
     w = this.width;
     h = this.height;
   }
+  x *= pd;
+  y *= pd;
   w *= pd;
   h *= pd;
 
@@ -58559,7 +58580,7 @@ p5.prototype._onblur = function(e) {
  */
 p5.prototype.keyIsDown = function(code) {
   p5._validateParameters('keyIsDown', arguments);
-  return this._downKeys[code];
+  return this._downKeys[code] || false;
 };
 
 /**
@@ -61437,9 +61458,9 @@ p5.Image = function(width, height) {
   this.drawingContext = this.canvas.getContext('2d');
   this._pixelsState = this;
   this._pixelDensity = 1;
-  //used for webgl texturing only
-  this._modified = false;
   this._pixelsDirty = true;
+  //For WebGL Texturing only: used to determine whether to reupload texture to GPU
+  this._modified = false;
   /**
    * Array containing the values for all the pixels in the display window.
    * These values are numbers. This array is the size (include an appropriate
@@ -62930,7 +62951,11 @@ p5.prototype.loadJSON = function() {
       } else {
         errorCallback = arg;
       }
-    } else if (typeof arg === 'object' && arg.hasOwnProperty('jsonpCallback')) {
+    } else if (
+      typeof arg === 'object' &&
+      (arg.hasOwnProperty('jsonpCallback') ||
+        arg.hasOwnProperty('jsonpCallbackFunction'))
+    ) {
       t = 'jsonp';
       options = arg;
     }
@@ -63879,7 +63904,10 @@ p5.prototype.httpDo = function() {
       } else if (typeof a === 'number') {
         data = a.toString();
       } else if (typeof a === 'object') {
-        if (a.hasOwnProperty('jsonpCallback')) {
+        if (
+          a.hasOwnProperty('jsonpCallback') ||
+          a.hasOwnProperty('jsonpCallbackFunction')
+        ) {
           for (var attr in a) {
             jsonpOptions[attr] = a[attr];
           }
@@ -67375,7 +67403,7 @@ p5.prototype.constrain = function(n, low, high) {
 };
 
 /**
- * Calculates the distance between two points.
+ * Calculates the distance between two points, in either two or three dimensions.
  *
  * @method dist
  * @param  {Number} x1 x-coordinate of the first point
@@ -69597,7 +69625,7 @@ p5.Vector.prototype.rotate = function rotate(a) {
 /**
  * Calculates and returns the angle (in radians) between two vectors.
  * @method angleBetween
- * @param  {p5.Vector}    the x, y, and z components of a <a href="#/p5.Vector">p5.Vector</a>
+ * @param  {p5.Vector}    value the x, y, and z components of a <a href="#/p5.Vector">p5.Vector</a>
  * @return {Number}       the angle between (in radians)
  * @example
  * <div class="norender">
@@ -69848,7 +69876,7 @@ p5.Vector.prototype.equals = function equals(x, y, z) {
  *
  * @method fromAngle
  * @static
- * @param {Number}     angle the desired angle, in radians
+ * @param {Number}     angle the desired angle, in radians (unaffected by <a href="#/p5/angleMode">angleMode</a>)
  * @param {Number}     [length] the length of the new vector (defaults to 1)
  * @return {p5.Vector}       the new <a href="#/p5.Vector">p5.Vector</a> object
  * @example
@@ -69859,7 +69887,6 @@ p5.Vector.prototype.equals = function equals(x, y, z) {
  *
  *   // Create a variable, proportional to the mouseX,
  *   // varying from 0-360, to represent an angle in degrees.
- *   angleMode(DEGREES);
  *   let myDegrees = map(mouseX, 0, width, 0, 360);
  *
  *   // Display that variable in an onscreen text.
@@ -76581,7 +76608,7 @@ p5.prototype.pointLight = function(v1, v2, v3, x, y, z) {
 };
 
 /**
- * Sets the default ambient and directional light. The defaults are ambientLight(128, 128, 128) and directionalLight(128, 128, 128, 0, 0, -1). Lights need to be included in the draw() to remain persistent in a looping program. Placing them in the setup() of a looping program will cause them to only have an effect the first time through the loop.
+ * Sets the default ambient and directional light. The defaults are <a href="#/p5/ambientLight">ambientLight(128, 128, 128)</a> and <a href="#/p5/directionalLight">directionalLight(128, 128, 128, 0, 0, -1)</a>. Lights need to be included in the <a href="#/p5/draw">draw()</a> to remain persistent in a looping program. Placing them in the <a href="#/p5/setup">setup()</a> of a looping program will cause them to only have an effect the first time through the loop.
  * @method lights
  * @chainable
  * @example
@@ -76645,7 +76672,7 @@ _dereq_('./p5.Geometry');
  *                                     once the model is loaded. Will be passed
  *                                     the 3D model object.
  * @param  {function(Event)} [failureCallback] called with event error if
- *                                         the image fails to load.
+ *                                         the model fails to load.
  * @return {p5.Geometry} the <a href="#/p5.Geometry">p5.Geometry</a> object
  *
  * @example
@@ -77095,6 +77122,66 @@ p5.prototype.createShader = function(vertSrc, fragSrc) {
  * @chainable
  * @param {p5.Shader} [s] the desired <a href="#/p5.Shader">p5.Shader</a> to use for rendering
  * shapes.
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * // Click within the image to toggle
+ * // the shader used by the quad shape
+ * // Note: for an alternative approach to the same example,
+ * // involving changing uniforms please refer to:
+ * // https://p5js.org/reference/#/p5.Shader/setUniform
+ *
+ * let redGreen;
+ * let orangeBlue;
+ * let showRedGreen = false;
+ *
+ * function preload() {
+ *   // note that we are using two instances
+ *   // of the same vertex and fragment shaders
+ *   redGreen = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');
+ *   orangeBlue = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');
+ * }
+ *
+ * function setup() {
+ *   createCanvas(100, 100, WEBGL);
+ *
+ *   // initialize the colors for redGreen shader
+ *   shader(redGreen);
+ *   redGreen.setUniform('colorCenter', [1.0, 0.0, 0.0]);
+ *   redGreen.setUniform('colorBackground', [0.0, 1.0, 0.0]);
+ *
+ *   // initialize the colors for orangeBlue shader
+ *   shader(orangeBlue);
+ *   orangeBlue.setUniform('colorCenter', [1.0, 0.5, 0.0]);
+ *   orangeBlue.setUniform('colorBackground', [0.226, 0.0, 0.615]);
+ *
+ *   noStroke();
+ * }
+ *
+ * function draw() {
+ *   // update the offset values for each shader,
+ *   // moving orangeBlue in vertical and redGreen
+ *   // in horizontal direction
+ *   orangeBlue.setUniform('offset', [0, sin(millis() / 2000) + 1]);
+ *   redGreen.setUniform('offset', [sin(millis() / 2000), 1]);
+ *
+ *   if (showRedGreen === true) {
+ *     shader(redGreen);
+ *   } else {
+ *     shader(orangeBlue);
+ *   }
+ *   quad(-1, -1, 1, -1, 1, 1, -1, 1);
+ * }
+ *
+ * function mouseClicked() {
+ *   showRedGreen = !showRedGreen;
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * canvas toggles between a circular gradient of orange and blue vertically. and a circular gradient of red and green moving horizontally when mouse is clicked/pressed.
  */
 p5.prototype.shader = function(s) {
   this._assert3d('shader');
@@ -80698,10 +80785,10 @@ var defaultShaders = {
   normalVert: "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\n\nvarying vec3 vVertexNormal;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vVertexNormal = normalize(vec3( uNormalMatrix * aNormal ));\n  vVertTexCoord = aTexCoord;\n}\n",
   normalFrag: "precision mediump float;\nvarying vec3 vVertexNormal;\nvoid main(void) {\n  gl_FragColor = vec4(vVertexNormal, 1.0);\n}",
   basicFrag: "precision mediump float;\nvarying vec3 vVertexNormal;\nuniform vec4 uMaterialColor;\nvoid main(void) {\n  gl_FragColor = uMaterialColor;\n}",
-  lightVert: "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uViewMatrix;\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform int uAmbientLightCount;\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nuniform vec3 uAmbientColor[8];\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\nuniform float uShininess;\n\nvarying vec3 vVertexNormal;\nvarying vec2 vVertTexCoord;\nvarying vec3 vLightWeighting;\n\nvoid main(void){\n\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n\n  vec3 vertexNormal = normalize(vec3( uNormalMatrix * aNormal ));\n  vVertexNormal = vertexNormal;\n  vVertTexCoord = aTexCoord;\n\n  vec4 mvPosition = uModelViewMatrix * vec4(aPosition, 1.0);\n  vec3 eyeDirection = normalize(-mvPosition.xyz);\n\n  float specularFactor = 2.0;\n  float diffuseFactor = 0.3;\n\n  vec3 ambientLightFactor = vec3(0.0);\n\n  for (int i = 0; i < 8; i++) {\n    if (uAmbientLightCount == i) break;\n    ambientLightFactor += uAmbientColor[i];\n  }\n\n\n  vec3 directionalLightFactor = vec3(0.0);\n\n  for (int j = 0; j < 8; j++) {\n    if (uDirectionalLightCount == j) break;\n    vec3 dir = uLightingDirection[j];\n    float directionalLightWeighting = max(dot(vertexNormal, -dir), 0.0);\n    directionalLightFactor += uDirectionalColor[j] * directionalLightWeighting;\n  }\n\n\n  vec3 pointLightFactor = vec3(0.0);\n\n  for (int k = 0; k < 8; k++) {\n    if (uPointLightCount == k) break;\n    vec3 loc = (uViewMatrix * vec4(uPointLightLocation[k], 1.0)).xyz;\n    vec3 lightDirection = normalize(loc - mvPosition.xyz);\n\n    float directionalLightWeighting = max(dot(vertexNormal, lightDirection), 0.0);\n\n    float specularLightWeighting = 0.0;\n    if (uSpecular ){\n      vec3 reflectionDirection = reflect(-lightDirection, vertexNormal);\n      specularLightWeighting = pow(max(dot(reflectionDirection, eyeDirection), 0.0), uShininess);\n    }\n\n    pointLightFactor += uPointLightColor[k] * (specularFactor * specularLightWeighting\n      + directionalLightWeighting * diffuseFactor);\n  }\n\n  vLightWeighting =  ambientLightFactor + directionalLightFactor + pointLightFactor;\n}\n",
+  lightVert: "attribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform mat4 uViewMatrix;\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform int uAmbientLightCount;\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nuniform vec3 uAmbientColor[8];\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\nuniform float uShininess;\n\nvarying vec3 vVertexNormal;\nvarying vec2 vVertTexCoord;\nvarying vec3 vLightWeighting;\n\nvoid main(void){\n\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n\n  vec3 vertexNormal = normalize(vec3( uNormalMatrix * aNormal ));\n  vVertexNormal = vertexNormal;\n  vVertTexCoord = aTexCoord;\n\n  vec4 mvPosition = uModelViewMatrix * vec4(aPosition, 1.0);\n  vec3 eyeDirection = normalize(-mvPosition.xyz);\n\n  float specularFactor = 2.0;\n  float diffuseFactor = 0.3;\n\n  vec3 ambientLightFactor = vec3(0.0);\n\n  for (int i = 0; i < 8; i++) {\n    if (uAmbientLightCount == i) break;\n    ambientLightFactor += uAmbientColor[i];\n  }\n\n\n  vec3 directionalLightFactor = vec3(0.0);\n\n  for (int j = 0; j < 8; j++) {\n    if (uDirectionalLightCount == j) break;\n    vec3 dir = (uViewMatrix * vec4(uLightingDirection[j], 0.0)).xyz;\n    float directionalLightWeighting = max(dot(vertexNormal, -dir), 0.0);\n    directionalLightFactor += uDirectionalColor[j] * directionalLightWeighting;\n  }\n\n\n  vec3 pointLightFactor = vec3(0.0);\n\n  for (int k = 0; k < 8; k++) {\n    if (uPointLightCount == k) break;\n    vec3 loc = (uViewMatrix * vec4(uPointLightLocation[k], 1.0)).xyz;\n    vec3 lightDirection = normalize(loc - mvPosition.xyz);\n\n    float directionalLightWeighting = max(dot(vertexNormal, lightDirection), 0.0);\n\n    float specularLightWeighting = 0.0;\n    if (uSpecular ){\n      vec3 reflectionDirection = reflect(-lightDirection, vertexNormal);\n      specularLightWeighting = pow(max(dot(reflectionDirection, eyeDirection), 0.0), uShininess);\n    }\n\n    pointLightFactor += uPointLightColor[k] * (specularFactor * specularLightWeighting\n      + directionalLightWeighting * diffuseFactor);\n  }\n\n  vLightWeighting =  ambientLightFactor + directionalLightFactor + pointLightFactor;\n}\n",
   lightTextureFrag: "precision mediump float;\n\nuniform vec4 uMaterialColor;\nuniform sampler2D uSampler;\nuniform bool isTexture;\nuniform bool uUseLighting;\n\nvarying vec3 vLightWeighting;\nvarying highp vec2 vVertTexCoord;\n\nvoid main(void) {\n  gl_FragColor = isTexture ? texture2D(uSampler, vVertTexCoord) : uMaterialColor;\n  if (uUseLighting)\n    gl_FragColor.rgb *= vLightWeighting;\n}",
   phongVert: "precision mediump float;\n\nattribute vec3 aPosition;\nattribute vec3 aNormal;\nattribute vec2 aTexCoord;\n\nuniform vec3 uAmbientColor[8];\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform mat3 uNormalMatrix;\nuniform int uAmbientLightCount;\n\nvarying vec3 vNormal;\nvarying vec2 vTexCoord;\nvarying vec3 vViewPosition;\nvarying vec3 vAmbientColor;\n\nvoid main(void){\n\n  vec4 viewModelPosition = uModelViewMatrix * vec4(aPosition, 1.0);\n\n  // Pass varyings to fragment shader\n  vViewPosition = viewModelPosition.xyz;\n  gl_Position = uProjectionMatrix * viewModelPosition;  \n\n  vNormal = normalize(uNormalMatrix * normalize(aNormal));\n  vTexCoord = aTexCoord;\n\n  vAmbientColor = vec3(0.0);\n  for (int i = 0; i < 8; i++) {\n    if (uAmbientLightCount == i) break;\n    vAmbientColor += uAmbientColor[i];\n  }\n}\n",
-  phongFrag: "precision mediump float;\n\n//uniform mat4 uModelViewMatrix;\nuniform mat4 uViewMatrix;\n\nuniform vec4 uMaterialColor;\nuniform sampler2D uSampler;\nuniform bool isTexture;\nuniform bool uUseLighting;\n\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\nuniform float uShininess;\n\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nvarying vec3 vNormal;\nvarying vec2 vTexCoord;\nvarying vec3 vViewPosition;\nvarying vec3 vAmbientColor;\n\nvec3 V;\nvec3 N;\n\nconst float specularFactor = 2.0;\nconst float diffuseFactor = 0.73;\n\nstruct LightResult {\n\tfloat specular;\n\tfloat diffuse;\n};\n\nfloat phongSpecular(\n  vec3 lightDirection,\n  vec3 viewDirection,\n  vec3 surfaceNormal,\n  float shininess) {\n\n  vec3 R = normalize(reflect(-lightDirection, surfaceNormal));  \n  return pow(max(0.0, dot(R, viewDirection)), shininess);\n}\n\nfloat lambertDiffuse(\n  vec3 lightDirection,\n  vec3 surfaceNormal) {\n  return max(0.0, dot(-lightDirection, surfaceNormal));\n}\n\nLightResult light(vec3 lightVector) {\n\n  vec3 L = normalize(lightVector);\n\n  //compute our diffuse & specular terms\n  LightResult lr;\n  if (uSpecular)\n    lr.specular = phongSpecular(L, V, N, uShininess);\n  lr.diffuse = lambertDiffuse(L, N);\n  return lr;\n}\n\nvoid main(void) {\n\n  V = normalize(vViewPosition);\n  N = vNormal;\n\n  vec3 diffuse = vec3(0.0);\n  float specular = 0.0;\n\n  for (int j = 0; j < 8; j++) {\n    if (uDirectionalLightCount == j) break;\n\n    LightResult result = light(uLightingDirection[j]);\n    diffuse += result.diffuse * uDirectionalColor[j];\n    specular += result.specular;\n  }\n\n  for (int k = 0; k < 8; k++) {\n    if (uPointLightCount == k) break;\n\n    vec3 lightPosition = (uViewMatrix * vec4(uPointLightLocation[k], 1.0)).xyz;\n    vec3 lightVector = vViewPosition - lightPosition;\n\t\n    //calculate attenuation\n    float lightDistance = length(lightVector);\n    float falloff = 500.0 / (lightDistance + 500.0);\n\n    LightResult result = light(lightVector);\n    diffuse += result.diffuse * falloff * uPointLightColor[k];\n    specular += result.specular * falloff;\n  }\n\n  gl_FragColor = isTexture ? texture2D(uSampler, vTexCoord) : uMaterialColor;\n  gl_FragColor.rgb = gl_FragColor.rgb * (diffuse * diffuseFactor + vAmbientColor) + specular * specularFactor;\n}",
+  phongFrag: "precision mediump float;\n\n//uniform mat4 uModelViewMatrix;\nuniform mat4 uViewMatrix;\n\nuniform vec4 uMaterialColor;\nuniform sampler2D uSampler;\nuniform bool isTexture;\nuniform bool uUseLighting;\n\nuniform vec3 uLightingDirection[8];\nuniform vec3 uDirectionalColor[8];\nuniform vec3 uPointLightLocation[8];\nuniform vec3 uPointLightColor[8];\nuniform bool uSpecular;\nuniform float uShininess;\n\nuniform int uDirectionalLightCount;\nuniform int uPointLightCount;\n\nvarying vec3 vNormal;\nvarying vec2 vTexCoord;\nvarying vec3 vViewPosition;\nvarying vec3 vAmbientColor;\n\nvec3 V;\nvec3 N;\n\nconst float specularFactor = 2.0;\nconst float diffuseFactor = 0.73;\n\nstruct LightResult {\n\tfloat specular;\n\tfloat diffuse;\n};\n\nfloat phongSpecular(\n  vec3 lightDirection,\n  vec3 viewDirection,\n  vec3 surfaceNormal,\n  float shininess) {\n\n  vec3 R = normalize(reflect(-lightDirection, surfaceNormal));  \n  return pow(max(0.0, dot(R, viewDirection)), shininess);\n}\n\nfloat lambertDiffuse(\n  vec3 lightDirection,\n  vec3 surfaceNormal) {\n  return max(0.0, dot(-lightDirection, surfaceNormal));\n}\n\nLightResult light(vec3 lightVector) {\n\n  vec3 L = normalize(lightVector);\n\n  //compute our diffuse & specular terms\n  LightResult lr;\n  if (uSpecular)\n    lr.specular = phongSpecular(L, V, N, uShininess);\n  lr.diffuse = lambertDiffuse(L, N);\n  return lr;\n}\n\nvoid main(void) {\n\n  V = normalize(vViewPosition);\n  N = vNormal;\n\n  vec3 diffuse = vec3(0.0);\n  float specular = 0.0;\n\n  for (int j = 0; j < 8; j++) {\n    if (uDirectionalLightCount == j) break;\n\n    vec3 dir = (uViewMatrix * vec4(uLightingDirection[j], 0.0)).xyz;\n    LightResult result = light(dir);\n    diffuse += result.diffuse * uDirectionalColor[j];\n    specular += result.specular;\n  }\n\n  for (int k = 0; k < 8; k++) {\n    if (uPointLightCount == k) break;\n\n    vec3 lightPosition = (uViewMatrix * vec4(uPointLightLocation[k], 1.0)).xyz;\n    vec3 lightVector = vViewPosition - lightPosition;\n\t\n    //calculate attenuation\n    float lightDistance = length(lightVector);\n    float falloff = 500.0 / (lightDistance + 500.0);\n\n    LightResult result = light(lightVector);\n    diffuse += result.diffuse * falloff * uPointLightColor[k];\n    specular += result.specular * falloff;\n  }\n\n  gl_FragColor = isTexture ? texture2D(uSampler, vTexCoord) : uMaterialColor;\n  gl_FragColor.rgb = gl_FragColor.rgb * (diffuse * diffuseFactor + vAmbientColor) + specular * specularFactor;\n}",
   fontVert: "precision mediump float;\n\nattribute vec3 aPosition;\nattribute vec2 aTexCoord;\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\n\nuniform vec4 uGlyphRect;\nuniform float uGlyphOffset;\n\nvarying vec2 vTexCoord;\nvarying float w;\n\nvoid main() {\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n\n  // scale by the size of the glyph's rectangle\n  positionVec4.xy *= uGlyphRect.zw - uGlyphRect.xy;\n\n  // move to the corner of the glyph\n  positionVec4.xy += uGlyphRect.xy;\n\n  // move to the letter's line offset\n  positionVec4.x += uGlyphOffset;\n  \n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vTexCoord = aTexCoord;\n  w = gl_Position.w;\n}\n",
   fontFrag: "#extension GL_OES_standard_derivatives : enable\nprecision mediump float;\n\n#if 0\n  // simulate integer math using floats\n\t#define int float\n\t#define ivec2 vec2\n\t#define INT(x) float(x)\n\n\tint ifloor(float v) { return floor(v); }\n\tivec2 ifloor(vec2 v) { return floor(v); }\n\n#else\n  // use native integer math\n\tprecision mediump int;\n\t#define INT(x) x\n\n\tint ifloor(float v) { return int(v); }\n\tint ifloor(int v) { return v; }\n\tivec2 ifloor(vec2 v) { return ivec2(v); }\n\n#endif\n\nuniform sampler2D uSamplerStrokes;\nuniform sampler2D uSamplerRowStrokes;\nuniform sampler2D uSamplerRows;\nuniform sampler2D uSamplerColStrokes;\nuniform sampler2D uSamplerCols;\n\nuniform ivec2 uStrokeImageSize;\nuniform ivec2 uCellsImageSize;\nuniform ivec2 uGridImageSize;\n\nuniform ivec2 uGridOffset;\nuniform ivec2 uGridSize;\nuniform vec4 uMaterialColor;\n\nvarying vec2 vTexCoord;\n\n// some helper functions\nint round(float v) { return ifloor(v + 0.5); }\nivec2 round(vec2 v) { return ifloor(v + 0.5); }\nfloat saturate(float v) { return clamp(v, 0.0, 1.0); }\nvec2 saturate(vec2 v) { return clamp(v, 0.0, 1.0); }\n\nint mul(float v1, int v2) {\n  return ifloor(v1 * float(v2));\n}\n\nivec2 mul(vec2 v1, ivec2 v2) {\n  return ifloor(v1 * vec2(v2) + 0.5);\n}\n\n// unpack a 16-bit integer from a float vec2\nint getInt16(vec2 v) {\n  ivec2 iv = round(v * 255.0);\n  return iv.x * INT(128) + iv.y;\n}\n\nvec2 pixelScale;\nvec2 coverage = vec2(0.0);\nvec2 weight = vec2(0.5);\nconst float minDistance = 1.0/8192.0;\nconst float hardness = 1.05; // amount of antialias\n\n// the maximum number of curves in a glyph\nconst int N = INT(250);\n\n// retrieves an indexed pixel from a sampler\nvec4 getTexel(sampler2D sampler, int pos, ivec2 size) {\n  int width = size.x;\n  int y = ifloor(pos / width);\n  int x = pos - y * width;  // pos % width\n\n  return texture2D(sampler, (vec2(x, y) + 0.5) / vec2(size));\n}\n\nvoid calulateCrossings(vec2 p0, vec2 p1, vec2 p2, out vec2 C1, out vec2 C2) {\n\n  // get the coefficients of the quadratic in t\n  vec2 a = p0 - p1 * 2.0 + p2;\n  vec2 b = p0 - p1;\n  vec2 c = p0 - vTexCoord;\n\n  // found out which values of 't' it crosses the axes\n  vec2 surd = sqrt(max(vec2(0.0), b * b - a * c));\n  vec2 t1 = ((b - surd) / a).yx;\n  vec2 t2 = ((b + surd) / a).yx;\n\n  // approximate straight lines to avoid rounding errors\n  if (abs(a.y) < 0.001)\n    t1.x = t2.x = c.y / (2.0 * b.y);\n\n  if (abs(a.x) < 0.001)\n    t1.y = t2.y = c.x / (2.0 * b.x);\n\n  // plug into quadratic formula to find the corrdinates of the crossings\n  C1 = ((a * t1 - b * 2.0) * t1 + c) * pixelScale;\n  C2 = ((a * t2 - b * 2.0) * t2 + c) * pixelScale;\n}\n\nvoid coverageX(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  // determine on which side of the x-axis the points lie\n  bool y0 = p0.y > vTexCoord.y;\n  bool y1 = p1.y > vTexCoord.y;\n  bool y2 = p2.y > vTexCoord.y;\n\n  // could web be under the curve (after t1)?\n  if (y1 ? !y2 : y0) {\n    // add the coverage for t1\n    coverage.x += saturate(C1.x + 0.5);\n    // calculate the anti-aliasing for t1\n    weight.x = min(weight.x, abs(C1.x));\n  }\n\n  // are we outside the curve (after t2)?\n  if (y1 ? !y0 : y2) {\n    // subtract the coverage for t2\n    coverage.x -= saturate(C2.x + 0.5);\n    // calculate the anti-aliasing for t2\n    weight.x = min(weight.x, abs(C2.x));\n  }\n}\n\n// this is essentially the same as coverageX, but with the axes swapped\nvoid coverageY(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  bool x0 = p0.x > vTexCoord.x;\n  bool x1 = p1.x > vTexCoord.x;\n  bool x2 = p2.x > vTexCoord.x;\n\n  if (x1 ? !x2 : x0) {\n    coverage.y -= saturate(C1.y + 0.5);\n    weight.y = min(weight.y, abs(C1.y));\n  }\n\n  if (x1 ? !x0 : x2) {\n    coverage.y += saturate(C2.y + 0.5);\n    weight.y = min(weight.y, abs(C2.y));\n  }\n}\n\nvoid main() {\n\n  // calculate the pixel scale based on screen-coordinates\n  pixelScale = hardness / fwidth(vTexCoord);\n\n  // which grid cell is this pixel in?\n  ivec2 gridCoord = ifloor(vTexCoord * vec2(uGridSize));\n\n  // intersect curves in this row\n  {\n    // the index into the row info bitmap\n    int rowIndex = gridCoord.y + uGridOffset.y;\n    // fetch the info texel\n    vec4 rowInfo = getTexel(uSamplerRows, rowIndex, uGridImageSize);\n    // unpack the rowInfo\n    int rowStrokeIndex = getInt16(rowInfo.xy);\n    int rowStrokeCount = getInt16(rowInfo.zw);\n\n    for (int iRowStroke = INT(0); iRowStroke < N; iRowStroke++) {\n      if (iRowStroke >= rowStrokeCount)\n        break;\n\n      // each stroke is made up of 3 points: the start and control point\n      // and the start of the next curve.\n      // fetch the indices of this pair of strokes:\n      vec4 strokeIndices = getTexel(uSamplerRowStrokes, rowStrokeIndex++, uCellsImageSize);\n\n      // unpack the stroke index\n      int strokePos = getInt16(strokeIndices.xy);\n\n      // fetch the two strokes\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n\n      // calculate the coverage\n      coverageX(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  // intersect curves in this column\n  {\n    int colIndex = gridCoord.x + uGridOffset.x;\n    vec4 colInfo = getTexel(uSamplerCols, colIndex, uGridImageSize);\n    int colStrokeIndex = getInt16(colInfo.xy);\n    int colStrokeCount = getInt16(colInfo.zw);\n    \n    for (int iColStroke = INT(0); iColStroke < N; iColStroke++) {\n      if (iColStroke >= colStrokeCount)\n        break;\n\n      vec4 strokeIndices = getTexel(uSamplerColStrokes, colStrokeIndex++, uCellsImageSize);\n\n      int strokePos = getInt16(strokeIndices.xy);\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n      coverageY(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  weight = saturate(1.0 - weight * 2.0);\n  float distance = max(weight.x + weight.y, minDistance); // manhattan approx.\n  float antialias = abs(dot(coverage, weight) / distance);\n  float cover = min(abs(coverage.x), abs(coverage.y));\n  gl_FragColor = uMaterialColor;\n  gl_FragColor.a *= saturate(max(antialias, cover));\n}",
   lineVert: "/*\n  Part of the Processing project - http://processing.org\n  Copyright (c) 2012-15 The Processing Foundation\n  Copyright (c) 2004-12 Ben Fry and Casey Reas\n  Copyright (c) 2001-04 Massachusetts Institute of Technology\n  This library is free software; you can redistribute it and/or\n  modify it under the terms of the GNU Lesser General Public\n  License as published by the Free Software Foundation, version 2.1.\n  This library is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n  Lesser General Public License for more details.\n  You should have received a copy of the GNU Lesser General\n  Public License along with this library; if not, write to the\n  Free Software Foundation, Inc., 59 Temple Place, Suite 330,\n  Boston, MA  02111-1307  USA\n*/\n\n#define PROCESSING_LINE_SHADER\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uStrokeWeight;\n\nuniform vec4 uViewport;\n\n// using a scale <1 moves the lines towards the camera\n// in order to prevent popping effects due to half of\n// the line disappearing behind the geometry faces.\nvec3 scale = vec3(0.9995);\n\nattribute vec4 aPosition;\nattribute vec4 aDirection;\n  \nvoid main() {\n  vec4 posp = uModelViewMatrix * aPosition;\n  vec4 posq = uModelViewMatrix * (aPosition + vec4(aDirection.xyz, 0));\n\n  // Moving vertices slightly toward the camera\n  // to avoid depth-fighting with the fill triangles.\n  // Discussed here:\n  // http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showflat&Number=252848  \n  posp.xyz = posp.xyz * scale;\n  posq.xyz = posq.xyz * scale;\n\n  vec4 p = uProjectionMatrix * posp;\n  vec4 q = uProjectionMatrix * posq;\n\n  // formula to convert from clip space (range -1..1) to screen space (range 0..[width or height])\n  // screen_p = (p.xy/p.w + <1,1>) * 0.5 * uViewport.zw\n\n  // prevent division by W by transforming the tangent formula (div by 0 causes\n  // the line to disappear, see https://github.com/processing/processing/issues/5183)\n  // t = screen_q - screen_p\n  //\n  // tangent is normalized and we don't care which aDirection it points to (+-)\n  // t = +- normalize( screen_q - screen_p )\n  // t = +- normalize( (q.xy/q.w+<1,1>)*0.5*uViewport.zw - (p.xy/p.w+<1,1>)*0.5*uViewport.zw )\n  //\n  // extract common factor, <1,1> - <1,1> cancels out\n  // t = +- normalize( (q.xy/q.w - p.xy/p.w) * 0.5 * uViewport.zw )\n  //\n  // convert to common divisor\n  // t = +- normalize( ((q.xy*p.w - p.xy*q.w) / (p.w*q.w)) * 0.5 * uViewport.zw )\n  //\n  // remove the common scalar divisor/factor, not needed due to normalize and +-\n  // (keep uViewport - can't remove because it has different components for x and y\n  //  and corrects for aspect ratio, see https://github.com/processing/processing/issues/5181)\n  // t = +- normalize( (q.xy*p.w - p.xy*q.w) * uViewport.zw )\n\n  vec2 tangent = normalize((q.xy*p.w - p.xy*q.w) * uViewport.zw);\n\n  // flip tangent to normal (it's already normalized)\n  vec2 normal = vec2(-tangent.y, tangent.x);\n\n  float thickness = aDirection.w * uStrokeWeight;\n  vec2 offset = normal * thickness / 2.0;\n\n  // Perspective ---\n  // convert from world to clip by multiplying with projection scaling factor\n  // to get the right thickness (see https://github.com/processing/processing/issues/5182)\n  // invert Y, projections in Processing invert Y\n  vec2 perspScale = (uProjectionMatrix * vec4(1, -1, 0, 0)).xy;\n\n  // No Perspective ---\n  // multiply by W (to cancel out division by W later in the pipeline) and\n  // convert from screen to clip (derived from clip to screen above)\n  vec2 noPerspScale = p.w / (0.5 * uViewport.zw);\n\n  //gl_Position.xy = p.xy + offset.xy * mix(noPerspScale, perspScale, float(perspective > 0));\n  gl_Position.xy = p.xy + offset.xy * perspScale;\n  gl_Position.zw = p.zw;\n}\n",
@@ -82247,6 +82334,55 @@ p5.Shader.prototype.useProgram = function() {
  * @param {Object|Number|Boolean|Number[]} data the data to be associated
  * with that uniform; type varies (could be a single numerical value, array,
  * matrix, or texture / sampler reference)
+ *
+ * @example
+ * <div modernizr='webgl'>
+ * <code>
+ * // Click within the image to toggle the value of uniforms
+ * // Note: for an alternative approach to the same example,
+ * // involving toggling between shaders please refer to:
+ * // https://p5js.org/reference/#/p5/shader
+ *
+ * let grad;
+ * let showRedGreen = false;
+ *
+ * function preload() {
+ *   // note that we are using two instances
+ *   // of the same vertex and fragment shaders
+ *   grad = loadShader('assets/shader.vert', 'assets/shader-gradient.frag');
+ * }
+ *
+ * function setup() {
+ *   createCanvas(100, 100, WEBGL);
+ *   shader(grad);
+ *   noStroke();
+ * }
+ *
+ * function draw() {
+ *   // update the offset values for each scenario,
+ *   // moving the "grad" shader in either vertical or
+ *   // horizontal direction each with differing colors
+ *
+ *   if (showRedGreen === true) {
+ *     grad.setUniform('colorCenter', [1, 0, 0]);
+ *     grad.setUniform('colorBackground', [0, 1, 0]);
+ *     grad.setUniform('offset', [sin(millis() / 2000), 1]);
+ *   } else {
+ *     grad.setUniform('colorCenter', [1, 0.5, 0]);
+ *     grad.setUniform('colorBackground', [0.226, 0, 0.615]);
+ *     grad.setUniform('offset', [0, sin(millis() / 2000) + 1]);
+ *   }
+ *   quad(-1, -1, 1, -1, 1, 1, -1, 1);
+ * }
+ *
+ * function mouseClicked() {
+ *   showRedGreen = !showRedGreen;
+ * }
+ * </code>
+ * </div>
+ *
+ * @alt
+ * canvas toggles between a circular gradient of orange and blue vertically. and a circular gradient of red and green moving horizontally when mouse is clicked/pressed.
  */
 p5.Shader.prototype.setUniform = function(uniformName, data) {
   //@todo update all current gl.uniformXX calls
@@ -83417,6 +83553,7 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
   var initializeShader = !this._defaultFontShader;
   var sh = this._getFontShader();
   sh.init();
+  sh.bindShader(); // first time around, bind the shader fully
 
   if (initializeShader) {
     // these are constants, really. just initialize them one-time.
@@ -83455,7 +83592,6 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
   try {
     var dx = 0; // the x position in the line
     var glyphPrev = null; // the previous glyph, used for kerning
-    var shaderBound = false;
     // fetch the glyphs in the line of text
     var glyphs = font.stringToGlyphs(line);
     for (var ig = 0; ig < glyphs.length; ++ig) {
@@ -83476,12 +83612,7 @@ p5.RendererGL.prototype._renderText = function(p, line, x, y, maxY) {
         sh.setUniform('uGlyphRect', gi.uGlyphRect);
         sh.setUniform('uGlyphOffset', dx);
 
-        if (!shaderBound) {
-          shaderBound = true;
-          sh.bindShader(); // first time around, bind the shader fully
-        } else {
-          sh.bindTextures(); // afterwards, only textures need updating
-        }
+        sh.bindTextures(); // afterwards, only textures need updating
 
         // draw it
         gl.drawElements(gl.TRIANGLES, 6, this.GL.UNSIGNED_SHORT, 0);
