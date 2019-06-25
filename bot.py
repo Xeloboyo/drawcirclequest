@@ -25,10 +25,12 @@ async def suicide(ctx):
 
 @client.command()
 async def genkey(ctx):
+
     token = randomSTR(10)
+
     wow.sendToDB("DCt0k3n" + token, time.time())
     wow.r.expire("DCt0k3n" + token,3600*6)
-    await ctx.send("Your new token is:"+token+"\n    Login at https://draw-circle-quest.herokuapp.com/register")
+    await ctx.author.send("Your new token is:"+token+"\n    Login at https://draw-circle-quest.herokuapp.com/register")
 
 @client.command()
 async def getUserCount(ctx):
@@ -42,6 +44,8 @@ async def getRedisUsage(ctx):
 @client.command()
 async def getUsers(ctx):
     await ctx.send("Users Online:"+wow.getFromDB("USERS"))
+
+
 
 @client.event
 async def on_command_error(ctx, error):

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
         <script src="{{ url_for('static', filename='js/p5.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/p5.sound.js') }}"></script>
         <style>
             @font-face {
                 font-family: "Amatic";
@@ -167,6 +168,7 @@
                 sk.mg2 = sk.loadImage("/img/mg2.png");
                 sk.mg3 = sk.loadImage("/img/mg3.png");
                 sk.mg4 = sk.loadImage("/img/mg4.png");
+                sk.song = sk.loadSound('/sounds/login128.ogg');
                 sk.setup = function() {
                     sk.createCanvas(sk.windowWidth, sk.windowHeight, sk.WEBGL);
                     sk.bg.resize(sk.width, sk.height);

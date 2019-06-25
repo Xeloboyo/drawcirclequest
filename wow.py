@@ -7,12 +7,14 @@ import time
 import redis
 import hashlib
 
+from datetime import datetime
 from flask import Flask, abort, request, send_file, render_template
 from flask_cors import CORS
 import json
 
+
 def xor_crypt_string(data, key='awesomepassword', encode=False, decode=False):
-    from itertools import  cycle
+    from itertools import cycle
     import base64
     if decode:
         data = base64.b64decode(data)
@@ -21,32 +23,33 @@ def xor_crypt_string(data, key='awesomepassword', encode=False, decode=False):
         return base64.b64encode(xored.encode()).strip()
     return xored
 
+
 # gotta protecc that api key
 
-try: # serverside
+try:  # serverside
     decrt = os.environ['REDIS_URL']
-except: #local testing
-    rediskey = b'CgAIBhFVVkBRCUMHBA8DUgUDAlpWDFQBBwACXgcAB1IBUQpRXwUPDAUDVwZUUwIBBg4DUwkDDQYFDwAGAFcCDARXAFNaUQVVCQUDcVxbAxULDB8JCwAUAAocCR5bVl9GTUdcFAkbUllVTFdXVEBDGFtWXAoKCwIEDg=='
+except:  # local testing
+    rediskey = b'CgAIBhFVVkBRCUNTUw8FDVUGVgkAUlEDVQFTCQoAVQcHUgBRCwdaBlcAVwFUVQJUBg5UBAwEXVYHAFUPCwYDDFJQVwAOBw0HW1AFcVxbAxULFQAJBR4IAwscAQMWWl1bSEZNXBUEHVVZV0JWW1ZHRRZaXl0CCwMFDgA='
     decryptkey = sys.argv[1]
     random.seed(decryptkey)
-    while len(decryptkey) < 121:
+
+    while len(decryptkey) < 122:
         decryptkey += str(random.randint(0, 9))
     decrt = xor_crypt_string(rediskey, decryptkey, False, True)
-
+    print(decrt)
 r = redis.from_url(decrt)
-
-
-
 
 
 # r = redis.from_url(os.environ.get("REDIS_URL"))
 
 def map_to_js_compatible_str(map):
-    if len(map)==0:
+    if len(map) == 0:
         return "[[]]"
+
+    # formats it as   {"a":1,"b":2,"c":3}  --->  [["b","2"],["a","1"],["c","3"]]
     x = "[["
     for index, key in enumerate(map):
-        x += ("" if index == 0 else ",") + "\""+str(key)+ "\"" + ","+ "\"" + str(map[key])+ "\"" + "]"
+        x += ("" if index == 0 else ",[") + "\"" + str(key) + "\"" + "," + "\"" + str(map[key]) + "\"" + "]"
     x += "]"
     return x
 
@@ -78,8 +81,8 @@ class User:
 
 userlist = []
 
-def userValid(userName, token):
 
+def userValid(userName, token):
     confirm = False
     selUser = None
     for user in userlist:
@@ -88,6 +91,7 @@ def userValid(userName, token):
             selUser = user
 
     return confirm, selUser
+
 
 def getUserNames():
     str = ""
@@ -133,7 +137,7 @@ def updateBasicStat(playerName, new_stats):
     string_dic = ""
     index = 0
     for key in stats:
-        string_dic += ("" if index == 0 else "&~") + str(key)+"&~"+str(stats[key])
+        string_dic += ("" if index == 0 else "&~") + str(key) + "&~" + str(stats[key])
         index += 1
     sendToDB(playerName + "_STATS_BASIC", string_dic)
 
@@ -145,9 +149,12 @@ def getBasicStat(playerName):
 def getStatMap(playerName, mapname):
     if not existInDB(playerName + "_STATS_" + mapname):
         sendToDB(playerName + "_STATS_" + mapname, "")
-    string_dic = getFromDB(playerName + "_STATS_" + mapname).split('&~')
+    return string_to_map(getFromDB(playerName + "_STATS_" + mapname))
+
+
+def string_to_map(str):
+    string_dic = str.split('&~')
     output = {}
-    print(mapname + " STAT", len(string_dic), string_dic)
     if len(string_dic) == 1:
         return output
 
@@ -163,9 +170,28 @@ def do_action(user, action):
     # ADD SHIT HERE
     actionType = action.split("||")
     # DO NOT USE FUNCTIONS LIKE THIS IN THE REAL GAME, THESE ARE EXPLOITABLE!!!!!!
+    # because be reminded the user can access any variable in js thru element inspect, and thus send fake post requests. e.g. ADD_GOLD and break the game
+    # So 'client facing' functions do not 
     if actionType[0] == "ADD_GOLD":
         user.setBasicStat("gold", int(user.basicstat.get("gold", 0)) + int(actionType[1]))
         return str(user.basicstat["gold"])
+    if actionType[0] == "ANNOUNCE":
+        r.lpush("$$GAMEANNOUCE", user.name + "&~" + datetime.datetime.now() + "&~" + actionType[1])
+        return "success"
+    if actionType[0] == "BUY_ITEM":
+        return "400"
+    if actionType[0] == "ENTER_FIGHT":
+        return "400"
+    if actionType[0] == "ATTK_BOSS":
+        return "400"
+    if actionType[0] == "ENTER_TEAM":
+        return "400"
+    if actionType[0] == "CREATE_TEAM":
+        id = r.incr("$$GAMEVAR_TEAMID_INDEX")
+        r.lpush("$$GAMETEAMS",
+                id + "&~" + datetime.datetime.now() + "&~" + actionType[1] + "&~" + user.name + "&~empty&~empty&~empty")
+        return "success"
+
     if actionType[0] == "SET_PLAYER_CLASS":
         current_class = user.basicstat.get("class", "none")
         if current_class == "none":
@@ -178,15 +204,42 @@ def do_action(user, action):
 app = Flask(__name__)
 CORS(app)
 
+item_dictc = {}
 
-@app.route('/imageTest')
-def getTestImage():
-    return send_file("static/img/birb.png", mimetype='image/png')
+@app.route('/game_update_items')
+def update_game_items(name):
+    item_dictc.clear()
+    item_dictc.update(r.hgetall("$$GAMEITEMS"))
+
+@app.route('/game_items/<name>')
+def get_game_items(name):
+    if len(item_dictc) == 0:
+        r.hsetnx("$$GAMEITEMS", "Empty", "0&~Empty&~&~None&~None&~[[]]&~[[]]")
+        item_dictc.update(r.hgetall("$$GAMEITEMS"))
+    outputstr = ""
+    if name == "item_list":
+
+        for index, key in enumerate(item_dictc.keys()):
+            outputstr += ("" if index == 0 else "&~") + key.decode("utf-8")
+    else:
+        outputstr = r.hget("$$GAMEITEMS", name)
+    return outputstr
+
+
+# audio/ogg
+@app.route('/sounds/<imgname>')
+def get_sound(imgname):
+    print("REQUSTING:", imgname)
+    format = imgname.split(".", 1)[1]
+    try:
+        return send_file("static/sounds/" + imgname, mimetype='audio/' + format)
+    except FileNotFoundError:
+        return send_file("static/sounds/404.ogg", mimetype='audio/ogg')
 
 
 @app.route('/img/<imgname>')
 def get_img(imgname):
-    print("REQUSTING:",imgname)
+    print("REQUSTING:", imgname)
     format = imgname.split(".", 1)[1]
     try:
         return send_file("static/img/" + imgname, mimetype='image/' + format)
@@ -204,6 +257,9 @@ def register():
     username = request.form['username']
     if len(username) < 6:
         return render_template('register.html', errormsg="username above 5 characters plz")
+    if existInDB(username):
+        return render_template('register.html', errormsg="username is taken")
+
     password = request.form['password']
     if len(password) < 7:
         return render_template('register.html', errormsg="password above 6 characters plz")
@@ -213,7 +269,7 @@ def register():
         return render_template('register.html', errormsg="passwords dont match")
 
     if not existInDB("DCt0k3n" + token):
-        return render_template('register.html', errormsg="invalid token :O")
+        return render_template('register.html', errormsg="oh noes invalid token :O")
 
     passhash = hashlib.md5(bytes(request.form['password'], 'utf-8')).hexdigest()
     sendToDB(username, passhash)
@@ -227,10 +283,10 @@ def register_page():
     return render_template('register.html', errormsg=" ")
 
 
-
 @app.route('/game_const/<name>')
 def get_game_constants(name):
-    return str(getFromDB("$$GAMEVAR_"+name))
+    return str(getFromDB("$$GAMEVAR_" + name))
+
 
 # to remove in production
 @app.route('/devuserlist')
@@ -298,9 +354,10 @@ def userStats(type):
     splitData = str(request.json).split(" ", 2)
     confirm, selUser = userValid(splitData[0], splitData[1])
     if confirm:
-        somemap = getStatMap(selUser.name,type)
+        somemap = getStatMap(selUser.name, type)
         return map_to_js_compatible_str(somemap)
     return "error 400|access denied"
+
 
 @app.route('/userDidSomething', methods=['POST'])
 def user_action():
@@ -312,7 +369,7 @@ def user_action():
     splitData = str(request.json).split(" ", 2)
     print(splitData)
 
-    confirm,selUser = userValid(splitData[0],splitData[1])
+    confirm, selUser = userValid(splitData[0], splitData[1])
 
     if confirm:
         response = do_action(selUser, splitData[2])

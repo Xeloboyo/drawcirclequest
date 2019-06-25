@@ -34,12 +34,18 @@ function inside(mx,my,x,y,w,h) {
 }
 
 class Button extends GUIComp{
-    constructor(x,y,w,h,c,text,onclick){
+    constructor(x,y,w,h,c,text,onclick,image=undefined){
         super( x,y,w,h,c,function(sk) {
             this.ani+=(this.state-this.ani)*0.2;
         },function(sk) {
-            sk.fill(sk.lerpColor(this.c,sk.color(255),this.ani*0.5));
-            sk.rect(this.x,this.y,this.w,this.h);
+            if(sk.isUndef(image)){
+                sk.fill(sk.lerpColor(this.c,sk.color(255),this.ani*0.5));
+                sk.rect(this.x,this.y,this.w,this.h);
+            }else{
+                sk.drawImage(image,this.x,this.y,this.w,this.h);
+
+            }
+
             sk.fill(sk.lerpColor(sk.color(255),this.c,this.ani-1.0));
             sk.textAlign(sk.CENTER,sk.CENTER);
             sk.text(text,this.x,this.y,this.w,this.h);
@@ -52,6 +58,7 @@ class Button extends GUIComp{
         },onclick );
         this.ani = 0;
         this.state = 0;
+        this.image=image;
     }
 
 }
@@ -76,7 +83,8 @@ var sketch = function( sk ) {
         [], //7
         [], //8
         [], //9
-        [], // 10 - shop
+        [], // 10 - shop 1
+        [], // 12 - shop 2
 
     ];
 
@@ -87,6 +95,24 @@ var sketch = function( sk ) {
         sk.addResource("unseen",sk.getFont);
         sk.addResource("BASIC",sk.getStats);
         sk.addResource("class_0.png",sk.getImage);
+        sk.httpGet2("/game_items/item_list", function (result) {
+            items = result.split("&~");
+
+
+            for(var i = 0;i<items.length;i++){
+                sk.httpGet2("/game_items/"+items[i], function (result) {
+                    properties = result.split("&~");
+                    images = properties[4].split("|");
+                    if(images.length==1) {
+                        imageID = Math.floor(parseInt(images[0])/16);
+                        sk.addResource(".png", sk.getImage);
+                    }else{
+
+                    }
+                });
+
+            }
+        });
         sk.guiList[1][0] = new Button(50,50,200,40, sk.color(80),"GET GOLD!"
 
             ,function(sk){
@@ -102,7 +128,7 @@ var sketch = function( sk ) {
         sk.guiList[10][0] = new Button(50,50,200,40, sk.color(80),"Buy rusty fork"
             ,function(sk){
                 this.state = 2;
-                sk.httpPost2("/userDidSomething", sk.playerName+" "+sk.token+" "+"BUY_ITEM||rusty_fork||1",
+                sk.httpPost2("/userDidSomething", sk.playerName+" "+sk.token+" "+"BUY_ITEM||shop_testshop||rusty_fork||1",
                     function(message){
                         console.log(message);
                         sk.gold = sk.int(message);
@@ -373,6 +399,9 @@ var sketch = function( sk ) {
 
     sk.resourceReq = [];
     sk.addResource = function(res, reqFunction){
+        if(sk.resourceReq.includes(res)){
+            return;
+        }
         sk.resourceReq.push(res);
         reqFunction(res);
     };
@@ -497,19 +526,19 @@ var sketch = function( sk ) {
             sk.fill(255,0,255);
             sk.rect(x,y,w,h);
         }
-    }
+    };
 
     sk.getImage = async function (imageName){
         //"https://via.placeholder.com/600?text=FILE+NOT+FOUND"
-        let img = sk.loadImage('/img/'+imageName)
+        let img = sk.loadImage('/img/'+imageName);
 
         sk.httpGetMap.set(imageName,img);
-    }
+    };
 
 
     sk.getFont = async function (fontName){
         sk.httpGetMap.set(fontName,sk.loadFont('/font/'+fontName));
-    }
+    };
     
     sk.applyFont = function(key){
         if(sk.httpGetMap.has(key)){
@@ -518,15 +547,15 @@ var sketch = function( sk ) {
             sk.textFont("Helvetica");
         }
 
-    }
+    };
 
     sk.formatStats = function (str){
         console.log("parsing:",str);
         return new Map(JSON.parse(str));
-    }
+    };
     sk.getStats = async function (type){
         sk.httpPost2("/userStats/"+type,sk.playerName+" "+sk.token,sk.formatStats,type);
-    }
+    };
 
     sk.windowResized = function () {
         sk.resizeCanvas(sk.windowWidth, sk.windowHeight);
